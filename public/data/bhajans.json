@@ -1,0 +1,53 @@
+[
+  {
+    "id": "bhajan-001",
+    "title": "Sundara Sundara Vinayaka",
+    "deity": "ganesha",
+    "occasion": "Ganesh Chaturthi / Satsang",
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-001-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/sundara-sundara-vinayaka",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "सुन्दर सुन्दर विनायक\nशुभ मंगल दायक विनायक\nविघ्न कोटि हर विमल गजानन\nसकल विघ्न हर साई गजानन\nईश्वरी नन्दन पार्थी गजानन",
+      "transliteration": "Sundara Sundara Vinayaka\nShubha Mangala Dayaka Vinayaka\nVighna Koti Hara Vimala Gajanana\nSakala Vighna Hara Sai Gajanana\nEshwari Nandana Parthi Gajanana",
+      "translation": "Victory to Lord Ganesha who is very beautiful, who bestows everything good and auspicious. He is the remover of millions of obstacles that come in our way. He is the elephant-faced son of Parvathi and is verily Lord Sai who resides in Parthi.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "सुन्दर सुन्दर विनायक",
+          "transliteration": "Sundara Sundara Vinayaka",
+          "words": ["Sundara", "Sundara", "Vinayaka"]
+        },
+        {
+          "index": 1,
+          "original": "शुभ मंगल दायक विनायक",
+          "transliteration": "Shubha Mangala Dayaka Vinayaka",
+          "words": ["Shubha", "Mangala", "Dayaka", "Vinayaka"]
+        },
+        {
+          "index": 2,
+          "original": "विघ्न कोटि हर विमल गजानन",
+          "transliteration": "Vighna Koti Hara Vimala Gajanana",
+          "words": ["Vighna", "Koti", "Hara", "Vimala", "Gajanana"]
+        },
+        {
+          "index": 3,
+          "original": "सकल विघ्न हर साई गजानन",
+          "transliteration": "Sakala Vighna Hara Sai Gajanana",
+          "words": ["Sakala", "Vighna", "Hara", "Sai", "Gajanana"]
+        },
+        {
+          "index": 4,
+          "original": "ईश्वरी नन्दन पार्थी गजानन",
+          "transliteration": "Eshwari Nandana Parthi Gajanana",
+          "words": ["Eshwari", "Nandana", "Parthi", "Gajanana"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/ganesha.svg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  }
+]
