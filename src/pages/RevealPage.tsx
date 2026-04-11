@@ -93,7 +93,7 @@ export function RevealPage() {
           {todayResult.finalScore}
         </motion.div>
         <p className="text-xs text-gray-400 mt-1">
-          out of {todayResult.allCorrect ? '400' : '300'}
+          out of 300
         </p>
 
         {streakStore.currentStreak >= 2 && (
