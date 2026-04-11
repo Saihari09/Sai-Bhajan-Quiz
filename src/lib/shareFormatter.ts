@@ -17,7 +17,7 @@ export function generateShareText(result: DayResult, _bhajanTitle: string, strea
     `Round 2 (First line): ${roundEmoji(r[1].totalPoints, r[1].isCorrect)} ${r[1].totalPoints} pts`,
     `Round 3 (Scramble):   ${roundEmoji(r[2].totalPoints, r[2].isCorrect)} ${r[2].totalPoints} pts`,
     ``,
-    `Total: ${result.finalScore} / 300${streak >= 3 ? ` 🔥 ${streak}-day streak!` : ''}`,
+    `Total: ${result.finalScore} / ${result.allCorrect ? '400' : '300'}${streak >= 3 ? ` 🔥 ${streak}-day streak!` : ''}`,
     `Play today's bhajan → ${window.location.origin}${import.meta.env.BASE_URL}`,
   ]
   return lines.join('\n')
