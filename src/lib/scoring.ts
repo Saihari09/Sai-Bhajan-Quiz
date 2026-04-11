@@ -60,5 +60,6 @@ export function calculateFinalScore(roundResults: RoundResult[], currentStreak: 
   const roundTotal = roundResults.reduce((sum, r) => sum + r.totalPoints, 0)
   const allCorrect = roundResults.every(r => r.isCorrect)
   const streakBonus = allCorrect ? calculateStreakBonus(currentStreak) : 0
-  return { roundTotal, streakBonus, finalScore: roundTotal + streakBonus, allCorrect }
+  const finalScore = Math.min(roundTotal + streakBonus, 300)
+  return { roundTotal, streakBonus, finalScore, allCorrect }
 }
