@@ -4,10 +4,11 @@ import { useAudio } from '../../hooks/useAudio'
 interface AudioPlayerProps {
   src: string
   autoPlay?: boolean
+  loop?: boolean
 }
 
-export function AudioPlayer({ src, autoPlay }: AudioPlayerProps) {
-  const { isPlaying, isLoaded, toggle, play } = useAudio(src)
+export function AudioPlayer({ src, autoPlay, loop = false }: AudioPlayerProps) {
+  const { isPlaying, isLoaded, toggle, play } = useAudio(src, loop)
   const hasAutoPlayed = useRef(false)
 
   useEffect(() => {

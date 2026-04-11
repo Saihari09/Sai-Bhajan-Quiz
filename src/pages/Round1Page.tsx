@@ -41,6 +41,7 @@ export function Round1Page({ bhajan, onComplete }: Round1Props) {
         <AudioPlayer
           src={import.meta.env.BASE_URL + bhajan.audio.clipUrl}
           autoPlay
+          loop
         />
       </div>
 

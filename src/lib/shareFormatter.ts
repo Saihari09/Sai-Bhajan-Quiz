@@ -8,15 +8,14 @@ function roundEmoji(points: number, isCorrect: boolean): string {
   return '🟠'
 }
 
-export function generateShareText(result: DayResult, bhajanTitle: string, streak: number): string {
+export function generateShareText(result: DayResult, _bhajanTitle: string, streak: number): string {
   const r = result.roundResults
   const lines = [
     `🙏 Om Sai Ram — Bhajan Quiz · ${formatDisplayDate(result.date)}`,
-    `🎵 ${bhajanTitle}`,
     ``,
-    `Round 1 (Deity):    ${roundEmoji(r[0].totalPoints, r[0].isCorrect)} ${r[0].totalPoints} pts`,
+    `Round 1 (Deity):      ${roundEmoji(r[0].totalPoints, r[0].isCorrect)} ${r[0].totalPoints} pts`,
     `Round 2 (First line): ${roundEmoji(r[1].totalPoints, r[1].isCorrect)} ${r[1].totalPoints} pts`,
-    `Round 3 (Scramble):  ${roundEmoji(r[2].totalPoints, r[2].isCorrect)} ${r[2].totalPoints} pts`,
+    `Round 3 (Scramble):   ${roundEmoji(r[2].totalPoints, r[2].isCorrect)} ${r[2].totalPoints} pts`,
     ``,
     `Total: ${result.finalScore} / 300${streak >= 3 ? ` 🔥 ${streak}-day streak!` : ''}`,
     `Play today's bhajan → ${window.location.origin}${import.meta.env.BASE_URL}`,

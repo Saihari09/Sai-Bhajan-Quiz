@@ -10,7 +10,7 @@ interface UseAudioReturn {
   toggle: () => void
 }
 
-export function useAudio(src: string): UseAudioReturn {
+export function useAudio(src: string, loop = false): UseAudioReturn {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
   const howlRef = useRef<Howl | null>(null)
@@ -20,7 +20,7 @@ export function useAudio(src: string): UseAudioReturn {
       src: [src],
       html5: true,
       preload: true,
-      loop: false,
+      loop,
       onload: () => setIsLoaded(true),
       onplay: () => setIsPlaying(true),
       onpause: () => setIsPlaying(false),
