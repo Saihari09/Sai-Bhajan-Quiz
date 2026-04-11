@@ -15,9 +15,9 @@ export function HomePage() {
   const alreadyPlayed = streakStore.todayResult !== null
 
   useEffect(() => {
-    streakStore.checkAndResetStreak(today)
-    streakStore.clearForNewDay(today)
-  }, [today, streakStore])
+    useStreakStore.getState().checkAndResetStreak(today)
+    useStreakStore.getState().clearForNewDay(today)
+  }, [today])
 
   const handleStartClick = () => {
     setShowHowToPlay(true)
