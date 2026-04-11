@@ -7,14 +7,11 @@ export interface LyricLine {
   words: string[]
 }
 
-export type DifficultyLevel = 1 | 2 | 3
-
 export interface Bhajan {
   id: string
   title: string
   deity: DeityTag
   occasion: string
-  difficulty: DifficultyLevel
   audio: {
     clipUrl: string
     fullUrl: string

@@ -18,10 +18,11 @@ export async function loadSchedule(): Promise<Schedule> {
   return scheduleCache!
 }
 
-export async function getBhajanForDate(date: string): Promise<Bhajan> {
+export async function getTodayBhajan(): Promise<Bhajan> {
   const [bhajans, schedule] = await Promise.all([loadBhajans(), loadSchedule()])
+  const today = getTodayString()
 
-  const entry = schedule.schedule.find(s => s.date === date)
+  const entry = schedule.schedule.find(s => s.date === today)
   const bhajanId = entry?.bhajanId ?? schedule.fallbackBhajanId
 
   const bhajan = bhajans.find(b => b.id === bhajanId)
@@ -29,15 +30,4 @@ export async function getBhajanForDate(date: string): Promise<Bhajan> {
     return bhajans[0]
   }
   return bhajan
-}
-
-export async function getTodayBhajan(): Promise<Bhajan> {
-  const today = getTodayString()
-  return getBhajanForDate(today)
-}
-
-export async function getPastSchedule(): Promise<{ date: string; bhajanId: string }[]> {
-  const schedule = await loadSchedule()
-  const today = getTodayString()
-  return schedule.schedule.filter(s => s.date < today)
 }
