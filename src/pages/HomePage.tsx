@@ -64,16 +64,17 @@ export function HomePage() {
   }, [today, streakStore])
 
   useEffect(() => {
-    Promise.all([loadSchedule(), loadBhajans()]).then(([schedule, bhajans]: [Schedule, Bhajan[]]) => {
+    Promise.all([loadSchedule(), loadBhajans()]).then(([schedule, bhajans]) => {
+      if (!schedule || !bhajans) return
       const past = schedule.schedule
-        .filter(s => s.date < today)
-        .map(s => ({
+        .filter((s: { date: string; bhajanId: string }) => s.date < today)
+        .map((s: { date: string; bhajanId: string }) => ({
           ...s,
-          bhajan: bhajans.find(b => b.id === s.bhajanId),
+          bhajan: bhajans.find((b: Bhajan) => b.id === s.bhajanId),
         }))
         .reverse()
       setPastPuzzles(past)
-    })
+    }).catch(() => {})
   }, [today])
 
   const winPercent = useMemo(() => {
