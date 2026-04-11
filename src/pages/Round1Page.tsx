@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import type { Bhajan } from '../types/bhajan'
+import { DEITY_OPTIONS } from '../types/bhajan'
 import { Timer } from '../components/game/Timer'
 import { AudioPlayer } from '../components/game/AudioPlayer'
 import { DeityGrid } from '../components/game/DeityGrid'
@@ -9,37 +10,32 @@ import { getTimeLimitMs } from '../lib/scoring'
 
 interface Round1Props {
   bhajan: Bhajan
-  onComplete: (isCorrect: boolean, timeSpentMs: number) => void
+  onComplete: (isCorrect: boolean, timeSpentMs: number, userAnswer: string, correctAnswer: string) => void
 }
 
 export function Round1Page({ bhajan, onComplete }: Round1Props) {
-  const timeLimit = getTimeLimitMs(1)
+  const scoringWindow = getTimeLimitMs(1)
   const answeredRef = useRef(false)
-
-  const handleExpire = useCallback(() => {
-    if (answeredRef.current) return
-    answeredRef.current = true
-    onComplete(false, timeLimit)
-  }, [onComplete, timeLimit])
-
-  const timer = useTimer(timeLimit, handleExpire)
+  const timer = useTimer()
 
   useEffect(() => {
     const id = setTimeout(() => timer.start(), 300)
     return () => clearTimeout(id)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const handleAnswer = (isCorrect: boolean) => {
+  const getDeityName = (tag: string) => DEITY_OPTIONS.find(d => d.tag === tag)?.displayName ?? tag
+
+  const handleAnswer = (isCorrect: boolean, selectedDeity: string) => {
     if (answeredRef.current) return
     answeredRef.current = true
     timer.pause()
-    onComplete(isCorrect, timer.elapsedMs)
+    onComplete(isCorrect, timer.elapsedMs, getDeityName(selectedDeity), getDeityName(bhajan.deity))
   }
 
   return (
     <div className="flex flex-col gap-5">
       <RoundIndicator currentRound={1} />
-      <Timer progress={timer.progress} timeRemainingMs={timer.timeRemainingMs} elapsedMs={timer.elapsedMs} durationMs={timeLimit} />
+      <Timer elapsedMs={timer.elapsedMs} scoringWindowMs={scoringWindow} />
 
       <div className="flex justify-center">
         <AudioPlayer

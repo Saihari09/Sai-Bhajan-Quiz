@@ -45,14 +45,37 @@ export function RevealPage() {
         <h2 className="text-xl font-black text-navy-700 mb-4">Today's Score</h2>
 
         <div className="space-y-2 mb-5">
-          {todayResult.roundResults.map((r, i) => (
-            <div key={i} className="flex items-center justify-between px-4 py-2.5 bg-gray-50 rounded-xl">
-              <span className="text-sm font-medium text-gray-600">
-                Round {r.round} {r.isCorrect ? '✅' : '❌'}
-              </span>
-              <span className="font-black text-navy-700">{r.totalPoints} pts</span>
-            </div>
-          ))}
+          {todayResult.roundResults.map((r, i) => {
+            const roundLabels = ['Guess the Deity', 'Arrange the Line', 'Unscramble']
+            const timeSec = Math.round(r.timeSpentMs / 1000)
+            return (
+              <div key={i} className="bg-gray-50 rounded-xl overflow-hidden">
+                <div className="flex items-center justify-between px-4 py-2.5">
+                  <span className="text-sm font-medium text-gray-600">
+                    {r.isCorrect ? '✅' : '❌'} {roundLabels[i]}
+                  </span>
+                  <span className="font-black text-navy-700">{r.totalPoints} pts</span>
+                </div>
+                <div className="px-4 pb-3 space-y-1">
+                  <div className="flex items-start gap-2 text-xs">
+                    <span className="text-gray-400 shrink-0">Your answer:</span>
+                    <span className={`font-semibold ${r.isCorrect ? 'text-green-600' : 'text-red-500'}`}>
+                      {r.userAnswer}
+                    </span>
+                  </div>
+                  {!r.isCorrect && (
+                    <div className="flex items-start gap-2 text-xs">
+                      <span className="text-gray-400 shrink-0">Correct:</span>
+                      <span className="font-semibold text-green-600">{r.correctAnswer}</span>
+                    </div>
+                  )}
+                  <p className="text-xs text-gray-400">
+                    {timeSec}s {r.speedBonus > 0 ? `(+${r.speedBonus} speed bonus)` : ''}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
           {todayResult.streakBonus > 0 && (
             <div className="flex items-center justify-between px-4 py-2.5 bg-saffron-50 rounded-xl border border-saffron-100">
               <span className="text-sm font-medium text-saffron-700">🔥 Streak Bonus</span>

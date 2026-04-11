@@ -9,38 +9,31 @@ import { getTimeLimitMs } from '../lib/scoring'
 
 interface Round2Props {
   bhajan: Bhajan
-  onComplete: (isCorrect: boolean, timeSpentMs: number) => void
+  onComplete: (isCorrect: boolean, timeSpentMs: number, userAnswer: string, correctAnswer: string) => void
 }
 
 export function Round2Page({ bhajan, onComplete }: Round2Props) {
-  const timeLimit = getTimeLimitMs(2)
+  const scoringWindow = getTimeLimitMs(2)
   const line = bhajan.lyrics.lines[bhajan.round2LineIndex]
   const answeredRef = useRef(false)
-
-  const handleExpire = useCallback(() => {
-    if (answeredRef.current) return
-    answeredRef.current = true
-    onComplete(false, timeLimit)
-  }, [onComplete, timeLimit])
-
-  const timer = useTimer(timeLimit, handleExpire)
+  const timer = useTimer()
 
   useEffect(() => {
     const id = setTimeout(() => timer.start(), 300)
     return () => clearTimeout(id)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const handleAnswer = useCallback((isCorrect: boolean) => {
+  const handleAnswer = useCallback((isCorrect: boolean, userWords: string[]) => {
     if (answeredRef.current) return
     answeredRef.current = true
     timer.pause()
-    onComplete(isCorrect, timer.elapsedMs)
-  }, [timer, onComplete])
+    onComplete(isCorrect, timer.elapsedMs, userWords.join(' '), line.words.join(' '))
+  }, [timer, onComplete, line.words])
 
   return (
     <div className="flex flex-col gap-5">
       <RoundIndicator currentRound={2} />
-      <Timer progress={timer.progress} timeRemainingMs={timer.timeRemainingMs} elapsedMs={timer.elapsedMs} durationMs={timeLimit} />
+      <Timer elapsedMs={timer.elapsedMs} scoringWindowMs={scoringWindow} />
 
       <div className="flex justify-center">
         <AudioPlayer src={import.meta.env.BASE_URL + bhajan.audio.clipUrl} />

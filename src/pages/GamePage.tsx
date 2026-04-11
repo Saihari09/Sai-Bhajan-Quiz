@@ -35,8 +35,8 @@ export function GamePage() {
     }
   }, [todayResult, navigate])
 
-  const handleRoundComplete = useCallback((round: RoundNumber, isCorrect: boolean, timeSpentMs: number) => {
-    const result = calculateRoundScore(round, isCorrect, timeSpentMs)
+  const handleRoundComplete = useCallback((round: RoundNumber, isCorrect: boolean, timeSpentMs: number, userAnswer: string, correctAnswer: string) => {
+    const result = calculateRoundScore(round, isCorrect, timeSpentMs, userAnswer, correctAnswer)
     useGameStore.getState().addRoundResult(result)
     setLastResult(result)
     setShowPopup(true)
@@ -110,19 +110,19 @@ export function GamePage() {
           {currentRound === 1 && (
             <Round1Page
               bhajan={bhajan}
-              onComplete={(correct, time) => handleRoundComplete(1, correct, time)}
+              onComplete={(correct, time, userAns, correctAns) => handleRoundComplete(1, correct, time, userAns, correctAns)}
             />
           )}
           {currentRound === 2 && (
             <Round2Page
               bhajan={bhajan}
-              onComplete={(correct, time) => handleRoundComplete(2, correct, time)}
+              onComplete={(correct, time, userAns, correctAns) => handleRoundComplete(2, correct, time, userAns, correctAns)}
             />
           )}
           {currentRound === 3 && (
             <Round3Page
               bhajan={bhajan}
-              onComplete={(correct, time) => handleRoundComplete(3, correct, time)}
+              onComplete={(correct, time, userAns, correctAns) => handleRoundComplete(3, correct, time, userAns, correctAns)}
             />
           )}
         </motion.div>

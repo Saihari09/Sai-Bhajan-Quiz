@@ -8,6 +8,8 @@ export interface RoundResult {
   basePoints: number
   speedBonus: number
   totalPoints: number
+  userAnswer: string
+  correctAnswer: string
 }
 
 export interface GameState {

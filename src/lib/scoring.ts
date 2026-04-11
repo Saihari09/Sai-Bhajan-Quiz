@@ -10,10 +10,16 @@ export function getTimeLimitMs(round: RoundNumber): number {
   return ROUND_CONFIGS[round].timeLimitMs
 }
 
-export function calculateRoundScore(round: RoundNumber, isCorrect: boolean, timeSpentMs: number): RoundResult {
+export function calculateRoundScore(
+  round: RoundNumber,
+  isCorrect: boolean,
+  timeSpentMs: number,
+  userAnswer: string,
+  correctAnswer: string,
+): RoundResult {
   const config = ROUND_CONFIGS[round]
 
-  if (!isCorrect || timeSpentMs >= config.timeLimitMs) {
+  if (!isCorrect) {
     return {
       round,
       isCorrect: false,
@@ -22,10 +28,12 @@ export function calculateRoundScore(round: RoundNumber, isCorrect: boolean, time
       basePoints: 0,
       speedBonus: 0,
       totalPoints: 0,
+      userAnswer,
+      correctAnswer,
     }
   }
 
-  const timeRatio = 1 - timeSpentMs / config.timeLimitMs
+  const timeRatio = Math.max(0, 1 - timeSpentMs / config.timeLimitMs)
   const speedBonus = Math.round(config.maxSpeedBonus * timeRatio)
 
   return {
@@ -36,6 +44,8 @@ export function calculateRoundScore(round: RoundNumber, isCorrect: boolean, time
     basePoints: config.basePoints,
     speedBonus,
     totalPoints: config.basePoints + speedBonus,
+    userAnswer,
+    correctAnswer,
   }
 }
 

@@ -1,17 +1,14 @@
 import { motion } from 'framer-motion'
 
 interface TimerProps {
-  progress: number
-  timeRemainingMs: number
   elapsedMs: number
-  durationMs: number
+  scoringWindowMs: number
 }
 
-export function Timer({ progress, elapsedMs, durationMs }: TimerProps) {
+export function Timer({ elapsedMs, scoringWindowMs }: TimerProps) {
   const elapsedSeconds = Math.floor(elapsedMs / 1000)
-  const totalSeconds = Math.round(durationMs / 1000)
-  const elapsed = 1 - progress
-  const color = elapsed < 0.5 ? 'bg-saffron-400' : elapsed < 0.75 ? 'bg-yellow-500' : 'bg-red-500'
+  const fill = Math.min(elapsedMs / scoringWindowMs, 1)
+  const color = fill < 0.5 ? 'bg-saffron-400' : fill < 0.75 ? 'bg-yellow-500' : 'bg-red-500'
 
   return (
     <div className="w-full px-4">
@@ -19,12 +16,12 @@ export function Timer({ progress, elapsedMs, durationMs }: TimerProps) {
         <div className="flex-1 h-2.5 bg-navy-100 rounded-full overflow-hidden">
           <motion.div
             className={`h-full ${color} rounded-full`}
-            style={{ width: `${elapsed * 100}%` }}
+            style={{ width: `${fill * 100}%` }}
             transition={{ duration: 0.1 }}
           />
         </div>
-        <span className={`text-base font-black tabular-nums min-w-[3rem] text-right ${elapsed > 0.75 ? 'text-red-500 animate-pulse' : 'text-navy-600'}`}>
-          {elapsedSeconds}/{totalSeconds}s
+        <span className={`text-base font-black tabular-nums min-w-[2.5rem] text-right ${fill >= 1 ? 'text-red-500' : 'text-navy-600'}`}>
+          {elapsedSeconds}s
         </span>
       </div>
     </div>

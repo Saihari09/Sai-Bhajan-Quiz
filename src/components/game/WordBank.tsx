@@ -5,7 +5,7 @@ import { shuffleWords, checkWordOrder } from '../../lib/wordShuffle'
 
 interface WordBankProps {
   correctWords: string[]
-  onAnswer: (isCorrect: boolean) => void
+  onAnswer: (isCorrect: boolean, userWords: string[]) => void
 }
 
 export function WordBank({ correctWords, onAnswer }: WordBankProps) {
@@ -20,7 +20,7 @@ export function WordBank({ correctWords, onAnswer }: WordBankProps) {
     if (allPlaced && !submitted) {
       setSubmitted(true)
       const isCorrect = checkWordOrder(placedWords, correctWords)
-      setTimeout(() => onAnswer(isCorrect), 400)
+      setTimeout(() => onAnswer(isCorrect, [...placedWords]), 400)
     }
   }, [allPlaced, submitted, placedWords, correctWords, onAnswer])
 

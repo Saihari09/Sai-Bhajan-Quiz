@@ -5,7 +5,7 @@ import { DeityCard } from './DeityCard'
 
 interface DeityGridProps {
   correctDeity: DeityTag
-  onAnswer: (isCorrect: boolean) => void
+  onAnswer: (isCorrect: boolean, selectedDeity: string) => void
 }
 
 export function DeityGrid({ correctDeity, onAnswer }: DeityGridProps) {
@@ -15,7 +15,7 @@ export function DeityGrid({ correctDeity, onAnswer }: DeityGridProps) {
     if (selected) return
     setSelected(tag)
     const isCorrect = tag === correctDeity
-    setTimeout(() => onAnswer(isCorrect), 600)
+    setTimeout(() => onAnswer(isCorrect, tag), 600)
   }
 
   return (
