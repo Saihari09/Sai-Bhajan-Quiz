@@ -49,5 +49,50 @@
     "deityImageUrl": "images/deities/ganesha.jpg",
     "round2LineIndex": 0,
     "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-002",
+    "title": "Dasharatha Nandana Rama",
+    "deity": "rama",
+    "occasion": "Sunday Satsang",
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-002-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/dasharatha-nandana-rama-daya-sagara",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "दशरथ नन्दन राम दया सागर राम\nरघुकुल तिलक राम सत्य साई श्री परन्धाम\nअहल्योद्धारक राम शाप विमोचन राम\nशिर्डी पुरीश राम पुट्टपर्ती पुरी परन्धाम",
+      "transliteration": "Dasharatha Nandana Rama Daya Sagara Rama\nRaghukula Tilaka Rama Sathya Sai Sri Parandhama\nAhalyodharaka Rama Shaapa Vimochana Rama\nShirdi Pureesha Rama Puttaparthi Puri Parandhama",
+      "translation": "Glory to Thee, O Lord Rama, the darling son of King Dasharatha, You are an ocean of compassion and the Crown Jewel of the Raghu Dynasty. You are the saviour of Ahalya from the curse that had turned her into a stone. You are Lord Sathya Sai, the indweller of hearts, with Shirdi and Parthi as Your supreme abodes.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "दशरथ नन्दन राम दया सागर राम",
+          "transliteration": "Dasharatha Nandana Rama Daya Sagara Rama",
+          "words": ["Dasharatha", "Nandana", "Rama", "Daya", "Sagara", "Rama"]
+        },
+        {
+          "index": 1,
+          "original": "रघुकुल तिलक राम सत्य साई श्री परन्धाम",
+          "transliteration": "Raghukula Tilaka Rama Sathya Sai Sri Parandhama",
+          "words": ["Raghukula", "Tilaka", "Rama", "Sathya", "Sai", "Sri", "Parandhama"]
+        },
+        {
+          "index": 2,
+          "original": "अहल्योद्धारक राम शाप विमोचन राम",
+          "transliteration": "Ahalyodharaka Rama Shaapa Vimochana Rama",
+          "words": ["Ahalyodharaka", "Rama", "Shaapa", "Vimochana", "Rama"]
+        },
+        {
+          "index": 3,
+          "original": "शिर्डी पुरीश राम पुट्टपर्ती पुरी परन्धाम",
+          "transliteration": "Shirdi Pureesha Rama Puttaparthi Puri Parandhama",
+          "words": ["Shirdi", "Pureesha", "Rama", "Puttaparthi", "Puri", "Parandhama"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/rama.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
   }
 ]
