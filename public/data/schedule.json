@@ -1,7 +1,8 @@
 {
   "schedule": [
     { "date": "2026-04-11", "bhajanId": "bhajan-001" },
-    { "date": "2026-04-12", "bhajanId": "bhajan-002" }
+    { "date": "2026-04-12", "bhajanId": "bhajan-001" },
+    { "date": "2026-04-13", "bhajanId": "bhajan-002" }
   ],
   "fallbackBhajanId": "bhajan-001"
 }
