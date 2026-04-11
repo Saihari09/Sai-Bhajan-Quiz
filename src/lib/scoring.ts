@@ -50,9 +50,7 @@ export function calculateRoundScore(
 }
 
 export function calculateStreakBonus(currentStreak: number): number {
-  if (currentStreak >= 7) return 100
-  if (currentStreak >= 5) return 75
-  if (currentStreak >= 3) return 50
+  if (currentStreak >= 3) return 10
   return 0
 }
 

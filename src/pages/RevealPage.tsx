@@ -3,15 +3,20 @@ import { useNavigate } from 'react-router'
 import { motion } from 'framer-motion'
 import { useDailyBhajan } from '../hooks/useDailyBhajan'
 import { useStreakStore } from '../store/streakStore'
+import { useGameStore } from '../store/gameStore'
 import { generateShareText, shareResult } from '../lib/shareFormatter'
+import { loadSchedule } from '../lib/schedule'
+import { getTodayString, formatDisplayDate } from '../lib/dateUtils'
 
 export function RevealPage() {
   const navigate = useNavigate()
   const { bhajan, loading } = useDailyBhajan()
   const streakStore = useStreakStore()
+  const gameStore = useGameStore()
   const todayResult = streakStore.todayResult
   const [copied, setCopied] = useState(false)
   const [showLyrics, setShowLyrics] = useState(false)
+  const [unplayedPuzzles, setUnplayedPuzzles] = useState<{ date: string }[]>([])
 
   useEffect(() => {
     if (!loading && !todayResult) {
@@ -19,12 +24,28 @@ export function RevealPage() {
     }
   }, [loading, todayResult, navigate])
 
+  useEffect(() => {
+    const today = getTodayString()
+    loadSchedule().then((schedule) => {
+      const past = schedule.schedule
+        .filter((s) => s.date < today)
+        .filter((s) => !streakStore.history.some((h) => h.date === s.date))
+        .reverse()
+      setUnplayedPuzzles(past)
+    }).catch(() => {})
+  }, [streakStore.history])
+
   if (loading || !todayResult || !bhajan) {
     return (
       <div className="flex-1 flex items-center justify-center">
         <div className="animate-spin w-8 h-8 border-4 border-saffron-300 border-t-saffron-600 rounded-full" />
       </div>
     )
+  }
+
+  const handlePlayPast = (date: string) => {
+    gameStore.resetGame()
+    navigate(`/play/${date}`)
   }
 
   const handleShare = async () => {
@@ -179,6 +200,39 @@ export function RevealPage() {
       >
         {copied ? '✅ Copied to clipboard!' : '📤 Share Score'}
       </motion.button>
+
+      {/* Previous Puzzles — only unplayed ones */}
+      {unplayedPuzzles.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.45 }}
+          className="w-full space-y-2"
+        >
+          <h2 className="text-sm font-bold text-navy-700 px-1">Missed a day? Play previous puzzles</h2>
+          {unplayedPuzzles.map((p) => (
+            <div
+              key={p.date}
+              className="flex items-center justify-between px-4 py-3 bg-white rounded-xl shadow-sm border border-gray-100"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-navy-50 flex items-center justify-center">
+                  <span className="text-xs font-bold text-navy-600">{formatDisplayDate(p.date).split(' ')[1]}</span>
+                </div>
+                <p className="text-sm font-semibold text-navy-700">
+                  Puzzle — {formatDisplayDate(p.date)}
+                </p>
+              </div>
+              <button
+                onClick={() => handlePlayPast(p.date)}
+                className="px-4 py-1.5 bg-saffron-500 text-white text-xs font-bold rounded-full active:bg-saffron-600"
+              >
+                Play
+              </button>
+            </div>
+          ))}
+        </motion.div>
+      )}
     </div>
   )
 }
