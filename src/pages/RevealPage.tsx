@@ -35,28 +35,28 @@ export function RevealPage() {
   }
 
   return (
-    <div className="flex-1 py-6 px-4 space-y-6">
+    <div className="flex-1 py-6 px-4 space-y-5">
       {/* Score Summary */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white rounded-3xl p-6 shadow-md text-center"
+        className="bg-white rounded-3xl p-6 shadow-lg text-center border border-gray-100"
       >
-        <h2 className="text-2xl font-black text-gray-800 mb-4">Today's Score</h2>
+        <h2 className="text-xl font-black text-navy-700 mb-4">Today's Score</h2>
 
-        <div className="space-y-2 mb-4">
+        <div className="space-y-2 mb-5">
           {todayResult.roundResults.map((r, i) => (
-            <div key={i} className="flex items-center justify-between px-4 py-2 bg-gray-50 rounded-xl">
-              <span className="text-sm text-gray-600">
+            <div key={i} className="flex items-center justify-between px-4 py-2.5 bg-gray-50 rounded-xl">
+              <span className="text-sm font-medium text-gray-600">
                 Round {r.round} {r.isCorrect ? '✅' : '❌'}
               </span>
-              <span className="font-bold text-gray-800">{r.totalPoints} pts</span>
+              <span className="font-black text-navy-700">{r.totalPoints} pts</span>
             </div>
           ))}
           {todayResult.streakBonus > 0 && (
-            <div className="flex items-center justify-between px-4 py-2 bg-saffron-50 rounded-xl">
-              <span className="text-sm text-saffron-700">🔥 Streak Bonus</span>
-              <span className="font-bold text-saffron-700">+{todayResult.streakBonus} pts</span>
+            <div className="flex items-center justify-between px-4 py-2.5 bg-saffron-50 rounded-xl border border-saffron-100">
+              <span className="text-sm font-medium text-saffron-700">🔥 Streak Bonus</span>
+              <span className="font-black text-saffron-700">+{todayResult.streakBonus} pts</span>
             </div>
           )}
         </div>
@@ -69,12 +69,12 @@ export function RevealPage() {
         >
           {todayResult.finalScore}
         </motion.div>
-        <p className="text-sm text-gray-400 mt-1">
+        <p className="text-xs text-gray-400 mt-1">
           out of {todayResult.allCorrect ? '400' : '300'}
         </p>
 
         {streakStore.currentStreak >= 2 && (
-          <p className="mt-3 text-saffron-600 font-bold">
+          <p className="mt-3 text-saffron-600 font-bold text-sm">
             🔥 {streakStore.currentStreak}-day streak!
           </p>
         )}
@@ -84,31 +84,33 @@ export function RevealPage() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className="bg-white rounded-3xl p-6 shadow-md"
+        transition={{ delay: 0.15 }}
+        className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100"
       >
         <div className="flex items-center gap-4 mb-4">
-          <img
-            src={import.meta.env.BASE_URL + bhajan.deityImageUrl}
-            alt={bhajan.deity}
-            className="w-16 h-16 rounded-full"
-          />
+          <div className="w-16 h-16 rounded-full overflow-hidden border-3 border-saffron-200 shadow-md">
+            <img
+              src={import.meta.env.BASE_URL + bhajan.deityImageUrl}
+              alt={bhajan.deity}
+              className="w-full h-full object-cover"
+            />
+          </div>
           <div>
-            <h3 className="text-lg font-bold text-gray-800">{bhajan.title}</h3>
+            <h3 className="text-lg font-black text-navy-700">{bhajan.title}</h3>
             <p className="text-sm text-gray-500">{bhajan.occasion}</p>
           </div>
         </div>
 
         {/* Translation */}
-        <div className="mb-4 p-4 bg-saffron-50 rounded-xl">
-          <h4 className="text-sm font-bold text-saffron-700 mb-2">Meaning</h4>
+        <div className="mb-4 p-4 bg-gradient-to-br from-saffron-50 to-saffron-100/50 rounded-xl border border-saffron-100">
+          <h4 className="text-xs font-bold text-saffron-700 uppercase tracking-wider mb-2">Meaning</h4>
           <p className="text-sm text-gray-700 leading-relaxed">{bhajan.lyrics.translation}</p>
         </div>
 
         {/* Lyrics toggle */}
         <button
           onClick={() => setShowLyrics(!showLyrics)}
-          className="w-full py-2 text-sm font-semibold text-saffron-600 border border-saffron-200 rounded-xl"
+          className="w-full py-2.5 text-sm font-bold text-navy-600 border-2 border-navy-100 rounded-xl hover:bg-navy-50 transition-colors"
         >
           {showLyrics ? 'Hide Lyrics' : 'Show Full Lyrics'}
         </button>
@@ -119,13 +121,13 @@ export function RevealPage() {
             animate={{ height: 'auto', opacity: 1 }}
             className="mt-4 space-y-3"
           >
-            <div className="p-4 bg-gray-50 rounded-xl">
-              <h4 className="text-sm font-bold text-gray-600 mb-2">Original</h4>
-              <p className="text-base leading-relaxed whitespace-pre-line">{bhajan.lyrics.original}</p>
+            <div className="p-4 bg-navy-50 rounded-xl">
+              <h4 className="text-xs font-bold text-navy-500 uppercase tracking-wider mb-2">Original</h4>
+              <p className="text-base leading-relaxed whitespace-pre-line text-navy-800">{bhajan.lyrics.original}</p>
             </div>
-            <div className="p-4 bg-gray-50 rounded-xl">
-              <h4 className="text-sm font-bold text-gray-600 mb-2">Transliteration</h4>
-              <p className="text-base leading-relaxed whitespace-pre-line">{bhajan.lyrics.transliteration}</p>
+            <div className="p-4 bg-navy-50 rounded-xl">
+              <h4 className="text-xs font-bold text-navy-500 uppercase tracking-wider mb-2">Transliteration</h4>
+              <p className="text-base leading-relaxed whitespace-pre-line text-navy-800">{bhajan.lyrics.transliteration}</p>
             </div>
           </motion.div>
         )}
@@ -135,11 +137,11 @@ export function RevealPage() {
       <motion.a
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
+        transition={{ delay: 0.25 }}
         href={bhajan.audio.fullUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="block w-full py-4 bg-white rounded-2xl shadow-md text-center font-bold text-saffron-600 border border-saffron-200 active:bg-saffron-50 transition-colors"
+        className="block w-full py-4 bg-white rounded-2xl shadow-lg text-center font-bold text-navy-600 border-2 border-navy-100 active:bg-navy-50 transition-colors"
       >
         🎵 Play Full Bhajan
       </motion.a>
@@ -148,9 +150,9 @@ export function RevealPage() {
       <motion.button
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4 }}
+        transition={{ delay: 0.35 }}
         onClick={handleShare}
-        className="w-full py-4 bg-saffron-500 text-white font-bold rounded-2xl shadow-md active:bg-saffron-600 transition-colors"
+        className="w-full py-4 bg-gradient-to-r from-saffron-500 to-saffron-600 text-white font-bold rounded-2xl shadow-lg active:from-saffron-600 active:to-saffron-700 transition-all"
       >
         {copied ? '✅ Copied to clipboard!' : '📤 Share Score'}
       </motion.button>

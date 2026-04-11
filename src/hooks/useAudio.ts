@@ -20,6 +20,7 @@ export function useAudio(src: string): UseAudioReturn {
       src: [src],
       html5: true,
       preload: true,
+      loop: false,
       onload: () => setIsLoaded(true),
       onplay: () => setIsPlaying(true),
       onpause: () => setIsPlaying(false),

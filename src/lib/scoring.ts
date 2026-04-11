@@ -1,9 +1,9 @@
 import type { RoundNumber, RoundResult } from '../types/game'
 
 const ROUND_CONFIGS = {
-  1: { timeLimitMs: 15_000, basePoints: 60, maxSpeedBonus: 40 },
-  2: { timeLimitMs: 30_000, basePoints: 60, maxSpeedBonus: 40 },
-  3: { timeLimitMs: 45_000, basePoints: 60, maxSpeedBonus: 40 },
+  1: { timeLimitMs: 60_000, basePoints: 60, maxSpeedBonus: 40 },
+  2: { timeLimitMs: 60_000, basePoints: 60, maxSpeedBonus: 40 },
+  3: { timeLimitMs: 60_000, basePoints: 60, maxSpeedBonus: 40 },
 } as const
 
 export function getTimeLimitMs(round: RoundNumber): number {

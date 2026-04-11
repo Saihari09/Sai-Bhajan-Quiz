@@ -35,12 +35,12 @@ export interface DeityOption {
 }
 
 export const DEITY_OPTIONS: DeityOption[] = [
-  { tag: 'sai-baba', displayName: 'Sai Baba', imageUrl: '/images/deities/sai-baba.svg' },
-  { tag: 'krishna', displayName: 'Krishna', imageUrl: '/images/deities/krishna.svg' },
-  { tag: 'rama', displayName: 'Rama', imageUrl: '/images/deities/rama.svg' },
-  { tag: 'shiva', displayName: 'Shiva', imageUrl: '/images/deities/shiva.svg' },
-  { tag: 'ganesha', displayName: 'Ganesha', imageUrl: '/images/deities/ganesha.svg' },
-  { tag: 'hanuman', displayName: 'Hanuman', imageUrl: '/images/deities/hanuman.svg' },
+  { tag: 'sai-baba', displayName: 'Sai Baba', imageUrl: '/images/deities/sai-baba.jpeg' },
+  { tag: 'krishna', displayName: 'Krishna', imageUrl: '/images/deities/krishna.jpg' },
+  { tag: 'rama', displayName: 'Rama', imageUrl: '/images/deities/rama.jpg' },
+  { tag: 'shiva', displayName: 'Shiva', imageUrl: '/images/deities/shiva.jpg' },
+  { tag: 'ganesha', displayName: 'Ganesha', imageUrl: '/images/deities/ganesha.jpg' },
+  { tag: 'hanuman', displayName: 'Hanuman', imageUrl: '/images/deities/hanuman.jpeg' },
 ]
 
 export interface Schedule {

@@ -10,23 +10,25 @@ interface DeityCardProps {
 
 export function DeityCard({ deity, onSelect, disabled, state }: DeityCardProps) {
   const borderColor =
-    state === 'correct' ? 'border-green-500 bg-green-50' :
-    state === 'wrong' ? 'border-red-400 bg-red-50' :
-    'border-gray-200 bg-white'
+    state === 'correct' ? 'ring-4 ring-green-400 bg-green-50' :
+    state === 'wrong' ? 'ring-4 ring-red-400 bg-red-50' :
+    'bg-white hover:shadow-lg'
 
   return (
     <motion.button
-      whileTap={!disabled ? { scale: 0.95 } : undefined}
+      whileTap={!disabled ? { scale: 0.92 } : undefined}
       onClick={() => onSelect(deity.tag)}
       disabled={disabled}
-      className={`flex flex-col items-center gap-2 p-3 rounded-2xl border-2 shadow-sm transition-colors ${borderColor} ${disabled ? 'opacity-60' : 'active:shadow-md'}`}
+      className={`flex flex-col items-center gap-2 p-3 rounded-2xl shadow-md transition-all ${borderColor} ${disabled ? 'opacity-70' : 'active:shadow-xl'}`}
     >
-      <img
-        src={import.meta.env.BASE_URL + deity.imageUrl}
-        alt={deity.displayName}
-        className="w-16 h-16 rounded-full object-cover"
-      />
-      <span className="text-sm font-semibold text-gray-800">{deity.displayName}</span>
+      <div className="w-18 h-18 rounded-full overflow-hidden border-3 border-saffron-200 shadow-sm">
+        <img
+          src={import.meta.env.BASE_URL + deity.imageUrl}
+          alt={deity.displayName}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <span className="text-xs font-bold text-navy-700">{deity.displayName}</span>
     </motion.button>
   )
 }

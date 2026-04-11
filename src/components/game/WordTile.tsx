@@ -13,10 +13,10 @@ export function WordTile({ word, isPlaced, onClick }: WordTileProps) {
       layout
       whileTap={{ scale: 0.9 }}
       onClick={onClick}
-      className={`px-4 py-2 rounded-xl text-base font-semibold shadow-sm transition-all ${
+      className={`px-4 py-2.5 rounded-xl text-sm font-bold shadow-sm transition-all ${
         isPlaced
-          ? 'bg-gray-200 text-gray-400 border border-gray-300'
-          : 'bg-white text-saffron-800 border-2 border-saffron-300 active:bg-saffron-50'
+          ? 'bg-gray-100 text-gray-300 border border-gray-200'
+          : 'bg-white text-navy-700 border-2 border-navy-200 active:border-saffron-400 active:bg-saffron-50 shadow-md'
       }`}
       disabled={isPlaced}
     >

@@ -36,14 +36,14 @@ export function WordBank({ correctWords, onAnswer }: WordBankProps) {
   }
 
   return (
-    <div className="flex flex-col gap-6 px-4">
+    <div className="flex flex-col gap-5 px-4">
       {/* Answer slots */}
-      <div className="flex flex-wrap gap-2 min-h-[48px] p-3 bg-saffron-50 rounded-2xl border-2 border-dashed border-saffron-300">
+      <div className="flex flex-wrap gap-2 min-h-[52px] p-3.5 bg-white rounded-2xl border-2 border-dashed border-navy-200 shadow-inner">
         <AnimatePresence>
           {placed.length === 0 && (
             <motion.p
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
+              animate={{ opacity: 0.4 }}
               exit={{ opacity: 0 }}
               className="text-sm text-gray-400 w-full text-center py-1"
             >
@@ -57,7 +57,7 @@ export function WordBank({ correctWords, onAnswer }: WordBankProps) {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.5, opacity: 0 }}
               onClick={() => handleSlotClick(i)}
-              className="px-4 py-2 rounded-xl text-base font-semibold bg-saffron-500 text-white shadow-sm active:scale-95 transition-transform"
+              className="px-4 py-2.5 rounded-xl text-sm font-bold bg-gradient-to-r from-saffron-500 to-saffron-600 text-white shadow-md active:scale-95 transition-transform"
             >
               {word}
             </motion.button>
@@ -66,7 +66,7 @@ export function WordBank({ correctWords, onAnswer }: WordBankProps) {
       </div>
 
       {/* Word bank */}
-      <div className="flex flex-wrap gap-2 justify-center">
+      <div className="flex flex-wrap gap-2.5 justify-center">
         {shuffled.map((word, i) => (
           <WordTile
             key={`tile-${i}`}

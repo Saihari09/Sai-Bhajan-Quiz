@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme {
+  /* Saffron / Orange */
   --color-saffron-50: #fff7ed;
   --color-saffron-100: #ffedd5;
   --color-saffron-200: #fed7aa;
@@ -12,15 +13,28 @@
   --color-saffron-800: #9a3412;
   --color-saffron-900: #7c2d12;
 
-  --color-cream: #fffbeb;
+  /* Deep Blue (Sathya Sai theme) */
+  --color-navy-50: #eff4ff;
+  --color-navy-100: #dbe6fe;
+  --color-navy-200: #bfcffe;
+  --color-navy-300: #93aafd;
+  --color-navy-400: #6080fa;
+  --color-navy-500: #3b5cf5;
+  --color-navy-600: #1e3a8a;
+  --color-navy-700: #1a327a;
+  --color-navy-800: #1b2c63;
+  --color-navy-900: #0f1b3d;
+
+  --color-cream: #fffbf0;
   --color-gold: #d97706;
 }
 
 body {
   margin: 0;
-  background: var(--color-cream);
+  background: linear-gradient(180deg, #fffbf0 0%, #fff7ed 100%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
 #root {

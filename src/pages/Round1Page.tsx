@@ -39,7 +39,7 @@ export function Round1Page({ bhajan, onComplete }: Round1Props) {
   return (
     <div className="flex flex-col gap-5">
       <RoundIndicator currentRound={1} />
-      <Timer progress={timer.progress} timeRemainingMs={timer.timeRemainingMs} />
+      <Timer progress={timer.progress} timeRemainingMs={timer.timeRemainingMs} elapsedMs={timer.elapsedMs} durationMs={timeLimit} />
 
       <div className="flex justify-center">
         <AudioPlayer

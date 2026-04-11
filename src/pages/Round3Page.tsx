@@ -40,7 +40,7 @@ export function Round3Page({ bhajan, onComplete }: Round3Props) {
   return (
     <div className="flex flex-col gap-5">
       <RoundIndicator currentRound={3} />
-      <Timer progress={timer.progress} timeRemainingMs={timer.timeRemainingMs} />
+      <Timer progress={timer.progress} timeRemainingMs={timer.timeRemainingMs} elapsedMs={timer.elapsedMs} durationMs={timeLimit} />
 
       <div className="flex justify-center">
         <AudioPlayer src={import.meta.env.BASE_URL + bhajan.audio.clipUrl} />

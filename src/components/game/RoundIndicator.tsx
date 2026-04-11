@@ -12,22 +12,22 @@ export function RoundIndicator({ currentRound }: RoundIndicatorProps) {
       {[1, 2, 3].map((r) => (
         <div key={r} className="flex items-center gap-2">
           <div
-            className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
+            className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shadow-sm ${
               r === currentRound
-                ? 'bg-saffron-500 text-white'
+                ? 'bg-gradient-to-br from-saffron-500 to-saffron-600 text-white'
                 : r < currentRound
                 ? 'bg-green-500 text-white'
-                : 'bg-gray-200 text-gray-500'
+                : 'bg-navy-100 text-navy-400'
             }`}
           >
             {r < currentRound ? '✓' : r}
           </div>
           {r < 3 && (
-            <div className={`w-8 h-0.5 ${r < currentRound ? 'bg-green-400' : 'bg-gray-200'}`} />
+            <div className={`w-6 h-0.5 ${r < currentRound ? 'bg-green-400' : 'bg-navy-100'}`} />
           )}
         </div>
       ))}
-      <span className="ml-3 text-sm text-gray-500">
+      <span className="ml-2 text-sm font-semibold text-navy-500">
         {ROUND_LABELS[currentRound - 1]}
       </span>
     </div>
