@@ -96,5 +96,265 @@
     "deityImageUrl": "images/deities/rama.jpg",
     "round2LineIndex": 0,
     "round3LineIndex": 1
+  },
+  {
+    "id": "bhajan-003",
+    "title": "Sathya Sai Padambujam",
+    "deity": "sai",
+    "occasion": "Satsang / Guru Purnima",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-003-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/sathya-sai-padambujam-bhajorey-manasa",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "सत्य साई पदाम्बुजम् भजोरे मनसा निरन्तरम्\nपरम पवित्रम् पावन चरणम्\nकलिमल दहनम् श्री गुरु चरणम्\nभव भय नाशन दुरित निवारण\nपार्थी पुरीश्वर पंकज चरणम्",
+      "transliteration": "Sathya Sai Padambujam Bhajorey Manasa Nirantharam\nParama Pavitram Pavana Charanam\nKalimala Dahanam Sri Guru Charanam\nBhava Bhaya Nashana Duritha Nivarana\nParthi Pureeshwara Pankaja Charanam",
+      "translation": "Meditate incessantly upon the most holy and auspicious Lotus Feet of Lord Sathya Sai. His feet are supremely pure and sacred. They burn away the sins of this Kali age. They destroy the fear of worldly existence and remove all afflictions. Worship the lotus feet of the Lord of Parthi.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "सत्य साई पदाम्बुजम् भजोरे मनसा निरन्तरम्",
+          "transliteration": "Sathya Sai Padambujam Bhajorey Manasa Nirantharam",
+          "words": ["Sathya", "Sai", "Padambujam", "Bhajorey", "Manasa", "Nirantharam"]
+        },
+        {
+          "index": 1,
+          "original": "परम पवित्रम् पावन चरणम्",
+          "transliteration": "Parama Pavitram Pavana Charanam",
+          "words": ["Parama", "Pavitram", "Pavana", "Charanam"]
+        },
+        {
+          "index": 2,
+          "original": "कलिमल दहनम् श्री गुरु चरणम्",
+          "transliteration": "Kalimala Dahanam Sri Guru Charanam",
+          "words": ["Kalimala", "Dahanam", "Sri", "Guru", "Charanam"]
+        },
+        {
+          "index": 3,
+          "original": "भव भय नाशन दुरित निवारण",
+          "transliteration": "Bhava Bhaya Nashana Duritha Nivarana",
+          "words": ["Bhava", "Bhaya", "Nashana", "Duritha", "Nivarana"]
+        },
+        {
+          "index": 4,
+          "original": "पार्थी पुरीश्वर पंकज चरणम्",
+          "transliteration": "Parthi Pureeshwara Pankaja Charanam",
+          "words": ["Parthi", "Pureeshwara", "Pankaja", "Charanam"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/sai-baba.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 3
+  },
+  {
+    "id": "bhajan-004",
+    "title": "Koti Pranam",
+    "deity": "sai",
+    "occasion": "Satsang / Darshan",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-004-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/koti-pranam-shata-koti-pranam",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "कोटि प्रणाम शत कोटि प्रणाम\nहे दीन नाथ साई राम\nतुम हो भक्तों के युग अवतार\nतुम हो आनन्द नन्द के लाल\nपार्थी पुरी के साई गोपाल",
+      "transliteration": "Koti Pranam Shata Koti Pranam\nHey Deena Natha Sai Ram\nTum Ho Bhakthon Ke Yuga Avatar\nTum Ho Ananda Nanda Ke Lal\nParthi Puri Ke Sai Gopal",
+      "translation": "Many repeated salutations to You Lord Sai, the refuge of the forlorn. You are the incarnation of our age, born for the devotees. You are the son of Nanda, the blissful one. You are Sai Gopala residing at Parthi.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "कोटि प्रणाम शत कोटि प्रणाम",
+          "transliteration": "Koti Pranam Shata Koti Pranam",
+          "words": ["Koti", "Pranam", "Shata", "Koti", "Pranam"]
+        },
+        {
+          "index": 1,
+          "original": "हे दीन नाथ साई राम",
+          "transliteration": "Hey Deena Natha Sai Ram",
+          "words": ["Hey", "Deena", "Natha", "Sai", "Ram"]
+        },
+        {
+          "index": 2,
+          "original": "तुम हो भक्तों के युग अवतार",
+          "transliteration": "Tum Ho Bhakthon Ke Yuga Avatar",
+          "words": ["Tum", "Ho", "Bhakthon", "Ke", "Yuga", "Avatar"]
+        },
+        {
+          "index": 3,
+          "original": "तुम हो आनन्द नन्द के लाल",
+          "transliteration": "Tum Ho Ananda Nanda Ke Lal",
+          "words": ["Tum", "Ho", "Ananda", "Nanda", "Ke", "Lal"]
+        },
+        {
+          "index": 4,
+          "original": "पार्थी पुरी के साई गोपाल",
+          "transliteration": "Parthi Puri Ke Sai Gopal",
+          "words": ["Parthi", "Puri", "Ke", "Sai", "Gopal"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/sai-baba.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-005",
+    "title": "Manasa Bhajorey Guru Charanam",
+    "deity": "sai",
+    "occasion": "Satsang / Guru Purnima",
+    "difficulty": 1,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-005-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/manasa-bhajorey-guru-charanam",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "मनसा भजोरे गुरु चरणम्\nदुस्तर भव सागर तरणम्\nगुरु महाराज गुरु जय जय\nसाई नाथ गुरु जय जय\nॐ नमः शिवाय ॐ नमः शिवाय\nअरुणाचल शिव अरुणाचल शिव",
+      "transliteration": "Manasa Bhajorey Guru Charanam\nDusthara Bhava Sagara Tharanam\nGuru Maharaj Guru Jai Jai\nSai Natha Guru Jai Jai\nOm Namah Shivaya Om Namah Shivaya\nArunachala Shiva Arunachala Shiva",
+      "translation": "O mind, worship at the feet of the Guru. Take refuge under His feet which enables us to cross the unconquerable ocean of life. Victory to the great Guru, victory to Lord Sai Natha. Chant Om Namah Shivaya, salutations to the Lord of Arunachala.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "मनसा भजोरे गुरु चरणम्",
+          "transliteration": "Manasa Bhajorey Guru Charanam",
+          "words": ["Manasa", "Bhajorey", "Guru", "Charanam"]
+        },
+        {
+          "index": 1,
+          "original": "दुस्तर भव सागर तरणम्",
+          "transliteration": "Dusthara Bhava Sagara Tharanam",
+          "words": ["Dusthara", "Bhava", "Sagara", "Tharanam"]
+        },
+        {
+          "index": 2,
+          "original": "गुरु महाराज गुरु जय जय",
+          "transliteration": "Guru Maharaj Guru Jai Jai",
+          "words": ["Guru", "Maharaj", "Guru", "Jai", "Jai"]
+        },
+        {
+          "index": 3,
+          "original": "साई नाथ गुरु जय जय",
+          "transliteration": "Sai Natha Guru Jai Jai",
+          "words": ["Sai", "Natha", "Guru", "Jai", "Jai"]
+        },
+        {
+          "index": 4,
+          "original": "ॐ नमः शिवाय ॐ नमः शिवाय",
+          "transliteration": "Om Namah Shivaya Om Namah Shivaya",
+          "words": ["Om", "Namah", "Shivaya", "Om", "Namah", "Shivaya"]
+        },
+        {
+          "index": 5,
+          "original": "अरुणाचल शिव अरुणाचल शिव",
+          "transliteration": "Arunachala Shiva Arunachala Shiva",
+          "words": ["Arunachala", "Shiva", "Arunachala", "Shiva"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/sai-baba.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 1
+  },
+  {
+    "id": "bhajan-006",
+    "title": "Amba Manda Haasa Vadani",
+    "deity": "devi",
+    "occasion": "Navaratri / Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-006-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/amba-manda-haasa-vadani",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "अम्बा मन्द हास वदनी मनोहारी साई जगत् जननी\nमाता माता माता जगत् जननी\nजगत् जननी शुभ कारिणी\nसाई जगन्माता\nसत्य साई जगन्माता",
+      "transliteration": "Amba Manda Haasa Vadani Manohari Sai Jagat Janani\nMata Mata Mata Jagat Janani\nJagat Janani Shubha Karini\nSai Jaganmata\nSathya Sai Jaganmata",
+      "translation": "Worship the auspicious Mother of the Universe, Mother Sai who has an enchanting face with a charming smile. She is the Mother of the world, the bestower of auspiciousness. Sathya Sai is the Mother of the entire creation.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "अम्बा मन्द हास वदनी मनोहारी साई जगत् जननी",
+          "transliteration": "Amba Manda Haasa Vadani Manohari Sai Jagat Janani",
+          "words": ["Amba", "Manda", "Haasa", "Vadani", "Manohari", "Sai", "Jagat", "Janani"]
+        },
+        {
+          "index": 1,
+          "original": "माता माता माता जगत् जननी",
+          "transliteration": "Mata Mata Mata Jagat Janani",
+          "words": ["Mata", "Mata", "Mata", "Jagat", "Janani"]
+        },
+        {
+          "index": 2,
+          "original": "जगत् जननी शुभ कारिणी",
+          "transliteration": "Jagat Janani Shubha Karini",
+          "words": ["Jagat", "Janani", "Shubha", "Karini"]
+        },
+        {
+          "index": 3,
+          "original": "साई जगन्माता",
+          "transliteration": "Sai Jaganmata",
+          "words": ["Sai", "Jaganmata"]
+        },
+        {
+          "index": 4,
+          "original": "सत्य साई जगन्माता",
+          "transliteration": "Sathya Sai Jaganmata",
+          "words": ["Sathya", "Sai", "Jaganmata"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/sai-baba.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-007",
+    "title": "Pavana Sutha Hanuman Ki Jai",
+    "deity": "anjaneya",
+    "occasion": "Tuesday Satsang / Hanuman Jayanthi",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-007-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/pavana-sutha-hanuman-ki-jai",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "पवन सुत हनुमान की जय\nसीता पति रामचन्द्र की जय\nपराक्रम अंजनेय की जय\nपार्थी पुरी साई नाथ की जय",
+      "transliteration": "Pavana Sutha Hanuman Ki Jai\nSita Pathi Ramachandra Ki Jai\nParakrama Anjaneya Ki Jai\nParthi Puri Sai Nath Ki Jai",
+      "translation": "Victory to Hanuman, the son of the wind God. Victory to the chosen Lord of Sita, Lord Ramachandra. Victory to the mighty son of Anjana Devi. Victory to the Lord of Parthi, Sai Nath.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "पवन सुत हनुमान की जय",
+          "transliteration": "Pavana Sutha Hanuman Ki Jai",
+          "words": ["Pavana", "Sutha", "Hanuman", "Ki", "Jai"]
+        },
+        {
+          "index": 1,
+          "original": "सीता पति रामचन्द्र की जय",
+          "transliteration": "Sita Pathi Ramachandra Ki Jai",
+          "words": ["Sita", "Pathi", "Ramachandra", "Ki", "Jai"]
+        },
+        {
+          "index": 2,
+          "original": "पराक्रम अंजनेय की जय",
+          "transliteration": "Parakrama Anjaneya Ki Jai",
+          "words": ["Parakrama", "Anjaneya", "Ki", "Jai"]
+        },
+        {
+          "index": 3,
+          "original": "पार्थी पुरी साई नाथ की जय",
+          "transliteration": "Parthi Puri Sai Nath Ki Jai",
+          "words": ["Parthi", "Puri", "Sai", "Nath", "Ki", "Jai"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/hanuman.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 3
   }
 ]

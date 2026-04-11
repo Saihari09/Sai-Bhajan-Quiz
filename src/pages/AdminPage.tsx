@@ -4,12 +4,12 @@ import { DEITY_OPTIONS } from '../types/bhajan'
 
 const EMPTY_BHAJAN: Omit<Bhajan, 'id'> = {
   title: '',
-  deity: 'sai-baba',
+  deity: 'sai',
   occasion: '',
   difficulty: 1,
   audio: { clipUrl: '', fullUrl: '', clipDurationSec: 20 },
   lyrics: { original: '', transliteration: '', translation: '', lines: [] },
-  deityImageUrl: 'images/deities/sai-baba.svg',
+  deityImageUrl: 'images/deities/sai-baba.jpeg',
   round2LineIndex: 0,
   round3LineIndex: 1,
 }

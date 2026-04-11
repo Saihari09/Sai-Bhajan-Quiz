@@ -220,7 +220,9 @@ export function HomePage() {
                     <span className="text-xs font-bold text-navy-600">{formatDisplayDate(p.date).split(' ')[1]}</span>
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-navy-700">{p.bhajan?.title || p.bhajanId}</p>
+                    <p className="text-sm font-semibold text-navy-700">
+                      {played ? (p.bhajan?.title || 'Bhajan') : `Puzzle — ${formatDisplayDate(p.date)}`}
+                    </p>
                     <div className="flex items-center gap-2">
                       <span className="text-xs text-gray-400">{formatDisplayDate(p.date)}</span>
                       {p.bhajan?.difficulty && <DifficultyStars level={p.bhajan.difficulty} />}
