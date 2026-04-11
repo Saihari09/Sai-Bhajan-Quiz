@@ -6,6 +6,7 @@ const EMPTY_BHAJAN: Omit<Bhajan, 'id'> = {
   title: '',
   deity: 'sai-baba',
   occasion: '',
+  difficulty: 1,
   audio: { clipUrl: '', fullUrl: '', clipDurationSec: 20 },
   lyrics: { original: '', transliteration: '', translation: '', lines: [] },
   deityImageUrl: 'images/deities/sai-baba.svg',

@@ -5,7 +5,7 @@ import { useGameStore } from '../store/gameStore'
 import { getTodayString, formatDisplayDate } from '../lib/dateUtils'
 import { loadSchedule, loadBhajans } from '../lib/schedule'
 import { useEffect, useState, useMemo } from 'react'
-import type { Bhajan, Schedule } from '../types/bhajan'
+import type { Bhajan } from '../types/bhajan'
 
 function DifficultyStars({ level }: { level: number }) {
   return (
