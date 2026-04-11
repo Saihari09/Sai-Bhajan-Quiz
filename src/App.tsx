@@ -24,6 +24,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/play" element={<GamePage />} />
+            <Route path="/play/:date" element={<GamePage />} />
             <Route path="/reveal" element={<RevealPage />} />
             <Route path="/admin" element={<AdminPage />} />
           </Routes>

@@ -1,27 +1,43 @@
 import { useState, useCallback, useEffect } from 'react'
-import { useNavigate } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useDailyBhajan } from '../hooks/useDailyBhajan'
 import { useGameStore } from '../store/gameStore'
 import { useStreakStore } from '../store/streakStore'
 import { calculateRoundScore, calculateFinalScore } from '../lib/scoring'
 import { getTodayString } from '../lib/dateUtils'
+import { getBhajanForDate, getTodayBhajan } from '../lib/schedule'
 import { ScorePopup } from '../components/game/ScorePopup'
 import { Round1Page } from './Round1Page'
 import { Round2Page } from './Round2Page'
 import { Round3Page } from './Round3Page'
+import type { Bhajan } from '../types/bhajan'
 import type { RoundNumber, RoundResult, DayResult } from '../types/game'
 
 const ROUND_LABELS = ['Round 1: Guess the Deity', 'Round 2: First Line', 'Round 3: Word Scramble']
 
 export function GamePage() {
   const navigate = useNavigate()
-  const { bhajan, loading, error } = useDailyBhajan()
+  const { date: dateParam } = useParams<{ date?: string }>()
+  const today = getTodayString()
+  const playingDate = dateParam || today
+  const isPastPuzzle = playingDate !== today
+
   const currentRound = useGameStore((s) => s.currentRound)
   const bhajanId = useGameStore((s) => s.bhajanId)
   const todayResult = useStreakStore((s) => s.todayResult)
   const [showPopup, setShowPopup] = useState(false)
   const [lastResult, setLastResult] = useState<RoundResult | null>(null)
+  const [bhajan, setBhajan] = useState<Bhajan | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const loader = isPastPuzzle ? getBhajanForDate(playingDate) : getTodayBhajan()
+    loader
+      .then(setBhajan)
+      .catch((e) => setError(e.message))
+      .finally(() => setLoading(false))
+  }, [playingDate, isPastPuzzle])
 
   useEffect(() => {
     if (bhajan && !bhajanId) {
@@ -30,10 +46,10 @@ export function GamePage() {
   }, [bhajan, bhajanId])
 
   useEffect(() => {
-    if (todayResult) {
+    if (!isPastPuzzle && todayResult) {
       navigate('/reveal', { replace: true })
     }
-  }, [todayResult, navigate])
+  }, [todayResult, navigate, isPastPuzzle])
 
   const handleRoundComplete = useCallback((round: RoundNumber, isCorrect: boolean, timeSpentMs: number, userAnswer: string, correctAnswer: string) => {
     const result = calculateRoundScore(round, isCorrect, timeSpentMs, userAnswer, correctAnswer)
@@ -51,35 +67,37 @@ export function GamePage() {
     } else {
       game.markComplete()
       const allResults = game.roundResults
-      const today = getTodayString()
 
       const allCorrect = allResults.every(r => r.isCorrect)
-      const streak = useStreakStore.getState()
-      if (!allCorrect) {
-        streak.resetStreak()
-      } else {
-        streak.incrementStreak()
+
+      if (!isPastPuzzle) {
+        const streak = useStreakStore.getState()
+        if (!allCorrect) {
+          streak.resetStreak()
+        } else {
+          streak.incrementStreak()
+        }
       }
 
       const { roundTotal, streakBonus, finalScore } = calculateFinalScore(
         allResults,
-        useStreakStore.getState().currentStreak
+        isPastPuzzle ? 0 : useStreakStore.getState().currentStreak
       )
 
       const dayResult: DayResult = {
-        date: today,
+        date: playingDate,
         bhajanId: game.bhajanId,
         roundResults: allResults,
         totalScore: roundTotal,
-        streakBonus,
-        finalScore,
+        streakBonus: isPastPuzzle ? 0 : streakBonus,
+        finalScore: isPastPuzzle ? roundTotal : finalScore,
         allCorrect,
       }
 
       useStreakStore.getState().recordDay(dayResult)
       navigate('/reveal')
     }
-  }, [navigate])
+  }, [navigate, isPastPuzzle, playingDate])
 
   if (loading) {
     return (
@@ -92,13 +110,18 @@ export function GamePage() {
   if (error || !bhajan) {
     return (
       <div className="flex-1 flex items-center justify-center p-8">
-        <p className="text-red-500">Failed to load today's bhajan. Please try again.</p>
+        <p className="text-red-500">Failed to load bhajan. Please try again.</p>
       </div>
     )
   }
 
   return (
     <div className="flex-1 py-4">
+      {isPastPuzzle && (
+        <div className="mx-4 mb-3 px-3 py-2 bg-saffron-50 border border-saffron-200 rounded-xl text-center">
+          <p className="text-xs text-saffron-700 font-medium">Playing past puzzle — streaks not affected</p>
+        </div>
+      )}
       <AnimatePresence mode="wait">
         <motion.div
           key={currentRound}
