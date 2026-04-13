@@ -235,6 +235,20 @@ export function RevealPage() {
           ))}
         </motion.div>
       )}
+
+      {/* Support link */}
+      <motion.a
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6 }}
+        href="https://buymeacoffee.com/sai09"
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => trackEvent('donate_click')}
+        className="block text-center text-xs text-saffron-500 font-medium hover:text-saffron-600 transition-colors pt-2 pb-4"
+      >
+        🙏 Support this app
+      </motion.a>
     </div>
   )
 }

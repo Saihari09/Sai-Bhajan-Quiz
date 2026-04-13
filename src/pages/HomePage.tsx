@@ -6,6 +6,7 @@ import { getTodayString, formatDisplayDate } from '../lib/dateUtils'
 import { loadSchedule, loadBhajans } from '../lib/schedule'
 import { useEffect, useState, useMemo } from 'react'
 import type { Bhajan } from '../types/bhajan'
+import { trackEvent } from '../lib/analytics'
 
 function DifficultyStars({ level }: { level: number }) {
   return (
@@ -245,15 +246,26 @@ export function HomePage() {
         </motion.div>
       )}
 
-      {/* Footer quote */}
-      <motion.p
+      {/* Footer */}
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8 }}
-        className="text-xs text-gray-400 italic text-center mt-auto pt-4"
+        className="text-center mt-auto pt-4 space-y-2"
       >
-        "Life is a song, sing it" — Sri Sathya Sai Baba
-      </motion.p>
+        <p className="text-xs text-gray-400 italic">
+          "Life is a song, sing it" — Sri Sathya Sai Baba
+        </p>
+        <a
+          href="https://buymeacoffee.com/sai09"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackEvent('donate_click')}
+          className="inline-block text-xs text-saffron-500 font-medium hover:text-saffron-600 transition-colors"
+        >
+          🙏 Support this app
+        </a>
+      </motion.div>
 
       {/* How to Play Modal */}
       <AnimatePresence>
