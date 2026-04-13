@@ -16,3 +16,10 @@ export function checkWordOrder(placed: string[], correct: string[]): boolean {
   if (placed.length !== correct.length) return false
   return placed.every((word, i) => word === correct[i])
 }
+
+/** Returns fraction of words in the correct position (0 to 1) */
+export function wordAccuracy(placed: string[], correct: string[]): number {
+  if (correct.length === 0) return 0
+  const matches = placed.filter((word, i) => word === correct[i]).length
+  return matches / correct.length
+}

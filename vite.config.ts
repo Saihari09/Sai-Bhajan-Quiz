@@ -27,6 +27,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,webp,woff2}'],
+        navigateFallbackDenylist: [/OneSignalSDKWorker\.js$/],
         runtimeCaching: [
           {
             urlPattern: /\/audio\/clips\/.+\.mp3$/,
@@ -39,7 +40,7 @@ export default defineConfig({
             options: { cacheName: 'bhajan-data', expiration: { maxAgeSeconds: 24 * 60 * 60 } },
           },
           {
-            urlPattern: /\/images\/deities\/.+\.webp$/,
+            urlPattern: /\/images\/deities\/.+\.(jpg|jpeg|png|webp)$/,
             handler: 'CacheFirst',
             options: { cacheName: 'deity-images', expiration: { maxEntries: 20 } },
           },

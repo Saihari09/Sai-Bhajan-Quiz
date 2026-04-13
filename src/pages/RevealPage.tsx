@@ -7,6 +7,7 @@ import { useGameStore } from '../store/gameStore'
 import { generateShareText, shareResult } from '../lib/shareFormatter'
 import { loadSchedule } from '../lib/schedule'
 import { getTodayString, formatDisplayDate } from '../lib/dateUtils'
+import { trackEvent } from '../lib/analytics'
 
 export function RevealPage() {
   const navigate = useNavigate()
@@ -51,6 +52,7 @@ export function RevealPage() {
   const handleShare = async () => {
     const text = generateShareText(todayResult, bhajan.title, streakStore.currentStreak)
     await shareResult(text)
+    trackEvent('share_score')
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
@@ -73,7 +75,7 @@ export function RevealPage() {
               <div key={i} className="bg-gray-50 rounded-xl overflow-hidden">
                 <div className="flex items-center justify-between px-4 py-2.5">
                   <span className="text-sm font-medium text-gray-600">
-                    {r.isCorrect ? '✅' : '❌'} {roundLabels[i]}
+                    {r.isCorrect ? '✅' : (r.totalPoints > 0 ? '🟡' : '❌')} {roundLabels[i]}
                   </span>
                   <span className="font-black text-navy-700">{r.totalPoints} pts</span>
                 </div>

@@ -16,34 +16,53 @@ export function calculateRoundScore(
   timeSpentMs: number,
   userAnswer: string,
   correctAnswer: string,
+  accuracy?: number,
 ): RoundResult {
   const config = ROUND_CONFIGS[round]
 
-  if (!isCorrect) {
+  // Perfect answer → full base + speed bonus
+  if (isCorrect) {
+    const timeRatio = Math.max(0, 1 - timeSpentMs / config.timeLimitMs)
+    const speedBonus = Math.round(config.maxSpeedBonus * timeRatio)
     return {
       round,
-      isCorrect: false,
+      isCorrect: true,
       timeSpentMs,
       timeLimitMs: config.timeLimitMs,
-      basePoints: 0,
-      speedBonus: 0,
-      totalPoints: 0,
+      basePoints: config.basePoints,
+      speedBonus,
+      totalPoints: config.basePoints + speedBonus,
       userAnswer,
       correctAnswer,
     }
   }
 
-  const timeRatio = Math.max(0, 1 - timeSpentMs / config.timeLimitMs)
-  const speedBonus = Math.round(config.maxSpeedBonus * timeRatio)
+  // Partial credit for rounds 2 & 3 (word order) — proportional base points, no speed bonus
+  const ratio = accuracy ?? 0
+  if (ratio > 0 && (round === 2 || round === 3)) {
+    const partialBase = Math.round(config.basePoints * ratio)
+    return {
+      round,
+      isCorrect: false,
+      timeSpentMs,
+      timeLimitMs: config.timeLimitMs,
+      basePoints: partialBase,
+      speedBonus: 0,
+      totalPoints: partialBase,
+      userAnswer,
+      correctAnswer,
+    }
+  }
 
+  // Completely wrong → 0
   return {
     round,
-    isCorrect: true,
+    isCorrect: false,
     timeSpentMs,
     timeLimitMs: config.timeLimitMs,
-    basePoints: config.basePoints,
-    speedBonus,
-    totalPoints: config.basePoints + speedBonus,
+    basePoints: 0,
+    speedBonus: 0,
+    totalPoints: 0,
     userAnswer,
     correctAnswer,
   }

@@ -12,6 +12,9 @@ import { Round2Page } from './Round2Page'
 import { Round3Page } from './Round3Page'
 import type { Bhajan } from '../types/bhajan'
 import type { RoundNumber, RoundResult, DayResult } from '../types/game'
+import { trackEvent } from '../lib/analytics'
+import { hasNotificationPermission } from '../lib/notifications'
+import { NotificationPrompt } from '../components/NotificationPrompt'
 
 const ROUND_LABELS = ['Round 1: Guess the Deity', 'Round 2: First Line', 'Round 3: Word Scramble']
 
@@ -30,6 +33,7 @@ export function GamePage() {
   const [bhajan, setBhajan] = useState<Bhajan | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [showNotifPrompt, setShowNotifPrompt] = useState(false)
 
   useEffect(() => {
     const loader = isPastPuzzle ? getBhajanForDate(playingDate) : getTodayBhajan()
@@ -42,6 +46,7 @@ export function GamePage() {
   useEffect(() => {
     if (bhajan && !bhajanId) {
       useGameStore.getState().startGame(bhajan.id)
+      trackEvent('game_start', playingDate)
     }
   }, [bhajan, bhajanId])
 
@@ -51,12 +56,14 @@ export function GamePage() {
     }
   }, [todayResult, navigate, isPastPuzzle])
 
-  const handleRoundComplete = useCallback((round: RoundNumber, isCorrect: boolean, timeSpentMs: number, userAnswer: string, correctAnswer: string) => {
-    const result = calculateRoundScore(round, isCorrect, timeSpentMs, userAnswer, correctAnswer)
+  const handleRoundComplete = useCallback((round: RoundNumber, isCorrect: boolean, timeSpentMs: number, userAnswer: string, correctAnswer: string, accuracy?: number) => {
+    const result = calculateRoundScore(round, isCorrect, timeSpentMs, userAnswer, correctAnswer, accuracy)
     useGameStore.getState().addRoundResult(result)
+    const status = isCorrect ? 'correct' : (result.totalPoints > 0 ? 'partial' : 'incorrect')
+    trackEvent(`round_${round}_${status}`, playingDate)
     setLastResult(result)
     setShowPopup(true)
-  }, [])
+  }, [playingDate])
 
   const handleContinue = useCallback(() => {
     setShowPopup(false)
@@ -95,6 +102,15 @@ export function GamePage() {
       }
 
       useStreakStore.getState().recordDay(dayResult)
+      trackEvent('game_complete', playingDate)
+
+      // Show notification prompt after first game
+      const totalPlayed = useStreakStore.getState().totalGamesPlayed
+      if (totalPlayed === 1 && !hasNotificationPermission()) {
+        setShowNotifPrompt(true)
+        return
+      }
+
       navigate('/reveal')
     }
   }, [navigate, isPastPuzzle, playingDate])
@@ -139,13 +155,13 @@ export function GamePage() {
           {currentRound === 2 && (
             <Round2Page
               bhajan={bhajan}
-              onComplete={(correct, time, userAns, correctAns) => handleRoundComplete(2, correct, time, userAns, correctAns)}
+              onComplete={(correct, time, userAns, correctAns, accuracy) => handleRoundComplete(2, correct, time, userAns, correctAns, accuracy)}
             />
           )}
           {currentRound === 3 && (
             <Round3Page
               bhajan={bhajan}
-              onComplete={(correct, time, userAns, correctAns) => handleRoundComplete(3, correct, time, userAns, correctAns)}
+              onComplete={(correct, time, userAns, correctAns, accuracy) => handleRoundComplete(3, correct, time, userAns, correctAns, accuracy)}
             />
           )}
         </motion.div>
@@ -156,6 +172,15 @@ export function GamePage() {
           result={lastResult}
           roundLabel={ROUND_LABELS[lastResult.round - 1]}
           onContinue={handleContinue}
+        />
+      )}
+
+      {showNotifPrompt && (
+        <NotificationPrompt
+          onClose={() => {
+            setShowNotifPrompt(false)
+            navigate('/reveal')
+          }}
         />
       )}
     </div>

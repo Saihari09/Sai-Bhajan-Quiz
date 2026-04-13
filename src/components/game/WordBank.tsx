@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { WordTile } from './WordTile'
-import { shuffleWords, checkWordOrder } from '../../lib/wordShuffle'
+import { shuffleWords, checkWordOrder, wordAccuracy } from '../../lib/wordShuffle'
 
 interface WordBankProps {
   correctWords: string[]
-  onAnswer: (isCorrect: boolean, userWords: string[]) => void
+  onAnswer: (isCorrect: boolean, userWords: string[], accuracy: number) => void
 }
 
 export function WordBank({ correctWords, onAnswer }: WordBankProps) {
@@ -20,7 +20,8 @@ export function WordBank({ correctWords, onAnswer }: WordBankProps) {
     if (allPlaced && !submitted) {
       setSubmitted(true)
       const isCorrect = checkWordOrder(placedWords, correctWords)
-      setTimeout(() => onAnswer(isCorrect, [...placedWords]), 400)
+      const accuracy = isCorrect ? 1 : wordAccuracy(placedWords, correctWords)
+      setTimeout(() => onAnswer(isCorrect, [...placedWords], accuracy), 400)
     }
   }, [allPlaced, submitted, placedWords, correctWords, onAnswer])
 

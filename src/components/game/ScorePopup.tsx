@@ -8,6 +8,11 @@ interface ScorePopupProps {
 }
 
 export function ScorePopup({ result, roundLabel, onContinue }: ScorePopupProps) {
+  const isPartial = !result.isCorrect && result.totalPoints > 0
+
+  const emoji = result.isCorrect ? '✅' : isPartial ? '🟡' : '❌'
+  const message = result.isCorrect ? 'Well done!' : isPartial ? 'Almost there!' : 'Better luck next time'
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -21,29 +26,31 @@ export function ScorePopup({ result, roundLabel, onContinue }: ScorePopupProps) 
         className="bg-white rounded-3xl p-8 w-full max-w-sm text-center shadow-2xl"
       >
         <div className="text-5xl mb-3">
-          {result.isCorrect ? '✅' : '❌'}
+          {emoji}
         </div>
         <h2 className="text-lg font-black text-navy-700 mb-1">{roundLabel}</h2>
         <p className="text-gray-400 text-sm mb-5">
-          {result.isCorrect ? 'Well done!' : 'Better luck next time'}
+          {message}
         </p>
 
-        {result.isCorrect && (
+        {(result.isCorrect || isPartial) && (
           <div className="space-y-1 mb-5">
             <div className="flex justify-between px-4 text-sm">
               <span className="text-gray-500">Base</span>
               <span className="font-bold text-navy-600">{result.basePoints} pts</span>
             </div>
-            <div className="flex justify-between px-4 text-sm">
-              <span className="text-gray-500">Speed bonus</span>
-              <span className="font-bold text-saffron-600">+{result.speedBonus} pts</span>
-            </div>
+            {result.speedBonus > 0 && (
+              <div className="flex justify-between px-4 text-sm">
+                <span className="text-gray-500">Speed bonus</span>
+                <span className="font-bold text-saffron-600">+{result.speedBonus} pts</span>
+              </div>
+            )}
             <div className="border-t border-gray-100 pt-3 mt-3">
               <motion.p
                 initial={{ scale: 0.5 }}
                 animate={{ scale: 1 }}
                 transition={{ type: 'spring', damping: 8 }}
-                className="text-4xl font-black text-saffron-600"
+                className={`text-4xl font-black ${isPartial ? 'text-amber-500' : 'text-saffron-600'}`}
               >
                 {result.totalPoints}
               </motion.p>

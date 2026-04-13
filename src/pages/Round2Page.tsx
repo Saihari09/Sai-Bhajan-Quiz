@@ -9,7 +9,7 @@ import { getTimeLimitMs } from '../lib/scoring'
 
 interface Round2Props {
   bhajan: Bhajan
-  onComplete: (isCorrect: boolean, timeSpentMs: number, userAnswer: string, correctAnswer: string) => void
+  onComplete: (isCorrect: boolean, timeSpentMs: number, userAnswer: string, correctAnswer: string, accuracy?: number) => void
 }
 
 export function Round2Page({ bhajan, onComplete }: Round2Props) {
@@ -23,11 +23,11 @@ export function Round2Page({ bhajan, onComplete }: Round2Props) {
     return () => clearTimeout(id)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const handleAnswer = useCallback((isCorrect: boolean, userWords: string[]) => {
+  const handleAnswer = useCallback((isCorrect: boolean, userWords: string[], accuracy: number) => {
     if (answeredRef.current) return
     answeredRef.current = true
     timer.pause()
-    onComplete(isCorrect, timer.elapsedMs, userWords.join(' '), line.words.join(' '))
+    onComplete(isCorrect, timer.elapsedMs, userWords.join(' '), line.words.join(' '), accuracy)
   }, [timer, onComplete, line.words])
 
   return (
