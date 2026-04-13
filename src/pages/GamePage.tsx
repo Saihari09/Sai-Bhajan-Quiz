@@ -51,10 +51,10 @@ export function GamePage() {
   }, [bhajan, bhajanId])
 
   useEffect(() => {
-    if (!isPastPuzzle && todayResult) {
+    if (!isPastPuzzle && todayResult && !showNotifPrompt) {
       navigate('/reveal', { replace: true })
     }
-  }, [todayResult, navigate, isPastPuzzle])
+  }, [todayResult, navigate, isPastPuzzle, showNotifPrompt])
 
   const handleRoundComplete = useCallback((round: RoundNumber, isCorrect: boolean, timeSpentMs: number, userAnswer: string, correctAnswer: string, accuracy?: number) => {
     const result = calculateRoundScore(round, isCorrect, timeSpentMs, userAnswer, correctAnswer, accuracy)
