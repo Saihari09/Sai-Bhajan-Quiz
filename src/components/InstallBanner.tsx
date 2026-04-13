@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInstallStore } from '../store/installStore'
+import { useStreakStore } from '../store/streakStore'
 import { getDeferredPrompt, clearDeferredPrompt } from '../lib/installPrompt'
 import { trackEvent } from '../lib/analytics'
 
@@ -15,31 +17,47 @@ function isStandalone(): boolean {
 
 export function InstallBanner() {
   const store = useInstallStore()
+  const totalGamesPlayed = useStreakStore((s) => s.totalGamesPlayed)
+  const location = useLocation()
   const [visible, setVisible] = useState(false)
   const [iosDevice, setIosDevice] = useState(false)
   const [showSteps, setShowSteps] = useState(false)
 
   useEffect(() => {
-    if (isStandalone()) return
-    if (store.installAcceptedAt) return
-    if (store.visitCount < 2) return
+    // Hide during gameplay (notification prompt may be showing)
+    if (location.pathname.startsWith('/play')) {
+      setVisible(false)
+      return
+    }
 
+    // Already running as installed PWA
+    if (isStandalone()) return
+
+    // User already installed
+    if (store.installAcceptedAt) return
+
+    // Wait until user has completed at least one game
+    if (totalGamesPlayed < 1) return
+
+    // Dismissed less than 7 days ago
     if (store.promptDismissedAt) {
       const dismissedMs = new Date(store.promptDismissedAt).getTime()
       const sevenDaysMs = 7 * 24 * 60 * 60 * 1000
       if (Date.now() - dismissedMs < sevenDaysMs) return
     }
 
+    // iOS — show manual instructions
     if (isIOS()) {
       setIosDevice(true)
       setVisible(true)
       return
     }
 
+    // Chromium — check for deferred prompt
     if (getDeferredPrompt()) {
       setVisible(true)
     }
-  }, [store.visitCount, store.installAcceptedAt, store.promptDismissedAt])
+  }, [store.installAcceptedAt, store.promptDismissedAt, location.pathname, totalGamesPlayed])
 
   const handleInstall = async () => {
     const prompt = getDeferredPrompt()
