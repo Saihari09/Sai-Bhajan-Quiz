@@ -13,8 +13,9 @@ import { Round3Page } from './Round3Page'
 import type { Bhajan } from '../types/bhajan'
 import type { RoundNumber, RoundResult, DayResult } from '../types/game'
 import { trackEvent } from '../lib/analytics'
-import { hasNotificationPermission } from '../lib/notifications'
+import { hasNotificationPermission, isNotificationSupported } from '../lib/notifications'
 import { NotificationPrompt } from '../components/NotificationPrompt'
+import { useInstallStore } from '../store/installStore'
 
 const ROUND_LABELS = ['Round 1: Guess the Deity', 'Round 2: First Line', 'Round 3: Word Scramble']
 
@@ -44,11 +45,15 @@ export function GamePage() {
   }, [playingDate, isPastPuzzle])
 
   useEffect(() => {
-    if (bhajan && !bhajanId) {
+    // Only start a fresh game if there's no persisted game OR the persisted
+    // game is for a different bhajan (e.g. user played yesterday's past puzzle
+    // and now moved on to today's). If bhajanId matches, we're resuming —
+    // don't reset currentRound.
+    if (bhajan && bhajanId !== bhajan.id) {
       useGameStore.getState().startGame(bhajan.id)
       trackEvent('game_start', playingDate)
     }
-  }, [bhajan, bhajanId])
+  }, [bhajan, bhajanId, playingDate])
 
   useEffect(() => {
     if (!isPastPuzzle && todayResult && !showNotifPrompt) {
@@ -104,11 +109,19 @@ export function GamePage() {
       useStreakStore.getState().recordDay(dayResult)
       trackEvent('game_complete', playingDate)
 
-      // Show notification prompt after first game
-      const totalPlayed = useStreakStore.getState().totalGamesPlayed
-      if (totalPlayed === 1 && !hasNotificationPermission()) {
-        setShowNotifPrompt(true)
-        return
+      // Show notification prompt if the user hasn't enabled yet and hasn't
+      // dismissed the prompt in the last 7 days. Works for first-time AND
+      // returning users (previously only fired on the very first game).
+      if (isNotificationSupported() && !hasNotificationPermission()) {
+        const { notifPromptDismissedAt } = useInstallStore.getState()
+        const sevenDaysMs = 7 * 24 * 60 * 60 * 1000
+        const recentlyDismissed =
+          notifPromptDismissedAt !== null &&
+          Date.now() - new Date(notifPromptDismissedAt).getTime() < sevenDaysMs
+        if (!recentlyDismissed) {
+          setShowNotifPrompt(true)
+          return
+        }
       }
 
       navigate('/reveal')

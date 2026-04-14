@@ -7,6 +7,7 @@ import { loadSchedule, loadBhajans } from '../lib/schedule'
 import { useEffect, useState, useMemo } from 'react'
 import type { Bhajan } from '../types/bhajan'
 import { trackEvent } from '../lib/analytics'
+import { hasNotificationPermission, isNotificationSupported, requestNotificationPermission } from '../lib/notifications'
 
 function DifficultyStars({ level }: { level: number }) {
   return (
@@ -56,6 +57,14 @@ export function HomePage() {
   const today = getTodayString()
   const [showHowToPlay, setShowHowToPlay] = useState(false)
   const [pastPuzzles, setPastPuzzles] = useState<{ date: string; bhajanId: string; bhajan?: Bhajan }[]>([])
+  const [notifHidden, setNotifHidden] = useState(false)
+  const showNotifLink = isNotificationSupported() && !hasNotificationPermission() && !notifHidden
+
+  const handleEnableNotifications = () => {
+    requestNotificationPermission()
+    trackEvent('notification_enable')
+    setNotifHidden(true)
+  }
 
   const alreadyPlayed = streakStore.todayResult !== null
 
@@ -265,6 +274,16 @@ export function HomePage() {
         >
           🙏 Support this app
         </a>
+        {showNotifLink && (
+          <div>
+            <button
+              onClick={handleEnableNotifications}
+              className="inline-block text-xs text-navy-500 font-medium hover:text-navy-600 transition-colors"
+            >
+              🔔 Enable daily reminders
+            </button>
+          </div>
+        )}
       </motion.div>
 
       {/* How to Play Modal */}

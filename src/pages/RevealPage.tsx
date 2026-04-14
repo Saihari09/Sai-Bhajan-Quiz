@@ -236,6 +236,17 @@ export function RevealPage() {
         </motion.div>
       )}
 
+      {/* Back to Home */}
+      <motion.button
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+        onClick={() => navigate('/')}
+        className="w-full py-4 bg-navy-600 text-white font-bold rounded-2xl active:bg-navy-700 transition-colors shadow-md"
+      >
+        Back to Home
+      </motion.button>
+
       {/* Support link */}
       <motion.a
         initial={{ opacity: 0 }}

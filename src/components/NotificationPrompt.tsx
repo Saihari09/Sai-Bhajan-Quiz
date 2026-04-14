@@ -1,15 +1,23 @@
 import { motion } from 'framer-motion'
 import { requestNotificationPermission } from '../lib/notifications'
 import { trackEvent } from '../lib/analytics'
+import { useInstallStore } from '../store/installStore'
 
 interface Props {
   onClose: () => void
 }
 
 export function NotificationPrompt({ onClose }: Props) {
+  const dismissNotifPrompt = useInstallStore((s) => s.dismissNotifPrompt)
+
   const handleEnable = () => {
     requestNotificationPermission()
     trackEvent('notification_enable')
+    onClose()
+  }
+
+  const handleDismiss = () => {
+    dismissNotifPrompt()
     onClose()
   }
 
@@ -19,7 +27,7 @@ export function NotificationPrompt({ onClose }: Props) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 z-50 flex items-center justify-center px-5 bg-black/50 backdrop-blur-sm"
-      onClick={onClose}
+      onClick={handleDismiss}
     >
       <motion.div
         initial={{ scale: 0.85, opacity: 0 }}
@@ -42,7 +50,7 @@ export function NotificationPrompt({ onClose }: Props) {
             Enable Notifications
           </button>
           <button
-            onClick={onClose}
+            onClick={handleDismiss}
             className="w-full py-3 text-sm font-bold text-gray-400 active:text-gray-500"
           >
             Maybe later
