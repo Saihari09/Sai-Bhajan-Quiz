@@ -1,10 +1,15 @@
 /**
  * OneSignal push notification integration.
  * Uses the CDN-loaded OneSignalSDK (window.OneSignalDeferred).
+ *
+ * NOTE: OneSignal v16 ignores serviceWorkerPath in init(). Service worker
+ * path for subpath-hosted sites (/Sai-Bhajan-Quiz/) must be configured in
+ * the OneSignal dashboard under:
+ *   Settings → Push & In-App → Web → Advanced settings → Service workers
+ *   "Path to service worker files" = /Sai-Bhajan-Quiz/
  */
 
 const ONESIGNAL_APP_ID = 'd8981f9d-031f-4afb-8158-3e4f557eea5a'
-const BASE_PATH = '/Sai-Bhajan-Quiz/'
 
 declare global {
   interface Window {
@@ -15,8 +20,6 @@ declare global {
 interface OneSignalApi {
   init: (config: {
     appId: string
-    serviceWorkerPath?: string
-    serviceWorkerParam?: { scope: string }
     allowLocalhostAsSecureOrigin?: boolean
   }) => Promise<void>
   Notifications: {
@@ -37,8 +40,6 @@ export function initOneSignal(): void {
     try {
       await OneSignal.init({
         appId: ONESIGNAL_APP_ID,
-        serviceWorkerPath: `${BASE_PATH}OneSignalSDKWorker.js`,
-        serviceWorkerParam: { scope: BASE_PATH },
         allowLocalhostAsSecureOrigin: import.meta.env.DEV,
       })
       console.log('[OneSignal] init success')
