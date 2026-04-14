@@ -81,13 +81,17 @@ export function GamePage() {
       const allResults = game.roundResults
 
       const allCorrect = allResults.every(r => r.isCorrect)
+      const anyPoints = allResults.some(r => r.totalPoints > 0)
 
       if (!isPastPuzzle) {
         const streak = useStreakStore.getState()
-        if (!allCorrect) {
-          streak.resetStreak()
-        } else {
+        if (allCorrect) {
           streak.incrementStreak()
+        } else if (!anyPoints) {
+          // Complete whiff (0 points everywhere) → reset.
+          // Partial-credit days hold the streak steady — they don't extend it
+          // but they don't punish engagement either.
+          streak.resetStreak()
         }
       }
 

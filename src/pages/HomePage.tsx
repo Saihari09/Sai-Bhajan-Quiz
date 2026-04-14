@@ -334,7 +334,7 @@ export function HomePage() {
 
               <div className="mt-4 p-3 bg-saffron-50 rounded-xl border border-saffron-100">
                 <p className="text-xs text-gray-600 text-center">
-                  Answer faster for bonus points. Get all 3 right to keep your streak!
+                  Answer faster for bonus points. Get all 3 right to extend your streak!
                 </p>
               </div>
 
