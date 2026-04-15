@@ -7,7 +7,8 @@ import { loadSchedule, loadBhajans } from '../lib/schedule'
 import { useEffect, useState, useMemo } from 'react'
 import type { Bhajan } from '../types/bhajan'
 import { trackEvent } from '../lib/analytics'
-import { hasNotificationPermission, isNotificationSupported, requestNotificationPermission } from '../lib/notifications'
+import { isNotificationSupported, requestNotificationPermission } from '../lib/notifications'
+import { useInstallStore } from '../store/installStore'
 
 function DifficultyStars({ level }: { level: number }) {
   return (
@@ -57,13 +58,21 @@ export function HomePage() {
   const today = getTodayString()
   const [showHowToPlay, setShowHowToPlay] = useState(false)
   const [pastPuzzles, setPastPuzzles] = useState<{ date: string; bhajanId: string; bhajan?: Bhajan }[]>([])
-  const [notifHidden, setNotifHidden] = useState(false)
-  const showNotifLink = isNotificationSupported() && !hasNotificationPermission() && !notifHidden
+  const notifEnableClickedAt = useInstallStore((s) => s.notifEnableClickedAt)
+  // Native permission — 'default' means user hasn't decided yet. We only
+  // surface the link in that state; 'granted' (already on) and 'denied'
+  // (don't nag) both hide it. Once the user has clicked once, we also hide
+  // it persistently so it doesn't reappear on every reload.
+  const permission = typeof Notification !== 'undefined' ? Notification.permission : 'denied'
+  const showNotifLink =
+    isNotificationSupported() &&
+    permission === 'default' &&
+    !notifEnableClickedAt
 
   const handleEnableNotifications = () => {
     requestNotificationPermission()
     trackEvent('notification_enable')
-    setNotifHidden(true)
+    useInstallStore.getState().markNotifEnableClicked()
   }
 
   const alreadyPlayed = streakStore.todayResult !== null

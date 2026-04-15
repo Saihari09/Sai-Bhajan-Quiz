@@ -6,6 +6,7 @@ interface InstallState {
   installAcceptedAt: string | null
   visitCount: number
   notifPromptDismissedAt: string | null
+  notifEnableClickedAt: string | null
 }
 
 interface InstallActions {
@@ -13,6 +14,7 @@ interface InstallActions {
   dismissPrompt: () => void
   acceptInstall: () => void
   dismissNotifPrompt: () => void
+  markNotifEnableClicked: () => void
 }
 
 type InstallStore = InstallState & InstallActions
@@ -24,6 +26,7 @@ export const useInstallStore = create<InstallStore>()(
       installAcceptedAt: null,
       visitCount: 0,
       notifPromptDismissedAt: null,
+      notifEnableClickedAt: null,
 
       incrementVisit: () =>
         set((s) => ({ visitCount: s.visitCount + 1 })),
@@ -36,6 +39,9 @@ export const useInstallStore = create<InstallStore>()(
 
       dismissNotifPrompt: () =>
         set({ notifPromptDismissedAt: new Date().toISOString() }),
+
+      markNotifEnableClicked: () =>
+        set({ notifEnableClickedAt: new Date().toISOString() }),
     }),
     {
       name: 'sai-bhajan-install',
