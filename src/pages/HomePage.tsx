@@ -2,25 +2,12 @@ import { useNavigate } from 'react-router'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useStreakStore } from '../store/streakStore'
 import { useGameStore } from '../store/gameStore'
-import { getTodayString, formatDisplayDate } from '../lib/dateUtils'
-import { loadSchedule, loadBhajans } from '../lib/schedule'
+import { getTodayString } from '../lib/dateUtils'
+import { loadSchedule } from '../lib/schedule'
 import { useEffect, useState, useMemo } from 'react'
-import type { Bhajan } from '../types/bhajan'
 import { trackEvent } from '../lib/analytics'
 import { isNotificationSupported, requestNotificationPermission } from '../lib/notifications'
 import { useInstallStore } from '../store/installStore'
-
-function DifficultyStars({ level }: { level: number }) {
-  return (
-    <span className="inline-flex gap-0.5">
-      {[1, 2, 3].map((i) => (
-        <svg key={i} className={`w-3.5 h-3.5 ${i <= level ? 'text-saffron-500' : 'text-gray-200'}`} fill="currentColor" viewBox="0 0 20 20">
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
-      ))}
-    </span>
-  )
-}
 
 function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState('')
@@ -57,7 +44,8 @@ export function HomePage() {
   const gameStore = useGameStore()
   const today = getTodayString()
   const [showHowToPlay, setShowHowToPlay] = useState(false)
-  const [pastPuzzles, setPastPuzzles] = useState<{ date: string; bhajanId: string; bhajan?: Bhajan }[]>([])
+  const [hasPastPuzzles, setHasPastPuzzles] = useState(false)
+  const [unplayedPastCount, setUnplayedPastCount] = useState(0)
   const notifEnableClickedAt = useInstallStore((s) => s.notifEnableClickedAt)
   // Native permission — 'default' means user hasn't decided yet. We only
   // surface the link in that state; 'granted' (already on) and 'denied'
@@ -83,27 +71,20 @@ export function HomePage() {
   }, [today])
 
   useEffect(() => {
-    Promise.all([loadSchedule(), loadBhajans()]).then(([schedule, bhajans]) => {
-      if (!schedule || !bhajans) return
-      const past = schedule.schedule
-        .filter((s: { date: string; bhajanId: string }) => s.date < today)
-        .map((s: { date: string; bhajanId: string }) => ({
-          ...s,
-          bhajan: bhajans.find((b: Bhajan) => b.id === s.bhajanId),
-        }))
-        .reverse()
-      setPastPuzzles(past)
+    loadSchedule().then((schedule) => {
+      if (!schedule) return
+      const playedDates = new Set(useStreakStore.getState().history.map((h) => h.date))
+      const past = schedule.schedule.filter((s) => s.date < today)
+      setHasPastPuzzles(past.length > 0)
+      setUnplayedPastCount(past.filter((s) => !playedDates.has(s.date)).length)
     }).catch(() => {})
-  }, [today])
+  }, [today, streakStore.history])
 
   const winPercent = useMemo(() => {
     if (streakStore.totalGamesPlayed === 0) return 0
     const wins = streakStore.history.filter(h => h.allCorrect).length
     return Math.round((wins / streakStore.totalGamesPlayed) * 100)
   }, [streakStore.history, streakStore.totalGamesPlayed])
-
-  const isDatePlayed = (date: string) => streakStore.history.some(h => h.date === date)
-  const getDateScore = (date: string) => streakStore.history.find(h => h.date === date)?.finalScore
 
   const handleStartClick = () => {
     setShowHowToPlay(true)
@@ -113,11 +94,6 @@ export function HomePage() {
     setShowHowToPlay(false)
     gameStore.resetGame()
     navigate('/play')
-  }
-
-  const handlePlayPast = (date: string) => {
-    gameStore.resetGame()
-    navigate(`/play/${date}`)
   }
 
   return (
@@ -217,51 +193,30 @@ export function HomePage() {
         </motion.button>
       )}
 
-      {/* Previous Puzzles */}
-      {pastPuzzles.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+      {/* Previous Puzzles link → calendar archive */}
+      {hasPastPuzzles && (
+        <motion.button
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="w-full space-y-2"
+          onClick={() => navigate('/archive')}
+          className="w-full flex items-center justify-between px-4 py-3.5 bg-white rounded-2xl shadow-sm border border-gray-100 active:bg-gray-50 transition-colors"
         >
-          <h2 className="text-sm font-bold text-navy-700 px-1">Previous Puzzles</h2>
-          {pastPuzzles.map((p) => {
-            const played = isDatePlayed(p.date)
-            const score = getDateScore(p.date)
-            return (
-              <div
-                key={p.date}
-                className="flex items-center justify-between px-4 py-3 bg-white rounded-xl shadow-sm border border-gray-100"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-navy-50 flex items-center justify-center">
-                    <span className="text-xs font-bold text-navy-600">{formatDisplayDate(p.date).split(' ')[1]}</span>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-navy-700">
-                      {played ? (p.bhajan?.title || 'Bhajan') : `Puzzle — ${formatDisplayDate(p.date)}`}
-                    </p>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs text-gray-400">{formatDisplayDate(p.date)}</span>
-                      {p.bhajan?.difficulty && <DifficultyStars level={p.bhajan.difficulty} />}
-                    </div>
-                  </div>
-                </div>
-                {played ? (
-                  <span className="text-sm font-black text-saffron-600">{score} pts</span>
-                ) : (
-                  <button
-                    onClick={() => handlePlayPast(p.date)}
-                    className="px-4 py-1.5 bg-saffron-500 text-white text-xs font-bold rounded-full active:bg-saffron-600"
-                  >
-                    Play
-                  </button>
-                )}
-              </div>
-            )
-          })}
-        </motion.div>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-navy-50 flex items-center justify-center">
+              <span className="text-lg">📅</span>
+            </div>
+            <div className="text-left">
+              <p className="text-sm font-bold text-navy-700">Previous Puzzles</p>
+              <p className="text-xs text-gray-400">
+                {unplayedPastCount > 0
+                  ? `${unplayedPastCount} puzzle${unplayedPastCount === 1 ? '' : 's'} left to play`
+                  : 'All caught up!'}
+              </p>
+            </div>
+          </div>
+          <span className="text-gray-300 text-xl">›</span>
+        </motion.button>
       )}
 
       {/* Footer */}

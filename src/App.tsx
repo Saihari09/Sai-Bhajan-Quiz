@@ -4,6 +4,7 @@ import { HomePage } from './pages/HomePage'
 import { GamePage } from './pages/GamePage'
 import { RevealPage } from './pages/RevealPage'
 import { AdminPage } from './pages/AdminPage'
+import { ArchivePage } from './pages/ArchivePage'
 import { InstallBanner } from './components/InstallBanner'
 import { setDeferredPrompt } from './lib/installPrompt'
 import { useInstallStore } from './store/installStore'
@@ -43,6 +44,7 @@ function App() {
             <Route path="/play" element={<GamePage />} />
             <Route path="/play/:date" element={<GamePage />} />
             <Route path="/reveal" element={<RevealPage />} />
+            <Route path="/archive" element={<ArchivePage />} />
             <Route path="/admin" element={<AdminPage />} />
           </Routes>
         </main>
