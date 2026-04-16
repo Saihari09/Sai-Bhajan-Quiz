@@ -33,6 +33,13 @@ export interface Bhajan {
   deityImageUrl: string
   round2LineIndex: number
   round3LineIndex: number
+  /**
+   * Optional extra deities that should also be accepted as correct in Round 1
+   * AND excluded from the wrong-options pool. Use for multi-faith bhajans
+   * where more than one tag legitimately fits (e.g. "Allah Bhajo" → both
+   * `sarva-dharma` and `allah` are right).
+   */
+  acceptedDeities?: DeityTag[]
 }
 
 export interface DeityOption {

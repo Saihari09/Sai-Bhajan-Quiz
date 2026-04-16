@@ -49,7 +49,11 @@ export function Round1Page({ bhajan, onComplete }: Round1Props) {
         Which deity is this bhajan about?
       </p>
 
-      <DeityGrid correctDeity={bhajan.deity} onAnswer={handleAnswer} />
+      <DeityGrid
+        correctDeity={bhajan.deity}
+        acceptedDeities={bhajan.acceptedDeities}
+        onAnswer={handleAnswer}
+      />
     </div>
   )
 }

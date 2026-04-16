@@ -6,7 +6,15 @@
     { "date": "2026-04-14", "bhajanId": "bhajan-004" },
     { "date": "2026-04-15", "bhajanId": "bhajan-005" },
     { "date": "2026-04-16", "bhajanId": "bhajan-006" },
-    { "date": "2026-04-17", "bhajanId": "bhajan-007" }
+    { "date": "2026-04-17", "bhajanId": "bhajan-007" },
+    { "date": "2026-04-18", "bhajanId": "bhajan-008" },
+    { "date": "2026-04-19", "bhajanId": "bhajan-009" },
+    { "date": "2026-04-20", "bhajanId": "bhajan-010" },
+    { "date": "2026-04-21", "bhajanId": "bhajan-011" },
+    { "date": "2026-04-22", "bhajanId": "bhajan-012" },
+    { "date": "2026-04-23", "bhajanId": "bhajan-013" },
+    { "date": "2026-04-24", "bhajanId": "bhajan-014" },
+    { "date": "2026-04-25", "bhajanId": "bhajan-015" }
   ],
   "fallbackBhajanId": "bhajan-001"
 }

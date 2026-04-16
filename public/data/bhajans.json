@@ -356,5 +356,386 @@
     "deityImageUrl": "images/deities/hanuman.jpeg",
     "round2LineIndex": 0,
     "round3LineIndex": 3
+  },
+  {
+    "id": "bhajan-008",
+    "title": "Ayodhya Vihari Sri Rama Rama",
+    "deity": "rama",
+    "occasion": "Sunday Satsang / Sri Rama Navami",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-008-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/ayodhya-vihari-sri-rama-rama",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "अयोध्या विहारी श्री राम राम राम\nद्वारका विहारी श्री कृष्ण कृष्ण कृष्ण\nसप्तगिरि विहारी गोविन्द गोविन्द\nनिज भक्त हृदय विहारी श्री साई नाथ देव",
+      "transliteration": "Ayodhya Vihari Sri Rama Rama Rama\nDwaraka Vihari Sri Krishna Krishna Krishna\nSaptagiri Vihari Govinda Govinda\nNija Bhaktha Hrudaya Vihari Sri Sai Natha Deva",
+      "translation": "This bhajan celebrates the divine across sacred locations. It invokes Lord Rama who resides in Ayodhya, Lord Krishna in Dwaraka, and Lord Govinda in the seven hills (Tirumala). It culminates in honoring Sai as the divine Lord who dwells within the hearts of devoted ones.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "अयोध्या विहारी श्री राम राम राम",
+          "transliteration": "Ayodhya Vihari Sri Rama Rama Rama",
+          "words": ["Ayodhya", "Vihari", "Sri", "Rama", "Rama", "Rama"]
+        },
+        {
+          "index": 1,
+          "original": "द्वारका विहारी श्री कृष्ण कृष्ण कृष्ण",
+          "transliteration": "Dwaraka Vihari Sri Krishna Krishna Krishna",
+          "words": ["Dwaraka", "Vihari", "Sri", "Krishna", "Krishna", "Krishna"]
+        },
+        {
+          "index": 2,
+          "original": "सप्तगिरि विहारी गोविन्द गोविन्द",
+          "transliteration": "Saptagiri Vihari Govinda Govinda",
+          "words": ["Saptagiri", "Vihari", "Govinda", "Govinda"]
+        },
+        {
+          "index": 3,
+          "original": "निज भक्त हृदय विहारी श्री साई नाथ देव",
+          "transliteration": "Nija Bhaktha Hrudaya Vihari Sri Sai Natha Deva",
+          "words": ["Nija", "Bhaktha", "Hrudaya", "Vihari", "Sri", "Sai", "Natha"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/rama.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-009",
+    "title": "Jagatpathey Hari Sai Gopala",
+    "deity": "krishna",
+    "occasion": "Krishna Janmashtami / Satsang",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-009-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/jagatpathey-hari-sai-gopala",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "जगत्पते हरि साई गोपाला\nजगदोद्धार साई नन्दलाला\nमथुराधिपते कृष्ण गोपाला\nमधुर मधुर हे गान विलोल\nजगदोद्धार साई नन्दलाला\nसाई नन्दलाला जय जय गोपाला",
+      "transliteration": "Jagatpathey Hari Sai Gopala\nJagadodhara Sai Nandalala\nMathuradhipathey Krishna Gopala\nMadhura Madhura Hey Gaana Vilola\nJagadodhara Sai Nandalala\nSai Nandalala Jai Jai Gopala",
+      "translation": "Glory to Lord Gopala (Krishna), the Lord and sustainer of the Universe. Victory to Lord Krishna, the King of Mathura, the patron of sweet music and the son of Nanda. Victory to Lord Sai who is verily Lord Krishna.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "जगत्पते हरि साई गोपाला",
+          "transliteration": "Jagatpathey Hari Sai Gopala",
+          "words": ["Jagatpathey", "Hari", "Sai", "Gopala"]
+        },
+        {
+          "index": 1,
+          "original": "जगदोद्धार साई नन्दलाला",
+          "transliteration": "Jagadodhara Sai Nandalala",
+          "words": ["Jagadodhara", "Sai", "Nandalala"]
+        },
+        {
+          "index": 2,
+          "original": "मथुराधिपते कृष्ण गोपाला",
+          "transliteration": "Mathuradhipathey Krishna Gopala",
+          "words": ["Mathuradhipathey", "Krishna", "Gopala"]
+        },
+        {
+          "index": 3,
+          "original": "मधुर मधुर हे गान विलोल",
+          "transliteration": "Madhura Madhura Hey Gaana Vilola",
+          "words": ["Madhura", "Madhura", "Hey", "Gaana", "Vilola"]
+        },
+        {
+          "index": 4,
+          "original": "साई नन्दलाला जय जय गोपाला",
+          "transliteration": "Sai Nandalala Jai Jai Gopala",
+          "words": ["Sai", "Nandalala", "Jai", "Jai", "Gopala"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/krishna.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 3
+  },
+  {
+    "id": "bhajan-010",
+    "title": "Eshwaramba Priya Nandana",
+    "deity": "sai",
+    "occasion": "Easwaramma Day / Sai Bhajan",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-010-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/eshwaramba-priya-nandana",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "ईश्वराम्बा प्रिय नन्दन साई जय जग वन्दन\nरत्नाकर कुल भूषण राजीव नयन नारायण\nनारायण हरि नारायण नारायण साई नारायण\nनारायण हरि नारायण",
+      "transliteration": "Eshwaramba Priya Nandana Sai Jaya Jaga Vandana\nRatnakara Kula Bhooshana Rajeeva Nayana Narayana\nNarayana Hari Narayana Narayana Sai Narayana\nNarayana Hari Narayana",
+      "translation": "O Lord Sai, You are the beloved son of Mother Eshwaramba. You are worshipped by the whole world. You are the jewel of the Ratnakara clan, with eyes as beautiful as the lotus. O Lord Sai, You are verily Lord Hari Narayana.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "ईश्वराम्बा प्रिय नन्दन साई जय जग वन्दन",
+          "transliteration": "Eshwaramba Priya Nandana Sai Jaya Jaga Vandana",
+          "words": ["Eshwaramba", "Priya", "Nandana", "Sai", "Jaya", "Jaga", "Vandana"]
+        },
+        {
+          "index": 1,
+          "original": "रत्नाकर कुल भूषण राजीव नयन नारायण",
+          "transliteration": "Ratnakara Kula Bhooshana Rajeeva Nayana Narayana",
+          "words": ["Ratnakara", "Kula", "Bhooshana", "Rajeeva", "Nayana", "Narayana"]
+        },
+        {
+          "index": 2,
+          "original": "नारायण हरि नारायण नारायण साई नारायण",
+          "transliteration": "Narayana Hari Narayana Narayana Sai Narayana",
+          "words": ["Narayana", "Hari", "Narayana", "Narayana", "Sai", "Narayana"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/sai-baba.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 1
+  },
+  {
+    "id": "bhajan-011",
+    "title": "Allah Bhajo Maulah Bhajo",
+    "deity": "sarva-dharma",
+    "occasion": "Sarva Dharma / Universal Prayer",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-011-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/allah-bhajo-maulah-bhajo",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "अल्लाह भजो मौलाह भजो हे अल्लाह साई भगवान\nराम भजो हे कृष्ण भजो हे राम कृष्ण भगवान\nनानक भजो गौतम भजो हे बुद्ध साई भगवान\nयेसु भजो जरथुस्त्र भजो हे महावीर भगवान\nसाई भजो शिर्डी साई भजो हे शिर्डी साई भगवान\nसत्य भजो सत्य साई भजो हे सत्य साई भगवान",
+      "transliteration": "Allah Bhajo Maulah Bhajo Hey Allah Sai Bhagawan\nRam Bhajo Hey Krishna Bhajo Hey Rama Krishna Bhagawan\nNanak Bhajo Gautam Bhajo Hey Buddha Sai Bhagawan\nYesu Bhajo Zohrashtra Bhajo Hey Mahavir Bhagawan\nSai Bhajo Shirdi Sai Bhajo Hey Shirdi Sai Bhagawan\nSathya Bhajo Sathya Sai Bhajo Hey Sathya Sai Bhagawan",
+      "translation": "Chant the divine names of the Lord across all faiths — Allah, Rama, Krishna, Guru Nanak, Buddha, Zoroaster, Mahavir, Shirdi Sai and Sathya Sai. The song celebrates the universal spirituality that unites all faith traditions in worship of the one Divine.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "अल्लाह भजो मौलाह भजो",
+          "transliteration": "Allah Bhajo Maulah Bhajo",
+          "words": ["Allah", "Bhajo", "Maulah", "Bhajo"]
+        },
+        {
+          "index": 1,
+          "original": "हे अल्लाह साई भगवान",
+          "transliteration": "Hey Allah Sai Bhagawan",
+          "words": ["Hey", "Allah", "Sai", "Bhagawan"]
+        },
+        {
+          "index": 2,
+          "original": "राम भजो हे कृष्ण भजो",
+          "transliteration": "Ram Bhajo Hey Krishna Bhajo",
+          "words": ["Ram", "Bhajo", "Hey", "Krishna", "Bhajo"]
+        },
+        {
+          "index": 3,
+          "original": "नानक भजो गौतम भजो",
+          "transliteration": "Nanak Bhajo Gautam Bhajo",
+          "words": ["Nanak", "Bhajo", "Gautam", "Bhajo"]
+        },
+        {
+          "index": 4,
+          "original": "येसु भजो जरथुस्त्र भजो हे महावीर भगवान",
+          "transliteration": "Yesu Bhajo Zohrashtra Bhajo Hey Mahavir Bhagawan",
+          "words": ["Yesu", "Bhajo", "Zohrashtra", "Bhajo", "Hey", "Mahavir", "Bhagawan"]
+        },
+        {
+          "index": 5,
+          "original": "सत्य भजो सत्य साई भजो",
+          "transliteration": "Sathya Bhajo Sathya Sai Bhajo",
+          "words": ["Sathya", "Bhajo", "Sathya", "Sai", "Bhajo"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/Sarva_Dharma.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 4,
+    "acceptedDeities": ["allah"]
+  },
+  {
+    "id": "bhajan-012",
+    "title": "Bhola Bhandari Baba",
+    "deity": "shiva",
+    "occasion": "Maha Shivaratri / Satsang",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-012-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/bhola-bhandari-baba",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "भोला भण्डारी बाबा शिव शिव शिव साई बाबा\nअनाथ रक्षक दीन दयाला पतित पावन साई बाबा\nयोगेश्वर साई मुरारी योगेश्वर हे त्रिपुरारी\nनित्यानन्द ब्रह्मानन्द प्रेमानन्द साई बाबा",
+      "transliteration": "Bhola Bhandari Baba Shiva Shiva Shiva Sai Baba\nAnatha Rakshaka Deena Dayala Patitha Pavana Sai Baba\nYogeshwara Sai Murari Yogeshwara Hey Tripurari\nNithyananda Brahmananda Premananda Sai Baba",
+      "translation": "Lord Sai Baba, easily pleased and a treasure of mercy and prosperity, is the protector of orphans and the refuge of the destitute. He is honored as the Lord of Yogis, as Sai Murari (Krishna), and as Tripurari (Shiva), the embodiment of eternal bliss and divine love.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "भोला भण्डारी बाबा शिव शिव शिव साई बाबा",
+          "transliteration": "Bhola Bhandari Baba Shiva Shiva Shiva Sai Baba",
+          "words": ["Bhola", "Bhandari", "Baba", "Shiva", "Shiva", "Shiva"]
+        },
+        {
+          "index": 1,
+          "original": "अनाथ रक्षक दीन दयाला पतित पावन साई बाबा",
+          "transliteration": "Anatha Rakshaka Deena Dayala Patitha Pavana Sai Baba",
+          "words": ["Anatha", "Rakshaka", "Deena", "Dayala", "Patitha", "Pavana"]
+        },
+        {
+          "index": 2,
+          "original": "योगेश्वर साई मुरारी योगेश्वर हे त्रिपुरारी",
+          "transliteration": "Yogeshwara Sai Murari Yogeshwara Hey Tripurari",
+          "words": ["Yogeshwara", "Sai", "Murari", "Yogeshwara", "Hey", "Tripurari"]
+        },
+        {
+          "index": 3,
+          "original": "नित्यानन्द ब्रह्मानन्द प्रेमानन्द साई बाबा",
+          "transliteration": "Nithyananda Brahmananda Premananda Sai Baba",
+          "words": ["Nithyananda", "Brahmananda", "Premananda", "Sai", "Baba"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/shiva.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-013",
+    "title": "Sai Natha Deena Natha Brahma",
+    "deity": "sai",
+    "occasion": "Guru Purnima / Satsang",
+    "difficulty": 1,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-013-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/sai-natha-deena-natha-brahma",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "साई नाथ दीन नाथ ब्रह्म रूप सद्गुरु\nनिराकार हे आकार सत्य साई सद्गुरु\nओंकार सद्गुरु निर्विकार सद्गुरु\nनिर्विकार सद्गुरु ओंकार सद्गुरु\nमाता पिता सद्गुरु सकल तुम ही सद्गुरु",
+      "transliteration": "Sai Natha Deena Natha Brahma Roopa Sadguru\nNirakara Hey Akara Sathya Sai Sadguru\nOmkara Sadguru Nirvikara Sadguru\nNirvikara Sadguru Omkara Sadguru\nMata Pitha Sadguru Sakala Tum Hi Sadguru",
+      "translation": "This devotional hymn honors Sai as the Supreme Guru, protector of the weak and the downtrodden. It celebrates Sai's nature as both formless and embodied in divine form, references the primordial sound 'Om,' and concludes by acknowledging Sai as mother, father and our everything.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "साई नाथ दीन नाथ ब्रह्म रूप सद्गुरु",
+          "transliteration": "Sai Natha Deena Natha Brahma Roopa Sadguru",
+          "words": ["Sai", "Natha", "Deena", "Natha", "Brahma", "Roopa", "Sadguru"]
+        },
+        {
+          "index": 1,
+          "original": "निराकार हे आकार सत्य साई सद्गुरु",
+          "transliteration": "Nirakara Hey Akara Sathya Sai Sadguru",
+          "words": ["Nirakara", "Hey", "Akara", "Sathya", "Sai", "Sadguru"]
+        },
+        {
+          "index": 2,
+          "original": "ओंकार सद्गुरु निर्विकार सद्गुरु",
+          "transliteration": "Omkara Sadguru Nirvikara Sadguru",
+          "words": ["Omkara", "Sadguru", "Nirvikara", "Sadguru"]
+        },
+        {
+          "index": 3,
+          "original": "माता पिता सद्गुरु सकल तुम ही सद्गुरु",
+          "transliteration": "Mata Pitha Sadguru Sakala Tum Hi Sadguru",
+          "words": ["Mata", "Pitha", "Sadguru", "Sakala", "Tum", "Hi", "Sadguru"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/sai-baba.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 1
+  },
+  {
+    "id": "bhajan-014",
+    "title": "Garuda Vahana Narayana",
+    "deity": "narayana",
+    "occasion": "Sunday Satsang / Vaikuntha Ekadashi",
+    "difficulty": 1,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-014-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/garuda-vahana-narayana",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "गरुड वाहन नारायण\nहे शेष शयन नारायण\nश्री लक्ष्मी रमण नारायण\nहरि ॐ हरि ॐ नारायण",
+      "transliteration": "Garuda Vahana Narayana\nHey Shesha Shayana Narayana\nSri Lakshmi Ramana Narayana\nHari Om Hari Om Narayana",
+      "translation": "Glory to Lord Narayana, who is the beloved of His consort Goddess Lakshmi, whose vehicle is Garuda, who sleeps on the serpent Adi Sesha, and who is also known as Hari.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "गरुड वाहन नारायण",
+          "transliteration": "Garuda Vahana Narayana",
+          "words": ["Garuda", "Vahana", "Narayana"]
+        },
+        {
+          "index": 1,
+          "original": "हे शेष शयन नारायण",
+          "transliteration": "Hey Shesha Shayana Narayana",
+          "words": ["Hey", "Shesha", "Shayana", "Narayana"]
+        },
+        {
+          "index": 2,
+          "original": "श्री लक्ष्मी रमण नारायण",
+          "transliteration": "Sri Lakshmi Ramana Narayana",
+          "words": ["Sri", "Lakshmi", "Ramana", "Narayana"]
+        },
+        {
+          "index": 3,
+          "original": "हरि ॐ हरि ॐ नारायण",
+          "transliteration": "Hari Om Hari Om Narayana",
+          "words": ["Hari", "Om", "Hari", "Om", "Narayana"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/narayana.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 3
+  },
+  {
+    "id": "bhajan-015",
+    "title": "Ganga Jatadhara Gowri Shankara Girija",
+    "deity": "shiva",
+    "occasion": "Maha Shivaratri / Satsang",
+    "difficulty": 1,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-015-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/ganga-jatadhara-gowri-shankara-girija",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "गंगा जटाधर गौरी शंकर गिरिजा मनो रमण\nजय मृत्युंजय महादेव महेश्वर मंगल शुभ चरण\nनन्दि वाहन नाग भूषण\nनिरुपम गुण सदन\nनटन मनोहर नीलकंठ साई\nनीरज दल नयन",
+      "transliteration": "Ganga Jatadhara Gowri Shankara Girija Mano Ramana\nJaya Mruthyunjaya Mahadeva Maheshwara Mangala Shubha Charana\nNandi Vahana Naga Bhooshana\nNirupama Guna Sadana\nNatana Manohara Neelakanta Sai\nNeeraja Dala Nayana",
+      "translation": "Glory to Lord Shiva, who bears the sacred Ganges in his matted hair and is the consort of Goddess Girija. Victory to the conqueror of death, the great Lord Maheshwara whose feet bestow auspiciousness. He rides the bull Nandi, is adorned with serpents, and is an embodiment of unparalleled virtues — the enchanting cosmic dancer with a blue throat, identified with Sai.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "गंगा जटाधर गौरी शंकर गिरिजा मनो रमण",
+          "transliteration": "Ganga Jatadhara Gowri Shankara Girija Mano Ramana",
+          "words": ["Ganga", "Jatadhara", "Gowri", "Shankara", "Girija", "Mano", "Ramana"]
+        },
+        {
+          "index": 1,
+          "original": "जय मृत्युंजय महादेव महेश्वर मंगल शुभ चरण",
+          "transliteration": "Jaya Mruthyunjaya Mahadeva Maheshwara Mangala Shubha Charana",
+          "words": ["Jaya", "Mruthyunjaya", "Mahadeva", "Maheshwara", "Mangala", "Shubha", "Charana"]
+        },
+        {
+          "index": 2,
+          "original": "नन्दि वाहन नाग भूषण",
+          "transliteration": "Nandi Vahana Naga Bhooshana",
+          "words": ["Nandi", "Vahana", "Naga", "Bhooshana"]
+        },
+        {
+          "index": 3,
+          "original": "नटन मनोहर नीलकंठ साई",
+          "transliteration": "Natana Manohara Neelakanta Sai",
+          "words": ["Natana", "Manohara", "Neelakanta", "Sai"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/shiva.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 1
   }
 ]
