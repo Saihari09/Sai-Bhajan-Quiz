@@ -8,6 +8,7 @@ import { generateShareText, shareResult } from '../lib/shareFormatter'
 import { loadSchedule } from '../lib/schedule'
 import { getTodayString, formatDisplayDate } from '../lib/dateUtils'
 import { trackEvent } from '../lib/analytics'
+import { SupportModal } from '../components/SupportModal'
 
 export function RevealPage() {
   const navigate = useNavigate()
@@ -17,6 +18,7 @@ export function RevealPage() {
   const todayResult = streakStore.todayResult
   const [copied, setCopied] = useState(false)
   const [showLyrics, setShowLyrics] = useState(false)
+  const [showSupport, setShowSupport] = useState(false)
   const [unplayedPuzzles, setUnplayedPuzzles] = useState<{ date: string }[]>([])
 
   useEffect(() => {
@@ -248,18 +250,20 @@ export function RevealPage() {
       </motion.button>
 
       {/* Support link */}
-      <motion.a
+      <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6 }}
-        href="https://buymeacoffee.com/sai09"
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => trackEvent('donate_click')}
-        className="block text-center text-xs text-saffron-500 font-medium hover:text-saffron-600 transition-colors pt-2 pb-4"
+        onClick={() => {
+          trackEvent('donate_click')
+          setShowSupport(true)
+        }}
+        className="block w-full text-center text-xs text-saffron-500 font-medium hover:text-saffron-600 transition-colors pt-2 pb-4"
       >
         🙏 Support this app
-      </motion.a>
+      </motion.button>
+
+      <SupportModal open={showSupport} onClose={() => setShowSupport(false)} />
     </div>
   )
 }

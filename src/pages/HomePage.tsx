@@ -8,6 +8,7 @@ import { useEffect, useState, useMemo } from 'react'
 import { trackEvent } from '../lib/analytics'
 import { isNotificationSupported, requestNotificationPermission } from '../lib/notifications'
 import { useInstallStore } from '../store/installStore'
+import { SupportModal } from '../components/SupportModal'
 
 function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState('')
@@ -44,6 +45,7 @@ export function HomePage() {
   const gameStore = useGameStore()
   const today = getTodayString()
   const [showHowToPlay, setShowHowToPlay] = useState(false)
+  const [showSupport, setShowSupport] = useState(false)
   const [hasPastPuzzles, setHasPastPuzzles] = useState(false)
   const [unplayedPastCount, setUnplayedPastCount] = useState(0)
   const notifEnableClickedAt = useInstallStore((s) => s.notifEnableClickedAt)
@@ -229,15 +231,15 @@ export function HomePage() {
         <p className="text-xs text-gray-400 italic">
           "Life is a song, sing it" — Sri Sathya Sai Baba
         </p>
-        <a
-          href="https://buymeacoffee.com/sai09"
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => trackEvent('donate_click')}
+        <button
+          onClick={() => {
+            trackEvent('donate_click')
+            setShowSupport(true)
+          }}
           className="inline-block text-xs text-saffron-500 font-medium hover:text-saffron-600 transition-colors"
         >
           🙏 Support this app
-        </a>
+        </button>
         {showNotifLink && (
           <div>
             <button
@@ -312,6 +314,9 @@ export function HomePage() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Support Modal */}
+      <SupportModal open={showSupport} onClose={() => setShowSupport(false)} />
     </div>
   )
 }
