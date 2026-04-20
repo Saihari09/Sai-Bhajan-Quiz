@@ -6,14 +6,35 @@ const UPI_VPA = '8939313056-2@ybl'
 const UPI_NAME = 'Sai Bhajan Quiz'
 const BMC_URL = 'https://buymeacoffee.com/sai09'
 
-function buildUpiUri() {
+/**
+ * Build a payment URI. The generic `upi://` scheme triggers Android's app
+ * chooser which, on some phones, routes to WhatsApp (WhatsApp Pay). Using
+ * each app's own custom scheme bypasses that chooser and launches the
+ * chosen app directly. Scheme reference:
+ *   - Google Pay  → tez://upi/pay
+ *   - PhonePe     → phonepe://pay
+ *   - Paytm       → paytmmp://pay
+ *   - Any UPI app → upi://pay   (used for the QR code)
+ */
+function buildPaymentUri(scheme: 'upi' | 'tez' | 'phonepe' | 'paytmmp') {
+  const base =
+    scheme === 'upi' ? 'upi://pay' :
+    scheme === 'tez' ? 'tez://upi/pay' :
+    scheme === 'phonepe' ? 'phonepe://pay' :
+    'paytmmp://pay'
   const params = new URLSearchParams({
     pa: UPI_VPA,
     pn: UPI_NAME,
     cu: 'INR',
   })
-  return `upi://pay?${params.toString()}`
+  return `${base}?${params.toString()}`
 }
+
+const UPI_APPS = [
+  { key: 'tez', label: 'Google Pay', emoji: '🟢' },
+  { key: 'phonepe', label: 'PhonePe', emoji: '🟣' },
+  { key: 'paytmmp', label: 'Paytm', emoji: '🔵' },
+] as const
 
 interface SupportModalProps {
   open: boolean
@@ -61,10 +82,11 @@ export function SupportModal({ open, onClose }: SupportModalProps) {
     }
   }
 
-  const handleOpenUpiApp = () => {
-    // On mobile this launches the UPI app picker. On desktop it's a no-op
-    // (most browsers ignore the scheme). Safe to attempt either way.
-    window.location.href = buildUpiUri()
+  const handleOpenApp = (scheme: 'tez' | 'phonepe' | 'paytmmp') => {
+    trackEvent(`donate_upi_${scheme}_click`)
+    // Custom schemes launch the specific app directly on mobile. On desktop
+    // most browsers ignore the scheme — the QR is the fallback there.
+    window.location.href = buildPaymentUri(scheme)
   }
 
   return (
@@ -159,7 +181,7 @@ export function SupportModal({ open, onClose }: SupportModalProps) {
                 <div className="flex justify-center mb-4">
                   <div className="p-3 bg-white rounded-xl border border-gray-100 shadow-sm">
                     <img
-                      src={`https://api.qrserver.com/v1/create-qr-code/?size=208x208&margin=0&color=1e3a8a&bgcolor=ffffff&data=${encodeURIComponent(buildUpiUri())}`}
+                      src={`https://api.qrserver.com/v1/create-qr-code/?size=208x208&margin=0&color=1e3a8a&bgcolor=ffffff&data=${encodeURIComponent(buildPaymentUri('upi'))}`}
                       alt="UPI QR code"
                       width={208}
                       height={208}
@@ -185,12 +207,23 @@ export function SupportModal({ open, onClose }: SupportModalProps) {
                   </button>
                 </div>
 
-                <button
-                  onClick={handleOpenUpiApp}
-                  className="w-full py-3 bg-gradient-to-r from-saffron-500 to-saffron-600 text-white font-bold rounded-2xl shadow-md active:from-saffron-600 active:to-saffron-700 transition-all"
-                >
-                  Open UPI App
-                </button>
+                <p className="text-[11px] uppercase tracking-wider text-gray-400 font-bold text-center mb-2">
+                  Or open in app
+                </p>
+                <div className="grid grid-cols-3 gap-2">
+                  {UPI_APPS.map((app) => (
+                    <button
+                      key={app.key}
+                      onClick={() => handleOpenApp(app.key)}
+                      className="flex flex-col items-center gap-1 py-2.5 px-1 bg-white border border-gray-200 rounded-xl active:bg-gray-50 transition-colors"
+                    >
+                      <span className="text-xl leading-none">{app.emoji}</span>
+                      <span className="text-[11px] font-bold text-navy-700 leading-tight">
+                        {app.label}
+                      </span>
+                    </button>
+                  ))}
+                </div>
                 <p className="text-[11px] text-gray-400 text-center mt-2">
                   Works on mobile. On desktop, scan the QR.
                 </p>
