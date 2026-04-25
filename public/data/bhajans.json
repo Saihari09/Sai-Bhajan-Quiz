@@ -737,5 +737,116 @@
     "deityImageUrl": "images/deities/shiva.jpg",
     "round2LineIndex": 0,
     "round3LineIndex": 1
+  },
+  {
+    "id": "bhajan-016",
+    "title": "Govinda Bolo Gopala Bolo",
+    "deity": "sarva-dharma",
+    "occasion": "Sarva Dharma / Universal Prayer",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-016-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/govinda-bolo-gopala-bolo",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "गोविन्द बोलो गोपाल बोलो\nराम राम बोलो हरि नाम बोलो\nअल्लाह साई येसु नानक\nजरथुस्त्र महावीर बुद्ध नाम बोलो\nये नाम सारे हैं जीवन सहारे\nपरमानन्द के ये खोलते हैं द्वारे\nजो नाम चाहो वो नाम बोलो\nप्रेम से बोलो भाव से बोलो",
+      "transliteration": "Govinda Bolo Gopala Bolo\nRam Ram Bolo Hari Naam Bolo\nAllah Sai Yesu Nanak\nZohrashtra Mahavira Buddha Naam Bolo\nYeh Naam Saarey Hai Jeevan Saharey\nParamananda Ke Yeh Kholtey Hai Dwarey\nJo Naam Chaho Woh Naam Bolo\nPrem Se Bolo Bhaav Se Bolo",
+      "translation": "Chant the sacred names — Govinda, Gopala, Rama, Hari, Allah, Sai, Yesu, Nanak, Zoroaster, Mahavira and Buddha. These names sustain life's journey and open doors to supreme bliss. Choose whichever name resonates with you and recite it with love and devotion.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "गोविन्द बोलो गोपाल बोलो",
+          "transliteration": "Govinda Bolo Gopala Bolo",
+          "words": ["Govinda", "Bolo", "Gopala", "Bolo"]
+        },
+        {
+          "index": 1,
+          "original": "राम राम बोलो हरि नाम बोलो",
+          "transliteration": "Ram Ram Bolo Hari Naam Bolo",
+          "words": ["Ram", "Ram", "Bolo", "Hari", "Naam", "Bolo"]
+        },
+        {
+          "index": 2,
+          "original": "अल्लाह साई येसु नानक",
+          "transliteration": "Allah Sai Yesu Nanak",
+          "words": ["Allah", "Sai", "Yesu", "Nanak"]
+        },
+        {
+          "index": 3,
+          "original": "जरथुस्त्र महावीर बुद्ध नाम बोलो",
+          "transliteration": "Zohrashtra Mahavira Buddha Naam Bolo",
+          "words": ["Zohrashtra", "Mahavira", "Buddha", "Naam", "Bolo"]
+        },
+        {
+          "index": 4,
+          "original": "ये नाम सारे हैं जीवन सहारे",
+          "transliteration": "Yeh Naam Saarey Hai Jeevan Saharey",
+          "words": ["Yeh", "Naam", "Saarey", "Hai", "Jeevan", "Saharey"]
+        },
+        {
+          "index": 5,
+          "original": "जो नाम चाहो वो नाम बोलो",
+          "transliteration": "Jo Naam Chaho Woh Naam Bolo",
+          "words": ["Jo", "Naam", "Chaho", "Woh", "Naam", "Bolo"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/Sarva_Dharma.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 4,
+    "acceptedDeities": ["allah", "krishna"]
+  },
+  {
+    "id": "bhajan-017",
+    "title": "Srinivasa Venkatesha",
+    "deity": "narayana",
+    "occasion": "Vaikuntha Ekadashi / Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-017-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/srinivasa-venkatesha",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "श्रीनिवास वेङ्कटेश श्रित जन परिपाल सायीश\nतिरुमल गिरि वास गोविन्द\nगरुड वाहन गोविन्द गोविन्द\nगोविन्द गोविन्द श्रीनिवास गोविन्द\nगोविन्द गोविन्द शिर्डी वास गोविन्द\nगोविन्द गोविन्द पार्थी वास गोविन्द",
+      "transliteration": "Srinivasa Venkatesha Shritha Jana Paripala Sayeesha\nTirumala Giri Vasa Govinda\nGaruda Vahana Govinda Govinda\nGovinda Govinda Srinivasa Govinda\nGovinda Govinda Shirdi Vasa Govinda\nGovinda Govinda Parthi Vasa Govinda",
+      "translation": "Glory to Lord Srinivasa, Lord Venkatesha (names of Lord Vishnu) and Lord Sayeesha who protects all those who have surrendered to Him. Praise to Lord Govinda who resides in the Tirumala hills, who rides the eagle Garuda, and who manifests in Shirdi and Parthi.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "श्रीनिवास वेङ्कटेश श्रित जन परिपाल सायीश",
+          "transliteration": "Srinivasa Venkatesha Shritha Jana Paripala Sayeesha",
+          "words": ["Srinivasa", "Venkatesha", "Shritha", "Jana", "Paripala", "Sayeesha"]
+        },
+        {
+          "index": 1,
+          "original": "तिरुमल गिरि वास गोविन्द",
+          "transliteration": "Tirumala Giri Vasa Govinda",
+          "words": ["Tirumala", "Giri", "Vasa", "Govinda"]
+        },
+        {
+          "index": 2,
+          "original": "गरुड वाहन गोविन्द गोविन्द",
+          "transliteration": "Garuda Vahana Govinda Govinda",
+          "words": ["Garuda", "Vahana", "Govinda", "Govinda"]
+        },
+        {
+          "index": 3,
+          "original": "गोविन्द गोविन्द श्रीनिवास गोविन्द",
+          "transliteration": "Govinda Govinda Srinivasa Govinda",
+          "words": ["Govinda", "Govinda", "Srinivasa", "Govinda"]
+        },
+        {
+          "index": 4,
+          "original": "गोविन्द गोविन्द शिर्डी वास गोविन्द",
+          "transliteration": "Govinda Govinda Shirdi Vasa Govinda",
+          "words": ["Govinda", "Govinda", "Shirdi", "Vasa", "Govinda"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/narayana.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 4
   }
 ]

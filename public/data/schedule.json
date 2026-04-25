@@ -14,7 +14,9 @@
     { "date": "2026-04-22", "bhajanId": "bhajan-012" },
     { "date": "2026-04-23", "bhajanId": "bhajan-013" },
     { "date": "2026-04-24", "bhajanId": "bhajan-014" },
-    { "date": "2026-04-25", "bhajanId": "bhajan-015" }
+    { "date": "2026-04-25", "bhajanId": "bhajan-015" },
+    { "date": "2026-04-26", "bhajanId": "bhajan-016" },
+    { "date": "2026-04-27", "bhajanId": "bhajan-017" }
   ],
   "fallbackBhajanId": "bhajan-001"
 }
