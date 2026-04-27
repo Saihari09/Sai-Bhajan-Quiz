@@ -848,5 +848,57 @@
     "deityImageUrl": "images/deities/narayana.jpg",
     "round2LineIndex": 0,
     "round3LineIndex": 4
+  },
+  {
+    "id": "bhajan-018",
+    "title": "Bhajarey Rama Charan Satatam Bhajarey",
+    "deity": "rama",
+    "occasion": "Sri Rama Navami / Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-018-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/bhajarey-rama-charan-satatam-bhajarey",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "भजरे राम चरण सततं भजरे\nभजरे जानकी जीवन रामम्\nभजरे रामम् भद्राचल रामम्\nभजरे पावन तारक नामम्\nभजरे श्री राम रामेति रामम्",
+      "transliteration": "Bhajarey Rama Charan Satatam Bhajarey\nBhajarey Janaki Jeevana Ramam\nBhajarey Ramam Bhadrachala Ramam\nBhajarey Pavana Taraka Naamam\nBhajarey Sri Rama Ramethi Ramam",
+      "translation": "Constantly chant and meditate upon the Lotus Feet of Lord Rama. Pray to Lord Rama, the very life of Janaki and the resident of Bhadrachala. Chant His sacred name that purifies and ferries us across the ocean of worldly existence.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "भजरे राम चरण सततं भजरे",
+          "transliteration": "Bhajarey Rama Charan Satatam Bhajarey",
+          "words": ["Bhajarey", "Rama", "Charan", "Satatam", "Bhajarey"]
+        },
+        {
+          "index": 1,
+          "original": "भजरे जानकी जीवन रामम्",
+          "transliteration": "Bhajarey Janaki Jeevana Ramam",
+          "words": ["Bhajarey", "Janaki", "Jeevana", "Ramam"]
+        },
+        {
+          "index": 2,
+          "original": "भजरे रामम् भद्राचल रामम्",
+          "transliteration": "Bhajarey Ramam Bhadrachala Ramam",
+          "words": ["Bhajarey", "Ramam", "Bhadrachala", "Ramam"]
+        },
+        {
+          "index": 3,
+          "original": "भजरे पावन तारक नामम्",
+          "transliteration": "Bhajarey Pavana Taraka Naamam",
+          "words": ["Bhajarey", "Pavana", "Taraka", "Naamam"]
+        },
+        {
+          "index": 4,
+          "original": "भजरे श्री राम रामेति रामम्",
+          "transliteration": "Bhajarey Sri Rama Ramethi Ramam",
+          "words": ["Bhajarey", "Sri", "Rama", "Ramethi", "Ramam"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/rama.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 4
   }
 ]
