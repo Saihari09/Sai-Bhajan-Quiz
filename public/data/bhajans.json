@@ -900,5 +900,259 @@
     "deityImageUrl": "images/deities/rama.jpg",
     "round2LineIndex": 0,
     "round3LineIndex": 4
+  },
+  {
+    "id": "bhajan-019",
+    "title": "Giridhara Govinda Gopala Ghana Shyama",
+    "deity": "krishna",
+    "occasion": "Krishna Janmashtami / Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-019-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/giridhara-govinda-gopala-ghana-shyama",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "गिरिधर गोविन्द गोपाल घन श्याम नन्दलाल\nमन मोहन मधुसूदन हे माधव\nदामोदर जनार्दन मुरलीधर मन मोहन\nनमो साई नारायणाय नमो सत्य नारायणाय",
+      "transliteration": "Giridhara Govinda Gopala Ghana Shyama Nandalala\nMana Mohana Madhusudhana Hey Madhava\nDamodara Janardhana Muralidhara Mana Mohana\nNamo Sai Narayanaya Namo Sathya Narayanaya",
+      "translation": "Glory to Lord Krishna — the lifter of Govardhana mountain (Giridhara), the cowherd (Govinda), protector of cows (Gopala), the dark-hued one (Ghana Shyama), beloved son of Nanda. He is the enchanting one (Mana Mohana), slayer of the demon Madhu (Madhusudhana), the bearer of the flute (Muralidhara), and protector of devotees (Janardhana). Salutations to Sai who is verily Narayana, the embodiment of divine truth.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "गिरिधर गोविन्द गोपाल घन श्याम नन्दलाल",
+          "transliteration": "Giridhara Govinda Gopala Ghana Shyama Nandalala",
+          "words": ["Giridhara", "Govinda", "Gopala", "Ghana", "Shyama", "Nandalala"]
+        },
+        {
+          "index": 1,
+          "original": "मन मोहन मधुसूदन हे माधव",
+          "transliteration": "Mana Mohana Madhusudhana Hey Madhava",
+          "words": ["Mana", "Mohana", "Madhusudhana", "Hey", "Madhava"]
+        },
+        {
+          "index": 2,
+          "original": "दामोदर जनार्दन मुरलीधर मन मोहन",
+          "transliteration": "Damodara Janardhana Muralidhara Mana Mohana",
+          "words": ["Damodara", "Janardhana", "Muralidhara", "Mana", "Mohana"]
+        },
+        {
+          "index": 3,
+          "original": "नमो साई नारायणाय नमो सत्य नारायणाय",
+          "transliteration": "Namo Sai Narayanaya Namo Sathya Narayanaya",
+          "words": ["Namo", "Sai", "Narayanaya", "Namo", "Sathya", "Narayanaya"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/krishna.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-020",
+    "title": "Premamayi Sai Ma Gnanamayi Sai",
+    "deity": "devi",
+    "occasion": "Easwaramma Day / Devi Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-020-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/premamayi-sai-ma-gnanamayi-sai",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "प्रेममयी साई मां ज्ञानमयी साई मां\nजय मां जय मां जय मां\nशिव शक्ति रूपिणी साई मां\nसदानन्द रूपिणी साई मां\nपरब्रह्म रूपिणी साई मां\nतुम ही मोक्ष प्रदायिनी मां",
+      "transliteration": "Premamayi Sai Ma Gnanamayi Sai Ma\nJaya Ma Jaya Ma Jaya Ma\nShiva Shakthi Roopini Sai Ma\nSadananda Roopini Sai Ma\nParabrahma Roopini Sai Ma\nTum Hi Moksha Pradayini Ma",
+      "translation": "Victory to Mother Sai — embodiment of love and wisdom, ever in a state of bliss. You are Shiva and Shakti united in one form, the supreme consciousness incarnate, and the bestower of liberation upon all who surrender to You.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "प्रेममयी साई मां ज्ञानमयी साई मां",
+          "transliteration": "Premamayi Sai Ma Gnanamayi Sai Ma",
+          "words": ["Premamayi", "Sai", "Ma", "Gnanamayi", "Sai", "Ma"]
+        },
+        {
+          "index": 1,
+          "original": "जय मां जय मां जय मां",
+          "transliteration": "Jaya Ma Jaya Ma Jaya Ma",
+          "words": ["Jaya", "Ma", "Jaya", "Ma", "Jaya", "Ma"]
+        },
+        {
+          "index": 2,
+          "original": "शिव शक्ति रूपिणी साई मां",
+          "transliteration": "Shiva Shakthi Roopini Sai Ma",
+          "words": ["Shiva", "Shakthi", "Roopini", "Sai", "Ma"]
+        },
+        {
+          "index": 3,
+          "original": "तुम ही मोक्ष प्रदायिनी मां",
+          "transliteration": "Tum Hi Moksha Pradayini Ma",
+          "words": ["Tum", "Hi", "Moksha", "Pradayini", "Ma"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/Devi.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2,
+    "acceptedDeities": ["sai"]
+  },
+  {
+    "id": "bhajan-021",
+    "title": "Pranamami Sri Durge Sai Narayani",
+    "deity": "devi",
+    "occasion": "Navaratri / Devi Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-021-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/pranamami-sri-durge-sai-narayani",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "प्रणमामि श्री दुर्गे साई नारायणी\nजय जगदम्बे देवी भवानी\nजय महिषासुर संहारिणी महामाया दुख हारिणी",
+      "transliteration": "Pranamami Sri Durge Sai Narayani\nJaya Jagadambe Devi Bhavani\nJaya Mahishasura Samhaarini Mahamaya Dukha Haarini",
+      "translation": "We offer our obeisance to You, Mother Durga — Sister of Vishnu, Mother of the Universe, and Devi Bhavani. Glory to the destroyer of the demon Mahishasura (the ego), the bearer of the great cosmic illusion, and the remover of all sorrow.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "प्रणमामि श्री दुर्गे साई नारायणी",
+          "transliteration": "Pranamami Sri Durge Sai Narayani",
+          "words": ["Pranamami", "Sri", "Durge", "Sai", "Narayani"]
+        },
+        {
+          "index": 1,
+          "original": "जय जगदम्बे देवी भवानी",
+          "transliteration": "Jaya Jagadambe Devi Bhavani",
+          "words": ["Jaya", "Jagadambe", "Devi", "Bhavani"]
+        },
+        {
+          "index": 2,
+          "original": "जय महिषासुर संहारिणी महामाया दुख हारिणी",
+          "transliteration": "Jaya Mahishasura Samhaarini Mahamaya Dukha Haarini",
+          "words": ["Jaya", "Mahishasura", "Samhaarini", "Mahamaya", "Dukha", "Haarini"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/Devi.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 1
+  },
+  {
+    "id": "bhajan-022",
+    "title": "Prem Eshwar Hai Eshwar Prem",
+    "deity": "sarva-dharma",
+    "occasion": "Sarva Dharma / Universal Prayer",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-022-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/prem-eshwar-hai-eshwar-prem",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "प्रेम ईश्वर है ईश्वर प्रेम है\nहर धड़कन में साई समा है ईश्वर प्रेम है\nराम रहीम कृष्ण करीम\nजरथुस्त्र येसु नानक\nकोई भी नाम जपोरे मनुवा ईश्वर प्रेम है",
+      "transliteration": "Prem Eshwar Hai Eshwar Prem Hai\nHar Dhadkan Mey Sai Sama Hai Eshwar Prem Hai\nRam Rahim Krishna Karim\nZohrashtra Yesu Nanak\nKoi Bhi Naam Japorey Manuva Eshwar Prem Hai\n\n(Japanese verse)\nAi wa Kami, Kami wa Ai\nSai wa Ibuki, Kami wa Ai\nNamu Amida, Iesu Sai\nAmaterasu, Kannon Sai\nIkanaru Mina wo Tonaete mo, Kami wa Ai",
+      "translation": "God is Love and Love is God. Sai is the indweller of every heartbeat, reminding us that God is Love. Worship any divine name — Rama, Rahim, Krishna, Karim, Zoroaster, Jesus or Nanak — for all names and forms are love and only love.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "प्रेम ईश्वर है ईश्वर प्रेम है",
+          "transliteration": "Prem Eshwar Hai Eshwar Prem Hai",
+          "words": ["Prem", "Eshwar", "Hai", "Eshwar", "Prem", "Hai"]
+        },
+        {
+          "index": 1,
+          "original": "राम रहीम कृष्ण करीम",
+          "transliteration": "Ram Rahim Krishna Karim",
+          "words": ["Ram", "Rahim", "Krishna", "Karim"]
+        },
+        {
+          "index": 2,
+          "original": "कोई भी नाम जपोरे मनुवा",
+          "transliteration": "Koi Bhi Naam Japorey Manuva",
+          "words": ["Koi", "Bhi", "Naam", "Japorey", "Manuva"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/Sarva_Dharma.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2,
+    "acceptedDeities": ["allah", "krishna"]
+  },
+  {
+    "id": "bhajan-023",
+    "title": "Sai Baba Geeta Sudha Madhuram",
+    "deity": "sai",
+    "occasion": "Guru Purnima / Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-023-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/sai-baba-geeta-sudha-madhuram",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "साई बाबा गीता सुधा मधुरम मधुरम आनन्दम\nशिर्डी बाबा गीता सुधा मधुरम मधुरम आनन्दम\nपार्थी बाबा गीता सुधा मधुरम मधुरम आनन्दम",
+      "transliteration": "Sai Baba Geeta Sudha Madhuram Madhuram Anandam\nShirdi Baba Geeta Sudha Madhuram Madhuram Anandam\nParthi Baba Geeta Sudha Madhuram Madhuram Anandam",
+      "translation": "The nectarine words of wisdom and the melodies that flow from Sai Baba confer infinite supreme bliss. Sai Baba's song is sweet and gives bliss — the Lord of Shirdi and the Lord of Parthi are one and the same, the embodiment of nectar-sweet joy.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "साई बाबा गीता सुधा मधुरम मधुरम आनन्दम",
+          "transliteration": "Sai Baba Geeta Sudha Madhuram Madhuram Anandam",
+          "words": ["Sai", "Baba", "Geeta", "Sudha", "Madhuram", "Madhuram", "Anandam"]
+        },
+        {
+          "index": 1,
+          "original": "शिर्डी बाबा गीता सुधा मधुरम मधुरम आनन्दम",
+          "transliteration": "Shirdi Baba Geeta Sudha Madhuram Madhuram Anandam",
+          "words": ["Shirdi", "Baba", "Geeta", "Sudha", "Madhuram", "Madhuram", "Anandam"]
+        },
+        {
+          "index": 2,
+          "original": "पार्थी बाबा गीता सुधा मधुरम मधुरम आनन्दम",
+          "transliteration": "Parthi Baba Geeta Sudha Madhuram Madhuram Anandam",
+          "words": ["Parthi", "Baba", "Geeta", "Sudha", "Madhuram", "Madhuram", "Anandam"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/sai-baba.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-024",
+    "title": "Chitha Chora Yashoda Ke Bal",
+    "deity": "krishna",
+    "occasion": "Krishna Janmashtami / Satsang",
+    "difficulty": 1,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-024-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/chitha-chora-yashoda-ke-bal",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "चित्त चोर यशोदा के बाल\nनवनीत चोर गोपाल\nगोपाल गोपाल गोपाल गोवर्धनधर गोपाल",
+      "transliteration": "Chitha Chora Yashoda Ke Bal\nNavaneetha Chora Gopal\nGopal Gopal Gopal Govardhanadhara Gopal",
+      "translation": "O Lord Gopala, the beloved Prince of Mother Yashoda — captivator of devotees' hearts and stealer of butter from the Gopis. Chant the name of Govardhanadhara Gopal who held aloft the Govardhana mountain to shelter the villagers from torrential rain.",
+      "lines": [
+        {
+          "index": 0,
+          "original": "चित्त चोर यशोदा के बाल",
+          "transliteration": "Chitha Chora Yashoda Ke Bal",
+          "words": ["Chitha", "Chora", "Yashoda", "Ke", "Bal"]
+        },
+        {
+          "index": 1,
+          "original": "नवनीत चोर गोपाल",
+          "transliteration": "Navaneetha Chora Gopal",
+          "words": ["Navaneetha", "Chora", "Gopal"]
+        },
+        {
+          "index": 2,
+          "original": "गोपाल गोपाल गोपाल गोवर्धनधर गोपाल",
+          "transliteration": "Gopal Gopal Gopal Govardhanadhara Gopal",
+          "words": ["Gopal", "Gopal", "Gopal", "Govardhanadhara", "Gopal"]
+        }
+      ]
+    },
+    "deityImageUrl": "images/deities/krishna.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
   }
 ]
