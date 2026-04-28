@@ -1,25 +1,44 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { motion } from 'framer-motion'
-import { useDailyBhajan } from '../hooks/useDailyBhajan'
 import { useStreakStore } from '../store/streakStore'
 import { useGameStore } from '../store/gameStore'
 import { generateShareText, shareResult } from '../lib/shareFormatter'
-import { loadSchedule } from '../lib/schedule'
+import { loadSchedule, getBhajanById } from '../lib/schedule'
 import { getTodayString, formatDisplayDate } from '../lib/dateUtils'
 import { trackEvent } from '../lib/analytics'
 import { SupportModal } from '../components/SupportModal'
+import type { Bhajan } from '../types/bhajan'
 
 export function RevealPage() {
   const navigate = useNavigate()
-  const { bhajan, loading } = useDailyBhajan()
   const streakStore = useStreakStore()
   const gameStore = useGameStore()
   const todayResult = streakStore.todayResult
+  const [bhajan, setBhajan] = useState<Bhajan | null>(null)
+  const [loading, setLoading] = useState(true)
   const [copied, setCopied] = useState(false)
   const [showLyrics, setShowLyrics] = useState(false)
   const [showSupport, setShowSupport] = useState(false)
   const [unplayedPuzzles, setUnplayedPuzzles] = useState<{ date: string }[]>([])
+
+  // Load the bhajan referenced by the most recent play result, NOT today's
+  // bhajan. When the user plays a past puzzle, todayResult.bhajanId points
+  // at that past puzzle's bhajan — using getTodayBhajan() here showed the
+  // wrong title/lyrics on the reveal screen.
+  useEffect(() => {
+    if (!todayResult) {
+      setLoading(false)
+      return
+    }
+    let cancelled = false
+    setLoading(true)
+    getBhajanById(todayResult.bhajanId)
+      .then((b) => { if (!cancelled) setBhajan(b) })
+      .catch(() => { if (!cancelled) setBhajan(null) })
+      .finally(() => { if (!cancelled) setLoading(false) })
+    return () => { cancelled = true }
+  }, [todayResult?.bhajanId])
 
   useEffect(() => {
     if (!loading && !todayResult) {

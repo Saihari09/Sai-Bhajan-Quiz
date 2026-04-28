@@ -36,6 +36,11 @@ export async function getTodayBhajan(): Promise<Bhajan> {
   return getBhajanForDate(today)
 }
 
+export async function getBhajanById(bhajanId: string): Promise<Bhajan | null> {
+  const bhajans = await loadBhajans()
+  return bhajans.find((b) => b.id === bhajanId) ?? null
+}
+
 export async function getPastSchedule(): Promise<{ date: string; bhajanId: string }[]> {
   const schedule = await loadSchedule()
   const today = getTodayString()
