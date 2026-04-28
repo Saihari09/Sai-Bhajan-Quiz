@@ -7,34 +7,21 @@ const UPI_NAME = 'Sai Bhajan Quiz'
 const BMC_URL = 'https://buymeacoffee.com/sai09'
 
 /**
- * Build a payment URI. The generic `upi://` scheme triggers Android's app
- * chooser which, on some phones, routes to WhatsApp (WhatsApp Pay). Using
- * each app's own custom scheme bypasses that chooser and launches the
- * chosen app directly. Scheme reference:
- *   - Google Pay  → tez://upi/pay
- *   - PhonePe     → phonepe://pay
- *   - Paytm       → paytmmp://pay
- *   - Any UPI app → upi://pay   (used for the QR code)
+ * Build the standard NPCI upi:// payment URI used by the QR code. We
+ * deliberately do NOT use app-specific schemes (phonepe://, tez://,
+ * paytmmp://) — those route through each app's MERCHANT payment flow,
+ * which rejects payments to personal VPAs with a misleading "limit
+ * exceeded" error. QR scan + manual VPA entry both go through the
+ * standard P2P flow and work reliably.
  */
-function buildPaymentUri(scheme: 'upi' | 'tez' | 'phonepe' | 'paytmmp') {
-  const base =
-    scheme === 'upi' ? 'upi://pay' :
-    scheme === 'tez' ? 'tez://upi/pay' :
-    scheme === 'phonepe' ? 'phonepe://pay' :
-    'paytmmp://pay'
+function buildUpiUri() {
   const params = new URLSearchParams({
     pa: UPI_VPA,
     pn: UPI_NAME,
     cu: 'INR',
   })
-  return `${base}?${params.toString()}`
+  return `upi://pay?${params.toString()}`
 }
-
-const UPI_APPS = [
-  { key: 'tez', label: 'Google Pay', emoji: '🟢' },
-  { key: 'phonepe', label: 'PhonePe', emoji: '🟣' },
-  { key: 'paytmmp', label: 'Paytm', emoji: '🔵' },
-] as const
 
 interface SupportModalProps {
   open: boolean
@@ -82,12 +69,6 @@ export function SupportModal({ open, onClose }: SupportModalProps) {
     }
   }
 
-  const handleOpenApp = (scheme: 'tez' | 'phonepe' | 'paytmmp') => {
-    trackEvent(`donate_upi_${scheme}_click`)
-    // Custom schemes launch the specific app directly on mobile. On desktop
-    // most browsers ignore the scheme — the QR is the fallback there.
-    window.location.href = buildPaymentUri(scheme)
-  }
 
   return (
     <AnimatePresence>
@@ -181,7 +162,7 @@ export function SupportModal({ open, onClose }: SupportModalProps) {
                 <div className="flex justify-center mb-4">
                   <div className="p-3 bg-white rounded-xl border border-gray-100 shadow-sm">
                     <img
-                      src={`https://api.qrserver.com/v1/create-qr-code/?size=208x208&margin=0&color=1e3a8a&bgcolor=ffffff&data=${encodeURIComponent(buildPaymentUri('upi'))}`}
+                      src={`https://api.qrserver.com/v1/create-qr-code/?size=208x208&margin=0&color=1e3a8a&bgcolor=ffffff&data=${encodeURIComponent(buildUpiUri())}`}
                       alt="UPI QR code"
                       width={208}
                       height={208}
@@ -207,30 +188,14 @@ export function SupportModal({ open, onClose }: SupportModalProps) {
                   </button>
                 </div>
 
-                <p className="text-[11px] uppercase tracking-wider text-gray-400 font-bold text-center mb-2">
-                  Or open in app
-                </p>
-                <div className="grid grid-cols-3 gap-2">
-                  {UPI_APPS.map((app) => (
-                    <button
-                      key={app.key}
-                      onClick={() => handleOpenApp(app.key)}
-                      className="flex flex-col items-center gap-1 py-2.5 px-1 bg-white border border-gray-200 rounded-xl active:bg-gray-50 transition-colors"
-                    >
-                      <span className="text-xl leading-none">{app.emoji}</span>
-                      <span className="text-[11px] font-bold text-navy-700 leading-tight">
-                        {app.label}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-                <p className="text-[11px] text-gray-400 text-center mt-2">
-                  Works on mobile. On desktop, scan the QR.
+                <p className="text-[11px] text-gray-400 text-center leading-relaxed">
+                  Open Google Pay, PhonePe, Paytm or any UPI app —<br />
+                  scan the QR or paste the ID above.
                 </p>
 
                 <button
                   onClick={onClose}
-                  className="w-full mt-3 py-2.5 text-sm font-medium text-gray-500 active:text-gray-700"
+                  className="w-full mt-4 py-2.5 text-sm font-medium text-gray-500 active:text-gray-700"
                 >
                   Close
                 </button>
