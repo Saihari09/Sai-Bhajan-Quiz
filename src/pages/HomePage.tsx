@@ -246,7 +246,7 @@ export function HomePage() {
             ease: 'easeInOut',
             delay: 4,
           }}
-          className="inline-block text-xs text-saffron-500 font-medium hover:text-saffron-600 transition-colors"
+          className="inline-block text-sm text-saffron-500 font-semibold hover:text-saffron-600 transition-colors"
         >
           🙏 Bless the developer
         </motion.button>

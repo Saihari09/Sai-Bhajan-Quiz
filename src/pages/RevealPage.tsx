@@ -287,7 +287,7 @@ export function RevealPage() {
           trackEvent('donate_click')
           setShowSupport(true)
         }}
-        className="block w-full text-center text-xs text-saffron-500 font-medium hover:text-saffron-600 transition-colors pt-2 pb-4"
+        className="mx-auto block px-5 py-2.5 mt-2 mb-4 text-base text-saffron-600 font-bold bg-saffron-50 border border-saffron-200 rounded-full hover:bg-saffron-100 active:bg-saffron-100 transition-colors shadow-sm"
       >
         🙏 Bless the developer
       </motion.button>
