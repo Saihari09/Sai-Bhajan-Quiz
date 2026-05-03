@@ -231,15 +231,25 @@ export function HomePage() {
         <p className="text-xs text-gray-400 italic">
           "Life is a song, sing it" — Sri Sathya Sai Baba
         </p>
-        <button
+        <motion.button
           onClick={() => {
             trackEvent('donate_click')
             setShowSupport(true)
           }}
+          // Subtle wiggle every ~10s to draw the eye without nagging.
+          // Starts after a 4s settle so it's not the first thing on page load.
+          animate={{ rotate: [0, -6, 6, -4, 4, 0] }}
+          transition={{
+            duration: 0.7,
+            repeat: Infinity,
+            repeatDelay: 10,
+            ease: 'easeInOut',
+            delay: 4,
+          }}
           className="inline-block text-xs text-saffron-500 font-medium hover:text-saffron-600 transition-colors"
         >
-          🙏 Support this app
-        </button>
+          🙏 Bless the developer
+        </motion.button>
         {showNotifLink && (
           <div>
             <button

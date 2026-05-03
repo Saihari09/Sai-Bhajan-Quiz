@@ -91,7 +91,7 @@ export function SupportModal({ open, onClose }: SupportModalProps) {
             {view === 'choose' ? (
               <>
                 <h2 className="text-xl font-black text-navy-700 text-center mb-1">
-                  Support this app
+                  Bless the developer 🙏
                 </h2>
                 <p className="text-xs text-gray-500 text-center mb-5">
                   Pick whichever works for you 🙏

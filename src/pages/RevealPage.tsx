@@ -271,15 +271,25 @@ export function RevealPage() {
       {/* Support link */}
       <motion.button
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6 }}
+        // Fades in first, then wiggles every ~10s to invite a tap.
+        animate={{ opacity: 1, rotate: [0, -6, 6, -4, 4, 0] }}
+        transition={{
+          opacity: { delay: 0.6, duration: 0.4 },
+          rotate: {
+            duration: 0.7,
+            repeat: Infinity,
+            repeatDelay: 10,
+            ease: 'easeInOut',
+            delay: 3,
+          },
+        }}
         onClick={() => {
           trackEvent('donate_click')
           setShowSupport(true)
         }}
         className="block w-full text-center text-xs text-saffron-500 font-medium hover:text-saffron-600 transition-colors pt-2 pb-4"
       >
-        🙏 Support this app
+        🙏 Bless the developer
       </motion.button>
 
       <SupportModal open={showSupport} onClose={() => setShowSupport(false)} />
