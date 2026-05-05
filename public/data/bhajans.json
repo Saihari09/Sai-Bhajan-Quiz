@@ -355,7 +355,8 @@
     },
     "deityImageUrl": "images/deities/hanuman.jpeg",
     "round2LineIndex": 0,
-    "round3LineIndex": 3
+    "round3LineIndex": 3,
+    "acceptedDeities": ["hanuman"]
   },
   {
     "id": "bhajan-008",
@@ -1245,7 +1246,8 @@
     },
     "deityImageUrl": "images/deities/hanuman.jpeg",
     "round2LineIndex": 0,
-    "round3LineIndex": 2
+    "round3LineIndex": 2,
+    "acceptedDeities": ["anjaneya"]
   },
   {
     "id": "bhajan-027",
