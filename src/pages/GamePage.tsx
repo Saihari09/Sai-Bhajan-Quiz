@@ -25,6 +25,11 @@ export function GamePage() {
   const today = getTodayString()
   const playingDate = dateParam || today
   const isPastPuzzle = playingDate !== today
+  // Future bhajans live in the schedule so the data is ready on time, but
+  // they must NOT be playable via direct URL — that would spoil the daily
+  // reveal. The Archive page already hides future days; this guards the
+  // direct /play/:date entry point.
+  const isFuturePuzzle = playingDate > today
 
   const currentRound = useGameStore((s) => s.currentRound)
   const bhajanId = useGameStore((s) => s.bhajanId)
@@ -37,12 +42,16 @@ export function GamePage() {
   const [showNotifPrompt, setShowNotifPrompt] = useState(false)
 
   useEffect(() => {
+    if (isFuturePuzzle) {
+      navigate('/', { replace: true })
+      return
+    }
     const loader = isPastPuzzle ? getBhajanForDate(playingDate) : getTodayBhajan()
     loader
       .then(setBhajan)
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false))
-  }, [playingDate, isPastPuzzle])
+  }, [playingDate, isPastPuzzle, isFuturePuzzle, navigate])
 
   useEffect(() => {
     // Only start a fresh game if there's no persisted game OR the persisted
