@@ -2010,5 +2010,269 @@
     "round2LineIndex": 0,
     "round3LineIndex": 3,
     "acceptedDeities": ["allah", "jesus", "guru"]
+  },
+  {
+    "id": "bhajan-052",
+    "title": "Jagadeeshwari Daya Karo Ma",
+    "deity": "devi",
+    "occasion": "Navaratri / Devi Bhajan",
+    "difficulty": 1,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-052-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/jagadeeshwari-daya-karo-ma",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "जगदीश्वरी दया करो मा\nशिव शंकरी कृपा करो मा\nसयीश्वरी रक्षा करो मा\nपार्थीश्वरी भला करो मा",
+      "transliteration": "Jagadeeshwari Daya Karo Ma\nShiva Shankari Krupa Karo Ma\nSayeeshwari Raksha Karo Ma\nPartheeshwari Bhalaa Karo Ma",
+      "translation": "Mercy on us, O Mother Goddess of the Universe. May Your benedictions be upon us, O Shankari, consort of Lord Shiva. Shower Your blessings and protect us, O Sayeeshwari, the Goddess of Parthi.",
+      "lines": [
+        { "index": 0, "original": "जगदीश्वरी दया करो मा", "transliteration": "Jagadeeshwari Daya Karo Ma", "words": ["Jagadeeshwari", "Daya", "Karo", "Ma"] },
+        { "index": 1, "original": "शिव शंकरी कृपा करो मा", "transliteration": "Shiva Shankari Krupa Karo Ma", "words": ["Shiva", "Shankari", "Krupa", "Karo", "Ma"] },
+        { "index": 2, "original": "सयीश्वरी रक्षा करो मा", "transliteration": "Sayeeshwari Raksha Karo Ma", "words": ["Sayeeshwari", "Raksha", "Karo", "Ma"] },
+        { "index": 3, "original": "पार्थीश्वरी भला करो मा", "transliteration": "Partheeshwari Bhalaa Karo Ma", "words": ["Partheeshwari", "Bhalaa", "Karo", "Ma"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/Devi.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2,
+    "acceptedDeities": ["sai"]
+  },
+  {
+    "id": "bhajan-053",
+    "title": "Bolo Bolo Sab Mil Bolo",
+    "deity": "shiva",
+    "occasion": "Maha Shivaratri / Satsang",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-053-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/bolo-bolo-sab-mil-bolo",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "बोलो बोलो सब मिल बोलो ॐ नमः शिवाय\nजूटा जटा में गंगाधारी\nत्रिशूल धारी डमरू बजावे\nदम दम दम दम डमरू बजा\nगूंज उठाओ ॐ नमः शिवाय",
+      "transliteration": "Bolo Bolo Sab Mil Bolo Om Namah Shivaya\nJoota Jata Mey Gangadhari\nTrishoola Dhari Damaru Bajaavey\nDama Dama Dama Dama Damaru Bajaa\nGoonj Utao Om Namah Shivaya",
+      "translation": "Call upon the Lord of All and chant Om Namah Shivaya to honor Lord Shiva. He holds the Holy Ganges in His matted locks of hair, wields the trident, and plays the kettle-drum. Let the chant echo throughout the universe.",
+      "lines": [
+        { "index": 0, "original": "बोलो बोलो सब मिल बोलो", "transliteration": "Bolo Bolo Sab Mil Bolo", "words": ["Bolo", "Bolo", "Sab", "Mil", "Bolo"] },
+        { "index": 1, "original": "ॐ नमः शिवाय", "transliteration": "Om Namah Shivaya", "words": ["Om", "Namah", "Shivaya"] },
+        { "index": 2, "original": "जूटा जटा में गंगाधारी", "transliteration": "Joota Jata Mey Gangadhari", "words": ["Joota", "Jata", "Mey", "Gangadhari"] },
+        { "index": 3, "original": "त्रिशूल धारी डमरू बजावे", "transliteration": "Trishoola Dhari Damaru Bajaavey", "words": ["Trishoola", "Dhari", "Damaru", "Bajaavey"] },
+        { "index": 4, "original": "दम दम दम दम डमरू बजा", "transliteration": "Dama Dama Dama Dama Damaru Bajaa", "words": ["Dama", "Dama", "Dama", "Dama", "Damaru", "Bajaa"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/shiva.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 3
+  },
+  {
+    "id": "bhajan-054",
+    "title": "Jaya Guru Omkara Jaya Jaya",
+    "deity": "guru",
+    "occasion": "Guru Purnima / Satsang",
+    "difficulty": 1,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-054-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/jaya-guru-omkara-jaya-jaya",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "जय गुरु ओंकार जय जय सद्गुरु ओंकार ॐ\nब्रह्मा विष्णु सदाशिव\nहर हर हर हर महादेव\nशिव शिव शिव शिव सदाशिव",
+      "transliteration": "Jaya Guru Omkara Jaya Jaya Sadguru Omkara Om\nBrahma Vishnu Sadashiva\nHara Hara Hara Hara Mahadeva\nShiva Shiva Shiva Shiva Sadashiva",
+      "translation": "Salutations to our preceptor Sai, who is the form of the primordial sound Om — the creator Brahma, protector Vishnu, and destroyer Shiva. Honor to the embodiment of Mahadeva and Sadashiva.",
+      "lines": [
+        { "index": 0, "original": "जय गुरु ओंकार जय जय सद्गुरु", "transliteration": "Jaya Guru Omkara Jaya Jaya Sadguru", "words": ["Jaya", "Guru", "Omkara", "Jaya", "Jaya", "Sadguru"] },
+        { "index": 1, "original": "ब्रह्मा विष्णु सदाशिव", "transliteration": "Brahma Vishnu Sadashiva", "words": ["Brahma", "Vishnu", "Sadashiva"] },
+        { "index": 2, "original": "हर हर हर हर महादेव", "transliteration": "Hara Hara Hara Hara Mahadeva", "words": ["Hara", "Hara", "Hara", "Hara", "Mahadeva"] },
+        { "index": 3, "original": "शिव शिव शिव शिव सदाशिव", "transliteration": "Shiva Shiva Shiva Shiva Sadashiva", "words": ["Shiva", "Shiva", "Shiva", "Shiva", "Sadashiva"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/Guru.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-055",
+    "title": "Antaranga Sai Anatha Natha Sai",
+    "deity": "sai",
+    "occasion": "Sai Bhajan / Daily Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-055-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/antaranga-sai-anatha-natha-sai",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "अन्तरंग साई अनाथ नाथ साई\nदीन बन्धु साई करुणा सिन्धु साई\nराम कृष्ण शिव शक्ति प्रेम रूप साई\nयुग अवतार बाबा श्री सत्य साई",
+      "transliteration": "Antaranga Sai Anatha Natha Sai\nDeena Bandhu Sai Karuna Sindhu Sai\nRama Krishna Shiva Shakthi Prema Roopa Sai\nYuga Avatara Baba Sri Sathya Sai",
+      "translation": "Lord Sai, dweller of the heart, protector of the orphaned. Friend of the dejected, ocean of compassion. Embodiment of Rama, Krishna, Shiva, Shakthi, and Supreme Love — the avatar of this age, Sri Sathya Sai Baba.",
+      "lines": [
+        { "index": 0, "original": "अन्तरंग साई अनाथ नाथ साई", "transliteration": "Antaranga Sai Anatha Natha Sai", "words": ["Antaranga", "Sai", "Anatha", "Natha", "Sai"] },
+        { "index": 1, "original": "दीन बन्धु साई करुणा सिन्धु साई", "transliteration": "Deena Bandhu Sai Karuna Sindhu Sai", "words": ["Deena", "Bandhu", "Sai", "Karuna", "Sindhu", "Sai"] },
+        { "index": 2, "original": "राम कृष्ण शिव शक्ति प्रेम रूप साई", "transliteration": "Rama Krishna Shiva Shakthi Prema Roopa Sai", "words": ["Rama", "Krishna", "Shiva", "Shakthi", "Prema", "Roopa", "Sai"] },
+        { "index": 3, "original": "युग अवतार बाबा श्री सत्य साई", "transliteration": "Yuga Avatara Baba Sri Sathya Sai", "words": ["Yuga", "Avatara", "Baba", "Sri", "Sathya", "Sai"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/sai-baba.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-056",
+    "title": "Gowri Nandana Gajanana",
+    "deity": "ganesha",
+    "occasion": "Ganesh Chaturthi / Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-056-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/gowri-nandana-gajanana",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "गौरी नन्दन गजानन\nगंगाधर हर शम्भो नन्दन\nपरम सुमंगल मूषिक वाहन\nगान विलोलन गजानन",
+      "transliteration": "Gowri Nandana Gajanana\nGangadhara Hara Shambho Nandana\nParama Sumangala Mooshika Vahana\nGaana Vilolana Gajanana",
+      "translation": "O Lord Ganesha, the elephant-faced one, beloved son of Mother Gowri (Parvathi) and Lord Shiva who adorns the Ganges. You are supremely auspicious, who rides the mouse and revels in divine music.",
+      "lines": [
+        { "index": 0, "original": "गौरी नन्दन गजानन", "transliteration": "Gowri Nandana Gajanana", "words": ["Gowri", "Nandana", "Gajanana"] },
+        { "index": 1, "original": "गंगाधर हर शम्भो नन्दन", "transliteration": "Gangadhara Hara Shambho Nandana", "words": ["Gangadhara", "Hara", "Shambho", "Nandana"] },
+        { "index": 2, "original": "परम सुमंगल मूषिक वाहन", "transliteration": "Parama Sumangala Mooshika Vahana", "words": ["Parama", "Sumangala", "Mooshika", "Vahana"] },
+        { "index": 3, "original": "गान विलोलन गजानन", "transliteration": "Gaana Vilolana Gajanana", "words": ["Gaana", "Vilolana", "Gajanana"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/ganesha.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-057",
+    "title": "Sri Raghu Nandana Dasharatha Nandana",
+    "deity": "rama",
+    "occasion": "Sri Rama Navami / Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-057-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/sri-raghu-nandana-dasharatha-nandana",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "श्री रघु नन्दन दशरथ नन्दन\nभद्रदीश्वर राम\nवैदेही प्रिय वैकुण्ठ वास\nसदा स्मरामि रामेति राम",
+      "transliteration": "Sri Raghu Nandana Dasharatha Nandana\nBhadradeeshwara Rama\nVaidehi Priya Vaikunta Vasa\nSada Smarami Ramethi Rama",
+      "translation": "Salutations to Lord Rama, son of the Raghu lineage, beloved son of King Dasharatha — the presiding deity of Bhadrachalam, beloved of Vaidehi (Sita), dweller of Vaikuntha. Let us incessantly chant his holy name.",
+      "lines": [
+        { "index": 0, "original": "श्री रघु नन्दन दशरथ नन्दन", "transliteration": "Sri Raghu Nandana Dasharatha Nandana", "words": ["Sri", "Raghu", "Nandana", "Dasharatha", "Nandana"] },
+        { "index": 1, "original": "भद्रदीश्वर राम", "transliteration": "Bhadradeeshwara Rama", "words": ["Bhadradeeshwara", "Rama"] },
+        { "index": 2, "original": "वैदेही प्रिय वैकुण्ठ वास", "transliteration": "Vaidehi Priya Vaikunta Vasa", "words": ["Vaidehi", "Priya", "Vaikunta", "Vasa"] },
+        { "index": 3, "original": "सदा स्मरामि रामेति राम", "transliteration": "Sada Smarami Ramethi Rama", "words": ["Sada", "Smarami", "Ramethi", "Rama"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/rama.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-058",
+    "title": "Shirdi Sai Dwarakamayi Prashanthi Vasi",
+    "deity": "sai",
+    "occasion": "Sai Bhajan / Daily Satsang",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-058-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/shirdi-sai-dwarakamayi-prashanthi-vasi",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "शिर्डी साई द्वारकामायी प्रशान्ति वासी साई राम\nसाई राम साई राम एक नाम सुन्दर नाम\nअल्लाह ईश्वर साई राम\nपार्थीपुरी के हे भगवान\nदया करो कृपा करो रक्षा करो हे भगवान",
+      "transliteration": "Shirdi Sai Dwarakamayi Prashanthi Vasi Sai Ram\nSai Ram Sai Ram Ek Naam Sundara Naam\nAllah Eshwara Sai Ram\nParthipuri Ke Hey Bhagawan\nDaya Karo Krupa Karo Raksha Karo Hey Bhagawan",
+      "translation": "Salutations to Lord Shirdi Baba, dweller of Dwarakamayi and Prashanthi — Sai Ram, the name so enthralling. He is none other than Allah and Eshwar (Shiva), and the Lord of Parthi. Show mercy, shower grace, and protect us, O Lord.",
+      "lines": [
+        { "index": 0, "original": "शिर्डी साई द्वारकामायी प्रशान्ति वासी साई राम", "transliteration": "Shirdi Sai Dwarakamayi Prashanthi Vasi Sai Ram", "words": ["Shirdi", "Sai", "Dwarakamayi", "Prashanthi", "Vasi", "Sai", "Ram"] },
+        { "index": 1, "original": "साई राम साई राम एक नाम सुन्दर नाम", "transliteration": "Sai Ram Sai Ram Ek Naam Sundara Naam", "words": ["Sai", "Ram", "Sai", "Ram", "Ek", "Naam"] },
+        { "index": 2, "original": "अल्लाह ईश्वर साई राम", "transliteration": "Allah Eshwara Sai Ram", "words": ["Allah", "Eshwara", "Sai", "Ram"] },
+        { "index": 3, "original": "पार्थीपुरी के हे भगवान", "transliteration": "Parthipuri Ke Hey Bhagawan", "words": ["Parthipuri", "Ke", "Hey", "Bhagawan"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/sai-baba.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2,
+    "acceptedDeities": ["allah", "sarva-dharma"]
+  },
+  {
+    "id": "bhajan-059",
+    "title": "Shambho Mahadeva Mallikarjuna",
+    "deity": "shiva",
+    "occasion": "Maha Shivaratri / Satsang",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-059-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/shambho-mahadeva-mallikarjuna",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "शम्भो महादेव मल्लिकार्जुन\nमंगल चरण त्रिलोचन\nपिनाक पाणि पार्वती रमण\nभव भय हरण सनातन\nपार्थी पुरीश्वर पतित पावन",
+      "transliteration": "Shambho Mahadeva Mallikarjuna\nMangala Charana Trilochana\nPinaka Paani Parvathi Ramana\nBhava Bhaya Harana Sanathana\nParthi Pureeshwara Patitha Pavana",
+      "translation": "Salutations at the sacred feet of Lord Shiva — Shambho, Mahadeva, and Mallikarjuna. Three-eyed one with auspicious feet, wielder of the Pinaka bow, consort of Parvathi. Destroyer of worldly fears, the eternal one — the Lord of Parthi and purifier of the fallen.",
+      "lines": [
+        { "index": 0, "original": "शम्भो महादेव मल्लिकार्जुन", "transliteration": "Shambho Mahadeva Mallikarjuna", "words": ["Shambho", "Mahadeva", "Mallikarjuna"] },
+        { "index": 1, "original": "मंगल चरण त्रिलोचन", "transliteration": "Mangala Charana Trilochana", "words": ["Mangala", "Charana", "Trilochana"] },
+        { "index": 2, "original": "पिनाक पाणि पार्वती रमण", "transliteration": "Pinaka Paani Parvathi Ramana", "words": ["Pinaka", "Paani", "Parvathi", "Ramana"] },
+        { "index": 3, "original": "भव भय हरण सनातन", "transliteration": "Bhava Bhaya Harana Sanathana", "words": ["Bhava", "Bhaya", "Harana", "Sanathana"] },
+        { "index": 4, "original": "पार्थी पुरीश्वर पतित पावन", "transliteration": "Parthi Pureeshwara Patitha Pavana", "words": ["Parthi", "Pureeshwara", "Patitha", "Pavana"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/shiva.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-060",
+    "title": "Va Va Murugaiyya Vadivel Azhaga",
+    "deity": "subrahmanya",
+    "occasion": "Subrahmanya Bhajan / Skanda Shashti",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-060-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/va-va-murugaiyya-vadivel-azhaga",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "வா வா முருகையா வடிவேல் அழகா\nகா வா வா குமார திரு கார்த்திகேயா\nசிங்கார வேலா சிவ சக்தி பாலா\nசங்கீத லோலா சத்ய சாயீசா",
+      "transliteration": "Va Va Murugaiyya Vadivel Azhaga\nKa Va Va Kumara Thiru Karthikeya\nSingara Vela Shiva Shakthi Bala\nSangeeta Lola Sathya Sayeesha",
+      "translation": "Come, O beautiful Lord Muruga, bearer of the divine spear. Protect us, Lord Karthikeya, the youthful son of Shiva and Shakthi. Bearer of the sacred spear, beloved son of Shiva and Shakthi — you are verily Lord Sathya Sai, who delights in divine music.",
+      "lines": [
+        { "index": 0, "original": "வா வா முருகையா வடிவேல் அழகா", "transliteration": "Va Va Murugaiyya Vadivel Azhaga", "words": ["Va", "Va", "Murugaiyya", "Vadivel", "Azhaga"] },
+        { "index": 1, "original": "கா வா வா குமார திரு கார்த்திகேயா", "transliteration": "Ka Va Va Kumara Thiru Karthikeya", "words": ["Ka", "Va", "Va", "Kumara", "Thiru", "Karthikeya"] },
+        { "index": 2, "original": "சிங்கார வேலா சிவ சக்தி பாலா", "transliteration": "Singara Vela Shiva Shakthi Bala", "words": ["Singara", "Vela", "Shiva", "Shakthi", "Bala"] },
+        { "index": 3, "original": "சங்கீத லோலா சத்ய சாயீசா", "transliteration": "Sangeeta Lola Sathya Sayeesha", "words": ["Sangeeta", "Lola", "Sathya", "Sayeesha"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/Subrahmanya.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 1
+  },
+  {
+    "id": "bhajan-061",
+    "title": "Maha Ganapathey Namostuthey",
+    "deity": "ganesha",
+    "occasion": "Ganesh Chaturthi / Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-061-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/maha-ganapathey-namostuthey-0",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "महा गणपते नमोस्तुते मतंग वदन नमोस्तुते\nआदि पूजित गणनाथ आनन्द दायक गणनाथ\nप्रथम वन्दन प्रणवाकार\nविघ्नेश्वर विनायक",
+      "transliteration": "Maha Ganapathey Namostuthey Matanga Vadana Namostuthey\nAdi Poojita Gananatha Ananda Dayaka Gananatha\nPrathama Vandana Pranavakara\nVighneshwara Vinayaka",
+      "translation": "Pranaams to the elephant-faced Lord of the Ganaas, who receives the first prayer, who is the giver of bliss, the embodiment of Pranava Om, and destroyer of obstacles in the path of spiritual practice.",
+      "lines": [
+        { "index": 0, "original": "महा गणपते नमोस्तुते मतंग वदन नमोस्तुते", "transliteration": "Maha Ganapathey Namostuthey Matanga Vadana Namostuthey", "words": ["Maha", "Ganapathey", "Namostuthey", "Matanga", "Vadana", "Namostuthey"] },
+        { "index": 1, "original": "आदि पूजित गणनाथ आनन्द दायक गणनाथ", "transliteration": "Adi Poojita Gananatha Ananda Dayaka Gananatha", "words": ["Adi", "Poojita", "Gananatha", "Ananda", "Dayaka", "Gananatha"] },
+        { "index": 2, "original": "प्रथम वन्दन प्रणवाकार", "transliteration": "Prathama Vandana Pranavakara", "words": ["Prathama", "Vandana", "Pranavakara"] },
+        { "index": 3, "original": "विघ्नेश्वर विनायक", "transliteration": "Vighneshwara Vinayaka", "words": ["Vighneshwara", "Vinayaka"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/ganesha.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 1
   }
 ]
