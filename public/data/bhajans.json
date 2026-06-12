@@ -2274,5 +2274,138 @@
     "deityImageUrl": "images/deities/ganesha.jpg",
     "round2LineIndex": 0,
     "round3LineIndex": 1
+  },
+  {
+    "id": "bhajan-064",
+    "title": "Bala Gopala Sai",
+    "deity": "krishna",
+    "occasion": "Krishna Janmashtami / Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-064-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/bala-gopala-sai",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "बाल गोपाल साई बाल गोपाल\nदेवकी नन्दन गोपाल\nवसुदेव नन्दन गोपाल\nयशोदा नन्दन गोपाल\nनन्द गोपाल आनन्द गोपाल\nसाई गोपाल सत्य साई गोपाल",
+      "transliteration": "Bala Gopala Sai Bala Gopala\nDevaki Nandana Gopala\nVasudeva Nandana Gopala\nYashoda Nandana Gopala\nNanda Gopala Ananda Gopala\nSai Gopala Sathya Sai Gopala",
+      "translation": "Glory to Lord Bala Gopala (young Krishna), the beloved son of Mother Devaki and Vasudeva, fostered by Mother Yashoda and Nanda. He is the bestower of bliss — verily Lord Sathya Sai.",
+      "lines": [
+        { "index": 0, "original": "बाल गोपाल साई बाल गोपाल", "transliteration": "Bala Gopala Sai Bala Gopala", "words": ["Bala", "Gopala", "Sai", "Bala", "Gopala"] },
+        { "index": 1, "original": "देवकी नन्दन गोपाल", "transliteration": "Devaki Nandana Gopala", "words": ["Devaki", "Nandana", "Gopala"] },
+        { "index": 2, "original": "वसुदेव नन्दन गोपाल", "transliteration": "Vasudeva Nandana Gopala", "words": ["Vasudeva", "Nandana", "Gopala"] },
+        { "index": 3, "original": "यशोदा नन्दन गोपाल", "transliteration": "Yashoda Nandana Gopala", "words": ["Yashoda", "Nandana", "Gopala"] },
+        { "index": 4, "original": "नन्द गोपाल आनन्द गोपाल", "transliteration": "Nanda Gopala Ananda Gopala", "words": ["Nanda", "Gopala", "Ananda", "Gopala"] },
+        { "index": 5, "original": "साई गोपाल सत्य साई गोपाल", "transliteration": "Sai Gopala Sathya Sai Gopala", "words": ["Sai", "Gopala", "Sathya", "Sai", "Gopala"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/krishna.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 4
+  },
+  {
+    "id": "bhajan-065",
+    "title": "Ksheerabdhi Shayana Narayana",
+    "deity": "narayana",
+    "occasion": "Vaikuntha Ekadashi / Satsang",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-065-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/ksheerabdhi-shayana-narayana",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "क्षीराब्धि शयन नारायण श्री लक्ष्मी रमण नारायण\nनरहरि रूप नारायण\nवैकुण्ठ वास नारायण वैदेही मोहन नारायण\nनतजन परिपाल नारायण",
+      "transliteration": "Ksheerabdhi Shayana Narayana Sri Lakshmi Ramana Narayana\nNarahari Roopa Narayana\nVaikunta Vasa Narayana Vaidehi Mohana Narayana\nNatajana Paripala Narayana",
+      "translation": "Chant the name of Lord Narayana who reclines on the Ocean of Milk, consort of Sri Lakshmi. He incarnated as Narasimha (Narahari), resides in Vaikuntha, charms Vaidehi (Sita), and takes care of those who surrender to Him.",
+      "lines": [
+        { "index": 0, "original": "क्षीराब्धि शयन नारायण श्री लक्ष्मी रमण नारायण", "transliteration": "Ksheerabdhi Shayana Narayana Sri Lakshmi Ramana Narayana", "words": ["Ksheerabdhi", "Shayana", "Narayana", "Sri", "Lakshmi", "Ramana", "Narayana"] },
+        { "index": 1, "original": "नरहरि रूप नारायण", "transliteration": "Narahari Roopa Narayana", "words": ["Narahari", "Roopa", "Narayana"] },
+        { "index": 2, "original": "वैकुण्ठ वास नारायण वैदेही मोहन नारायण", "transliteration": "Vaikunta Vasa Narayana Vaidehi Mohana Narayana", "words": ["Vaikunta", "Vasa", "Narayana", "Vaidehi", "Mohana", "Narayana"] },
+        { "index": 3, "original": "नतजन परिपाल नारायण", "transliteration": "Natajana Paripala Narayana", "words": ["Natajana", "Paripala", "Narayana"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/narayana.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-066",
+    "title": "Prathah Smaranam Sri Guru Charanam",
+    "deity": "guru",
+    "occasion": "Guru Purnima / Daily Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-066-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/prathah-smaranam-sri-guru-charanam",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "प्रातः स्मरणं श्री गुरु चरणं\nसयीश चरणं श्री गुरु चरणं\nब्रह्मानन्द प्रदायक चरणं\nशरणं शरणं सयीश चरणं",
+      "transliteration": "Prathah Smaranam Sri Guru Charanam\nSayeesha Charanam Sri Guru Charanam\nBrahmananda Pradayaka Charanam\nSharanam Sharanam Sayeesha Charanam",
+      "translation": "Meditate at dawn upon the holy feet of the Guru, the lotus feet of Sai. Refuge of refuges — the feet that bestow eternal bliss. We surrender at the sacred feet of Lord Sai.",
+      "lines": [
+        { "index": 0, "original": "प्रातः स्मरणं श्री गुरु चरणं", "transliteration": "Prathah Smaranam Sri Guru Charanam", "words": ["Prathah", "Smaranam", "Sri", "Guru", "Charanam"] },
+        { "index": 1, "original": "सयीश चरणं श्री गुरु चरणं", "transliteration": "Sayeesha Charanam Sri Guru Charanam", "words": ["Sayeesha", "Charanam", "Sri", "Guru", "Charanam"] },
+        { "index": 2, "original": "ब्रह्मानन्द प्रदायक चरणं", "transliteration": "Brahmananda Pradayaka Charanam", "words": ["Brahmananda", "Pradayaka", "Charanam"] },
+        { "index": 3, "original": "शरणं शरणं सयीश चरणं", "transliteration": "Sharanam Sharanam Sayeesha Charanam", "words": ["Sharanam", "Sharanam", "Sayeesha", "Charanam"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/Guru.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 1,
+    "acceptedDeities": ["sai"]
+  },
+  {
+    "id": "bhajan-067",
+    "title": "Jaya Panduranga Prabho Vittala",
+    "deity": "vittala",
+    "occasion": "Pandharpur Yatra / Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-067-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/jaya-panduranga-prabho-vittala",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "जय पाण्डुरङ्ग प्रभो विट्ठल\nजगदोद्धार हरि विट्ठल\nपाण्डुरङ्ग विट्ठल पण्डरी नाथ विट्ठल\nश्री रमणी हृदयान्त रङ्ग\nमंगल कर करुणान्त रङ्ग\nआश्रित दीन जनावन रङ्ग",
+      "transliteration": "Jaya Panduranga Prabho Vittala\nJagadodhara Hari Vittala\nPanduranga Vittala Pandari Natha Vittala\nSri Ramani Hrudayanta Ranga\nMangala Kara Karunanta Ranga\nAashritha Deena Janavana Ranga",
+      "translation": "Victory to Lord Panduranga Vittala, the Lord of Pandharpur and liberator of the world. Lord Ranga dwells in the heart of His consort Mother Lakshmi — auspiciousness personified, most compassionate, and the bestower of grace upon the destitute.",
+      "lines": [
+        { "index": 0, "original": "जय पाण्डुरङ्ग प्रभो विट्ठल", "transliteration": "Jaya Panduranga Prabho Vittala", "words": ["Jaya", "Panduranga", "Prabho", "Vittala"] },
+        { "index": 1, "original": "जगदोद्धार हरि विट्ठल", "transliteration": "Jagadodhara Hari Vittala", "words": ["Jagadodhara", "Hari", "Vittala"] },
+        { "index": 2, "original": "पाण्डुरङ्ग विट्ठल पण्डरी नाथ विट्ठल", "transliteration": "Panduranga Vittala Pandari Natha Vittala", "words": ["Panduranga", "Vittala", "Pandari", "Natha", "Vittala"] },
+        { "index": 3, "original": "श्री रमणी हृदयान्त रङ्ग", "transliteration": "Sri Ramani Hrudayanta Ranga", "words": ["Sri", "Ramani", "Hrudayanta", "Ranga"] },
+        { "index": 4, "original": "मंगल कर करुणान्त रङ्ग", "transliteration": "Mangala Kara Karunanta Ranga", "words": ["Mangala", "Kara", "Karunanta", "Ranga"] },
+        { "index": 5, "original": "आश्रित दीन जनावन रङ्ग", "transliteration": "Aashritha Deena Janavana Ranga", "words": ["Aashritha", "Deena", "Janavana", "Ranga"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/vittala.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-068",
+    "title": "Sathyam Gnanam Anantham Brahma",
+    "deity": "sai",
+    "occasion": "Sai Bhajan / Daily Satsang",
+    "difficulty": 1,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-068-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/sathyam-gnanam-anantham-brahma",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "सत्यं ज्ञानं अनन्तं ब्रह्म\nसत्यं ब्रह्म ज्ञानं ब्रह्म अनन्तं ब्रह्म",
+      "transliteration": "Sathyam Gnanam Anantham Brahma\nSathyam Brahma Gnanam Brahma Anantham Brahma",
+      "translation": "Glory to You, O Lord Sai, who is verily the Supreme Being — the embodiment of Eternal Truth, Wisdom, and the Infinite. You are Brahma, the ultimate spiritual reality.",
+      "lines": [
+        { "index": 0, "original": "सत्यं ज्ञानं अनन्तं ब्रह्म", "transliteration": "Sathyam Gnanam Anantham Brahma", "words": ["Sathyam", "Gnanam", "Anantham", "Brahma"] },
+        { "index": 1, "original": "सत्यं ब्रह्म ज्ञानं ब्रह्म अनन्तं ब्रह्म", "transliteration": "Sathyam Brahma Gnanam Brahma Anantham Brahma", "words": ["Sathyam", "Brahma", "Gnanam", "Brahma", "Anantham", "Brahma"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/sai-baba.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 1
   }
 ]
