@@ -2407,5 +2407,191 @@
     "deityImageUrl": "images/deities/sai-baba.jpeg",
     "round2LineIndex": 0,
     "round3LineIndex": 1
+  },
+  {
+    "id": "bhajan-069",
+    "title": "Om Namah Shivaya Shivaya Namah",
+    "deity": "shiva",
+    "occasion": "Maha Shivaratri / Satsang",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-069-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/om-namah-shivaya-shivaya-namah-0",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "ॐ नमः शिवाय शिवाय नमः ॐ\nशिव शिव हर हर हराय नमः ॐ\nहर हर शिव शिव शिवाय नमः ॐ\nहर हर महादेव हर हर महादेव\nदम दम दम दम डमरू बाजे\nधिमिथक धिमिथक मृदङ्ग बाजे",
+      "transliteration": "Om Namah Shivaya Shivaya Namah Om\nShiva Shiva Hara Hara Haraya Namah Om\nHara Hara Shiva Shiva Shivaya Namah Om\nHara Hara Mahadeva Hara Hara Mahadeva\nDama Dama Dama Dama Damaru Baajey\nDhimithaka Dhimithaka Mrudanga Baajey",
+      "translation": "Salutations to Lord Shiva, the bestower of auspiciousness and destroyer of evil. Glory to Mahadeva who performs the cosmic dance, playing the Damaru and keeping time with the Mrudanga.",
+      "lines": [
+        { "index": 0, "original": "ॐ नमः शिवाय शिवाय नमः ॐ", "transliteration": "Om Namah Shivaya Shivaya Namah Om", "words": ["Om", "Namah", "Shivaya", "Shivaya", "Namah", "Om"] },
+        { "index": 1, "original": "शिव शिव हर हर हराय नमः ॐ", "transliteration": "Shiva Shiva Hara Hara Haraya Namah Om", "words": ["Shiva", "Shiva", "Hara", "Hara", "Haraya", "Namah", "Om"] },
+        { "index": 2, "original": "हर हर महादेव हर हर महादेव", "transliteration": "Hara Hara Mahadeva Hara Hara Mahadeva", "words": ["Hara", "Hara", "Mahadeva", "Hara", "Hara", "Mahadeva"] },
+        { "index": 3, "original": "दम दम दम दम डमरू बाजे", "transliteration": "Dama Dama Dama Dama Damaru Baajey", "words": ["Dama", "Dama", "Dama", "Dama", "Damaru", "Baajey"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/shiva.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-070",
+    "title": "Ganapathi Om Jaya Ganapathi Om",
+    "deity": "ganesha",
+    "occasion": "Ganesh Chaturthi / Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-070-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/ganapathi-om-jaya-ganapathi-om",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "गणपति ॐ जय गणपति ॐ\nगजमुख वरद गणपति ॐ\nमूषिक वाहन गजानन\nमोदक हस्त गजानन\nपरम निरंजन गजानन\nपाद नमस्ते गजानन",
+      "transliteration": "Ganapathi Om Jaya Ganapathi Om\nGajamukha Varada Ganapathi Om\nMooshika Vahana Gajanana\nModaka Hasta Gajanana\nParama Niranjana Gajanana\nPaada Namasthey Gajanana",
+      "translation": "Glory to Lord Ganesha, the elephant-faced one, bestower of boons. He rides the mouse, holds the modaka (sweet) in his hand. Supremely pure — we offer our salutations at His lotus feet.",
+      "lines": [
+        { "index": 0, "original": "गणपति ॐ जय गणपति ॐ", "transliteration": "Ganapathi Om Jaya Ganapathi Om", "words": ["Ganapathi", "Om", "Jaya", "Ganapathi", "Om"] },
+        { "index": 1, "original": "गजमुख वरद गणपति ॐ", "transliteration": "Gajamukha Varada Ganapathi Om", "words": ["Gajamukha", "Varada", "Ganapathi", "Om"] },
+        { "index": 2, "original": "मूषिक वाहन गजानन", "transliteration": "Mooshika Vahana Gajanana", "words": ["Mooshika", "Vahana", "Gajanana"] },
+        { "index": 3, "original": "मोदक हस्त गजानन", "transliteration": "Modaka Hasta Gajanana", "words": ["Modaka", "Hasta", "Gajanana"] },
+        { "index": 4, "original": "परम निरंजन गजानन", "transliteration": "Parama Niranjana Gajanana", "words": ["Parama", "Niranjana", "Gajanana"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/ganesha.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 1
+  },
+  {
+    "id": "bhajan-071",
+    "title": "Mandir Mey Tum Ram Ho",
+    "deity": "sarva-dharma",
+    "occasion": "Sarva Dharma / Universal Prayer",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-071-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/mandir-mey-tum-ram-ho",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "मन्दिर में तुम राम हो साई\nमस्जिद में नूर मोहम्मद (अल्लाह हो अकबर)\nगुरुद्वारे में तुम गुरु नानक\nमन मन्दिर में साई साई\nबोलो राम एक ही नाम\nसब मिल बोलो साई राम",
+      "transliteration": "Mandir Mey Tum Ram Ho Sai\nMasjid Mey Noor Mohammad\nGurudware Mey Tum Guru Nanak\nMan Mandir Mey Sai Sai\nBolo Ram Ek Hi Naam\nSab Mil Bolo Sai Ram",
+      "translation": "You are adored as Ram in the Temple, as the light of Mohammad in the mosque, as Guru Nanak in the Gurudwara, and in the temple of my mind you are Sai. Chant the one name of Ram — let us all chant Sai Ram together.",
+      "lines": [
+        { "index": 0, "original": "मन्दिर में तुम राम हो साई", "transliteration": "Mandir Mey Tum Ram Ho Sai", "words": ["Mandir", "Mey", "Tum", "Ram", "Ho", "Sai"] },
+        { "index": 1, "original": "मस्जिद में नूर मोहम्मद", "transliteration": "Masjid Mey Noor Mohammad", "words": ["Masjid", "Mey", "Noor", "Mohammad"] },
+        { "index": 2, "original": "गुरुद्वारे में तुम गुरु नानक", "transliteration": "Gurudware Mey Tum Guru Nanak", "words": ["Gurudware", "Mey", "Tum", "Guru", "Nanak"] },
+        { "index": 3, "original": "मन मन्दिर में साई साई", "transliteration": "Man Mandir Mey Sai Sai", "words": ["Man", "Mandir", "Mey", "Sai", "Sai"] },
+        { "index": 4, "original": "सब मिल बोलो साई राम", "transliteration": "Sab Mil Bolo Sai Ram", "words": ["Sab", "Mil", "Bolo", "Sai", "Ram"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/Sarva_Dharma.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2,
+    "acceptedDeities": ["allah", "rama", "guru", "sai"]
+  },
+  {
+    "id": "bhajan-072",
+    "title": "Ghana Ghana Neela Vadana Ati",
+    "deity": "krishna",
+    "occasion": "Krishna Janmashtami / Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-072-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/ghana-ghana-neela-vadana-ati",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "घन घन नील वदन अति सुन्दर\nमेघ श्यामल माधव मुरहर\nमन्द स्मित मुख राधा मनोहर\nगोविन्द गोपाल नटवर गिरिधर",
+      "transliteration": "Ghana Ghana Neela Vadana Ati Sundara\nMegha Shyamala Madhava Murahara\nMandasmitha Mukha Radha Manohara\nGovinda Gopala Natavara Giridhara",
+      "translation": "Lord Krishna has a beautiful dark blue complexion like a rain cloud. He slayed the demon Mura, has a gentle smile, and is the enchanter of Radha — Govinda, Gopala, supreme dancer and lifter of Govardhana mountain.",
+      "lines": [
+        { "index": 0, "original": "घन घन नील वदन अति सुन्दर", "transliteration": "Ghana Ghana Neela Vadana Ati Sundara", "words": ["Ghana", "Ghana", "Neela", "Vadana", "Ati", "Sundara"] },
+        { "index": 1, "original": "मेघ श्यामल माधव मुरहर", "transliteration": "Megha Shyamala Madhava Murahara", "words": ["Megha", "Shyamala", "Madhava", "Murahara"] },
+        { "index": 2, "original": "मन्द स्मित मुख राधा मनोहर", "transliteration": "Mandasmitha Mukha Radha Manohara", "words": ["Mandasmitha", "Mukha", "Radha", "Manohara"] },
+        { "index": 3, "original": "गोविन्द गोपाल नटवर गिरिधर", "transliteration": "Govinda Gopala Natavara Giridhara", "words": ["Govinda", "Gopala", "Natavara", "Giridhara"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/krishna.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 3
+  },
+  {
+    "id": "bhajan-073",
+    "title": "Shankara Shiva Shankara Shiva Shankara",
+    "deity": "shiva",
+    "occasion": "Maha Shivaratri / Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-073-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/shankara-shiva-shankara-shiva-shankara-1",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "शंकर शिव शंकर शिव शंकर\nशंकर शिव शंकर शिव शंकर शम्भो\nशंकर शिव शंकर शिव शम्भो महादेव\nदम दम डमरू बजे शंकर घन घन घन्ट बजे\nहर भोले नाथ शम्भो हर साई नाथ शम्भो",
+      "transliteration": "Shankara Shiva Shankara Shiva Shankara\nShankara Shiva Shankara Shiva Shankara Shambho\nShankara Shiva Shankara Shiva Shambho Mahadeva\nDama Dama Damaru Bajey Shankara Ghana Ghana Ghanta Bajey\nHara Bholey Natha Shambho Hara Sai Natha Shambho",
+      "translation": "Salutations to Lord Shankara, Shiva, Shambho — who dances to the rhythm of Damaru and the ringing of bells. Chant the name of Sai Natha who is verily Lord Shiva, the benevolent one.",
+      "lines": [
+        { "index": 0, "original": "शंकर शिव शंकर शिव शंकर", "transliteration": "Shankara Shiva Shankara Shiva Shankara", "words": ["Shankara", "Shiva", "Shankara", "Shiva", "Shankara"] },
+        { "index": 1, "original": "शंकर शिव शंकर शिव शंकर शम्भो", "transliteration": "Shankara Shiva Shankara Shiva Shankara Shambho", "words": ["Shankara", "Shiva", "Shankara", "Shiva", "Shankara", "Shambho"] },
+        { "index": 2, "original": "शंकर शिव शंकर शिव शम्भो महादेव", "transliteration": "Shankara Shiva Shankara Shiva Shambho Mahadeva", "words": ["Shankara", "Shiva", "Shankara", "Shiva", "Shambho", "Mahadeva"] },
+        { "index": 3, "original": "दम दम डमरू बजे शंकर", "transliteration": "Dama Dama Damaru Bajey Shankara", "words": ["Dama", "Dama", "Damaru", "Bajey", "Shankara"] },
+        { "index": 4, "original": "हर भोले नाथ शम्भो हर साई नाथ शम्भो", "transliteration": "Hara Bholey Natha Shambho Hara Sai Natha Shambho", "words": ["Hara", "Bholey", "Natha", "Shambho", "Hara", "Sai", "Natha"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/shiva.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 3
+  },
+  {
+    "id": "bhajan-074",
+    "title": "Sai Mata Pitha Deena Bandhu",
+    "deity": "sai",
+    "occasion": "Sai Bhajan / Daily Satsang",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-074-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/sai-mata-pitha-deena-bandhu",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "साई माता पिता दीन बन्धु सखा\nतेरे चरणों में साई मेरा कोटि प्रणाम\nमुझे शक्ति दो मेरे साई शिव\nमुझे भक्ति दो मेरे साई शिव\nमुझे मुक्ति दो मेरे साई शिव",
+      "transliteration": "Sai Mata Pitha Deena Bandhu Sakha\nTerey Charanon Mey Sai Mera Koti Pranam\nMujhey Shakthi Do Merey Sai Shiva\nMujhey Bhakthi Do Merey Sai Shiva\nMujhey Mukthi Do Merey Sai Shiva",
+      "translation": "Lord Sai — you are my mother, father, friend of the forlorn, and companion. A million prostrations at your lotus feet. Grant me strength, devotion, and liberation, O Sai Shiva.",
+      "lines": [
+        { "index": 0, "original": "साई माता पिता दीन बन्धु सखा", "transliteration": "Sai Mata Pitha Deena Bandhu Sakha", "words": ["Sai", "Mata", "Pitha", "Deena", "Bandhu", "Sakha"] },
+        { "index": 1, "original": "तेरे चरणों में साई मेरा कोटि प्रणाम", "transliteration": "Terey Charanon Mey Sai Mera Koti Pranam", "words": ["Terey", "Charanon", "Mey", "Sai", "Mera", "Koti", "Pranam"] },
+        { "index": 2, "original": "मुझे शक्ति दो मेरे साई शिव", "transliteration": "Mujhey Shakthi Do Merey Sai Shiva", "words": ["Mujhey", "Shakthi", "Do", "Merey", "Sai", "Shiva"] },
+        { "index": 3, "original": "मुझे भक्ति दो मेरे साई शिव", "transliteration": "Mujhey Bhakthi Do Merey Sai Shiva", "words": ["Mujhey", "Bhakthi", "Do", "Merey", "Sai", "Shiva"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/sai-baba.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-075",
+    "title": "Man Ek Baar Hari Bol",
+    "deity": "narayana",
+    "occasion": "Daily Satsang",
+    "difficulty": 1,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-075-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/man-ek-baar-hari-bol",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "मन एक बार हरि बोल\nहरि हरि बोल हरि बोल\nहरि पिता हरि माता\nहरि गुरु ज्ञान दाता\nचिदानन्द रूप हरि पतित पावन मन एक बार हरि बोल",
+      "transliteration": "Man Ek Baar Hari Bol\nHari Hari Bol Hari Bol\nHari Pitha Hari Mata\nHari Guru Gnana Daata\nChidananda Roopa Hari Patitha Pavana Man Ek Baar Hari Bol",
+      "translation": "O Mind, chant the name of Lord Hari at least once. He is the Mother, Father, Preceptor and the one who bestows wisdom — the embodiment of awareness and bliss, redeemer of the downtrodden.",
+      "lines": [
+        { "index": 0, "original": "मन एक बार हरि बोल", "transliteration": "Man Ek Baar Hari Bol", "words": ["Man", "Ek", "Baar", "Hari", "Bol"] },
+        { "index": 1, "original": "हरि हरि बोल हरि बोल", "transliteration": "Hari Hari Bol Hari Bol", "words": ["Hari", "Hari", "Bol", "Hari", "Bol"] },
+        { "index": 2, "original": "हरि पिता हरि माता", "transliteration": "Hari Pitha Hari Mata", "words": ["Hari", "Pitha", "Hari", "Mata"] },
+        { "index": 3, "original": "हरि गुरु ज्ञान दाता", "transliteration": "Hari Guru Gnana Daata", "words": ["Hari", "Guru", "Gnana", "Daata"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/narayana.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
   }
 ]
