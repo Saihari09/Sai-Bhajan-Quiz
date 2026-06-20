@@ -2593,5 +2593,164 @@
     "deityImageUrl": "images/deities/narayana.jpg",
     "round2LineIndex": 0,
     "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-076",
+    "title": "Jaya Sai Guru Deva Sai Guru Deva",
+    "deity": "guru",
+    "occasion": "Guru Purnima / Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-076-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/jaya-sai-guru-deva-sai",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "जय साई गुरु देव साई गुरु देव\nगुरु सेवा बिना निर्वाण नहीं जय साई गुरु देव\nतुम ही हो माता पिता तुम ही हो साई गुरु देव\nसत्य स्वरूप राह दिखाओ साई गुरु देव",
+      "transliteration": "Jaya Sai Guru Deva Sai Guru Deva\nGuru Seva Bina Nirvana Nahin Jaya Sai Guru Deva\nTum Hi Ho Mata Pitha Tum Hi Ho Sai Guru Deva\nSathya Swaroopa Raaha Dikhao Sai Guru Deva",
+      "translation": "There is no salvation without service to the Guru. Lord Sai, you are my mother and father. Embodiment of Truth — grace me with your guidance.",
+      "lines": [
+        { "index": 0, "original": "जय साई गुरु देव साई गुरु देव", "transliteration": "Jaya Sai Guru Deva Sai Guru Deva", "words": ["Jaya", "Sai", "Guru", "Deva", "Sai", "Guru", "Deva"] },
+        { "index": 1, "original": "गुरु सेवा बिना निर्वाण नहीं", "transliteration": "Guru Seva Bina Nirvana Nahin", "words": ["Guru", "Seva", "Bina", "Nirvana", "Nahin"] },
+        { "index": 2, "original": "तुम ही हो माता पिता तुम ही हो साई गुरु देव", "transliteration": "Tum Hi Ho Mata Pitha Tum Hi Ho Sai Guru Deva", "words": ["Tum", "Hi", "Ho", "Mata", "Pitha", "Tum", "Hi"] },
+        { "index": 3, "original": "सत्य स्वरूप राह दिखाओ साई गुरु देव", "transliteration": "Sathya Swaroopa Raaha Dikhao Sai Guru Deva", "words": ["Sathya", "Swaroopa", "Raaha", "Dikhao", "Sai", "Guru", "Deva"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/Guru.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 3,
+    "acceptedDeities": ["sai"]
+  },
+  {
+    "id": "bhajan-077",
+    "title": "Bada Chitha Chora Brindavana Sanchara",
+    "deity": "krishna",
+    "occasion": "Krishna Janmashtami / Satsang",
+    "difficulty": 1,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-077-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/bada-chitha-chora-brindavana-sanchara",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "बड़ा चित्त चोर बृन्दावन संचार\nगोपाल गोपाल हे मुरली गोपाल\nगोवर्धनोद्धार गोपाल बाला\nगोपी मनोहर राधे गोपाल",
+      "transliteration": "Bada Chitha Chora Brindavana Sanchara\nGopala Gopala Hey Murali Gopala\nGovardhanodhara Gopala Bala\nGopi Manohara Radhey Gopala",
+      "translation": "Glory to Lord Krishna — the great stealer of hearts who roamed in Brindavan, lifter of Govardhana mountain, enchanter of the gopis and beloved of Radha.",
+      "lines": [
+        { "index": 0, "original": "बड़ा चित्त चोर बृन्दावन संचार", "transliteration": "Bada Chitha Chora Brindavana Sanchara", "words": ["Bada", "Chitha", "Chora", "Brindavana", "Sanchara"] },
+        { "index": 1, "original": "गोपाल गोपाल हे मुरली गोपाल", "transliteration": "Gopala Gopala Hey Murali Gopala", "words": ["Gopala", "Gopala", "Hey", "Murali", "Gopala"] },
+        { "index": 2, "original": "गोवर्धनोद्धार गोपाल बाला", "transliteration": "Govardhanodhara Gopala Bala", "words": ["Govardhanodhara", "Gopala", "Bala"] },
+        { "index": 3, "original": "गोपी मनोहर राधे गोपाल", "transliteration": "Gopi Manohara Radhey Gopala", "words": ["Gopi", "Manohara", "Radhey", "Gopala"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/krishna.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 3
+  },
+  {
+    "id": "bhajan-078",
+    "title": "Tum Ho Daata Sai Shankara",
+    "deity": "sai",
+    "occasion": "Sai Bhajan / Maha Shivaratri",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-078-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/tum-ho-daata-sai-shankara",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "तुम हो दाता साई शंकर\nहम को दीजो आनन्द बाबा\nआओ शंकर अनाथ नाथ\nदीजो दर्शन दीन नाथ",
+      "transliteration": "Tum Ho Daata Sai Shankara\nHum Ko Deejo Ananda Baba\nAao Shankara Anatha Natha\nDeejo Darshana Deena Natha",
+      "translation": "Lord Sai, who is verily Lord Shiva, you are the bestower of all. Grant us eternal bliss. Come, Shankara — protector of the orphaned. Bless us with your darshan, Lord of the destitute.",
+      "lines": [
+        { "index": 0, "original": "तुम हो दाता साई शंकर", "transliteration": "Tum Ho Daata Sai Shankara", "words": ["Tum", "Ho", "Daata", "Sai", "Shankara"] },
+        { "index": 1, "original": "हम को दीजो आनन्द बाबा", "transliteration": "Hum Ko Deejo Ananda Baba", "words": ["Hum", "Ko", "Deejo", "Ananda", "Baba"] },
+        { "index": 2, "original": "आओ शंकर अनाथ नाथ", "transliteration": "Aao Shankara Anatha Natha", "words": ["Aao", "Shankara", "Anatha", "Natha"] },
+        { "index": 3, "original": "दीजो दर्शन दीन नाथ", "transliteration": "Deejo Darshana Deena Natha", "words": ["Deejo", "Darshana", "Deena", "Natha"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/sai-baba.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2,
+    "acceptedDeities": ["shiva"]
+  },
+  {
+    "id": "bhajan-079",
+    "title": "Hey Brahma Hey Vishnu",
+    "deity": "sai",
+    "occasion": "Sai Bhajan / Daily Satsang",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-079-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/hey-brahma-hey-vishnu",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "हे ब्रह्मा हे विष्णु\nदयामय हे महेश्वर\nसत्य साई परमेश्वर\nमहा शक्ति शिव साई शंकर\nपूर्ण तेज साई अवतार",
+      "transliteration": "Hey Brahma Hey Vishnu\nDayamaya Hey Maheshwara\nSathya Sai Parameshwara\nMaha Shakthi Shiva Sai Shankara\nPoorna Teja Sai Avatara",
+      "translation": "Salutations to Lord Sathya Sai who embodies the trinity — Brahma the creator, Vishnu the preserver, and Maheshwara the dissolver. Supreme Sovereign full of compassion, the total incarnation of Supreme Energy.",
+      "lines": [
+        { "index": 0, "original": "हे ब्रह्मा हे विष्णु", "transliteration": "Hey Brahma Hey Vishnu", "words": ["Hey", "Brahma", "Hey", "Vishnu"] },
+        { "index": 1, "original": "दयामय हे महेश्वर", "transliteration": "Dayamaya Hey Maheshwara", "words": ["Dayamaya", "Hey", "Maheshwara"] },
+        { "index": 2, "original": "सत्य साई परमेश्वर", "transliteration": "Sathya Sai Parameshwara", "words": ["Sathya", "Sai", "Parameshwara"] },
+        { "index": 3, "original": "महा शक्ति शिव साई शंकर", "transliteration": "Maha Shakthi Shiva Sai Shankara", "words": ["Maha", "Shakthi", "Shiva", "Sai", "Shankara"] },
+        { "index": 4, "original": "पूर्ण तेज साई अवतार", "transliteration": "Poorna Teja Sai Avatara", "words": ["Poorna", "Teja", "Sai", "Avatara"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/sai-baba.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 3
+  },
+  {
+    "id": "bhajan-080",
+    "title": "Hey Madhava Hey Madhusudhana",
+    "deity": "krishna",
+    "occasion": "Krishna Bhajan / Daily Satsang",
+    "difficulty": 1,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-080-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/hey-madhava-hey-madhusudhana",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "हे माधव हे मधुसूधन\nदामोदर हे मुरलीधर\nमन मोहन हे यदु नन्दन\nदीनावन भव भय भञ्जन",
+      "transliteration": "Hey Madhava Hey Madhusudhana\nDamodara Hey Muralidhara\nMana Mohana Hey Yadu Nandana\nDeenavana Bhava Bhaya Bhanjana",
+      "translation": "Glory to Lord Madhava, slayer of the demon Madhu, holder of the flute. Damodara, enchanter of hearts, son of the Yadu dynasty — protector of the downtrodden, destroyer of worldly fears.",
+      "lines": [
+        { "index": 0, "original": "हे माधव हे मधुसूधन", "transliteration": "Hey Madhava Hey Madhusudhana", "words": ["Hey", "Madhava", "Hey", "Madhusudhana"] },
+        { "index": 1, "original": "दामोदर हे मुरलीधर", "transliteration": "Damodara Hey Muralidhara", "words": ["Damodara", "Hey", "Muralidhara"] },
+        { "index": 2, "original": "मन मोहन हे यदु नन्दन", "transliteration": "Mana Mohana Hey Yadu Nandana", "words": ["Mana", "Mohana", "Hey", "Yadu", "Nandana"] },
+        { "index": 3, "original": "दीनावन भव भय भञ्जन", "transliteration": "Deenavana Bhava Bhaya Bhanjana", "words": ["Deenavana", "Bhava", "Bhaya", "Bhanjana"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/krishna.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-081",
+    "title": "Gajavadana Gananatha",
+    "deity": "ganesha",
+    "occasion": "Ganesh Chaturthi / Satsang",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-081-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/gajavadana-gananatha",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "गजवदन गणनाथ\nगौरी तनय दयामय\nभुवनाधार प्रणव स्वरूप\nपालय पालय पार्थी पुरीश",
+      "transliteration": "Gajavadana Gananatha\nGowri Tanaya Dayamaya\nBhuvanaadhara Pranava Swaroopa\nPalaya Palaya Parthi Pureesha",
+      "translation": "O Lord Ganesha, elephant-faced Lord, son of Mother Parvathi — supremely compassionate. Embodiment of Pranava (Om) and basis of all creation. Protect us, O Sai, Lord of Parthi.",
+      "lines": [
+        { "index": 0, "original": "गजवदन गणनाथ", "transliteration": "Gajavadana Gananatha", "words": ["Gajavadana", "Gananatha"] },
+        { "index": 1, "original": "गौरी तनय दयामय", "transliteration": "Gowri Tanaya Dayamaya", "words": ["Gowri", "Tanaya", "Dayamaya"] },
+        { "index": 2, "original": "भुवनाधार प्रणव स्वरूप", "transliteration": "Bhuvanaadhara Pranava Swaroopa", "words": ["Bhuvanaadhara", "Pranava", "Swaroopa"] },
+        { "index": 3, "original": "पालय पालय पार्थी पुरीश", "transliteration": "Palaya Palaya Parthi Pureesha", "words": ["Palaya", "Palaya", "Parthi", "Pureesha"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/ganesha.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 3
   }
 ]
