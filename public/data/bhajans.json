@@ -2752,5 +2752,248 @@
     "deityImageUrl": "images/deities/ganesha.jpg",
     "round2LineIndex": 0,
     "round3LineIndex": 3
+  },
+  {
+    "id": "bhajan-082",
+    "title": "Kasturi Tilakam Narayanam",
+    "deity": "narayana",
+    "occasion": "Vaikuntha Ekadashi / Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-082-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/kasturi-tilakam-narayanam",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "कस्तूरी तिलकम् नारायणम्\nकमल नयनम् नारायणम्\nगुरुवायुर पुर नारायणम्\nकलि युग अवतार नारायणम्\nगोविन्द गोविन्द नारायणम्",
+      "transliteration": "Kasturi Tilakam Narayanam\nKamala Nayanam Narayanam\nGuruvayur Pura Narayanam\nKali Yuga Avatara Narayanam\nGovinda Govinda Narayanam",
+      "translation": "Glory to the lotus-eyed Lord Narayana adorned with vermillion — the presiding deity at Guruvayur. He is the cowherd boy Krishna incarnated in this Kali age as Lord Sai.",
+      "lines": [
+        { "index": 0, "original": "कस्तूरी तिलकम् नारायणम्", "transliteration": "Kasturi Tilakam Narayanam", "words": ["Kasturi", "Tilakam", "Narayanam"] },
+        { "index": 1, "original": "कमल नयनम् नारायणम्", "transliteration": "Kamala Nayanam Narayanam", "words": ["Kamala", "Nayanam", "Narayanam"] },
+        { "index": 2, "original": "गुरुवायुर पुर नारायणम्", "transliteration": "Guruvayur Pura Narayanam", "words": ["Guruvayur", "Pura", "Narayanam"] },
+        { "index": 3, "original": "कलि युग अवतार नारायणम्", "transliteration": "Kali Yuga Avatara Narayanam", "words": ["Kali", "Yuga", "Avatara", "Narayanam"] },
+        { "index": 4, "original": "गोविन्द गोविन्द नारायणम्", "transliteration": "Govinda Govinda Narayanam", "words": ["Govinda", "Govinda", "Narayanam"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/narayana.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 3,
+    "acceptedDeities": ["krishna", "sai"]
+  },
+  {
+    "id": "bhajan-083",
+    "title": "Hari Hari Om Shiva Shankara",
+    "deity": "shiva",
+    "occasion": "Maha Shivaratri / Satsang",
+    "difficulty": 1,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-083-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/hari-hari-om-shiva-shankara",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "हरि हरि ॐ शिव शंकर ॐ\nनारायण हरि ॐ\nकेशव हे शिव माधव हे\nनारायण हरि ॐ\nपरमात्मा अन्तर्यामी\nनारायण हरि ॐ",
+      "transliteration": "Hari Hari Om Shiva Shankara Om\nNarayana Hari Om\nKeshava Hey Shiva Madhava Hey\nNarayana Hari Om\nParamatma Antaryami\nNarayana Hari Om",
+      "translation": "Meditate on the primordial sound Om and chant the divine names — Hari, Shiva, Shankara, Narayana, Keshava, Madhava. Lord Narayana is the Supreme Indweller.",
+      "lines": [
+        { "index": 0, "original": "हरि हरि ॐ शिव शंकर ॐ", "transliteration": "Hari Hari Om Shiva Shankara Om", "words": ["Hari", "Hari", "Om", "Shiva", "Shankara", "Om"] },
+        { "index": 1, "original": "नारायण हरि ॐ", "transliteration": "Narayana Hari Om", "words": ["Narayana", "Hari", "Om"] },
+        { "index": 2, "original": "केशव हे शिव माधव हे", "transliteration": "Keshava Hey Shiva Madhava Hey", "words": ["Keshava", "Hey", "Shiva", "Madhava", "Hey"] },
+        { "index": 3, "original": "परमात्मा अन्तर्यामी", "transliteration": "Paramatma Antaryami", "words": ["Paramatma", "Antaryami"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/shiva.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2,
+    "acceptedDeities": ["narayana", "krishna"]
+  },
+  {
+    "id": "bhajan-084",
+    "title": "Devi Bhavani Ma Jaya Sai",
+    "deity": "devi",
+    "occasion": "Navaratri / Devi Bhajan",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-084-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/devi-bhavani-ma-jaya-sai",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "देवी भवानी मा जय साई भवानी मा\nदया करो साई मा कृपा करो साई मा\nजय मा जय मा जय देवी भवानी मा\nजय पार्थी निवासिनी मा जय साई भवानी मा",
+      "transliteration": "Devi Bhavani Ma Jaya Sai Bhavani Ma\nDaya Karo Sai Ma Krupa Karo Sai Ma\nJaya Ma Jaya Ma Jaya Devi Bhavani Ma\nJaya Parthi Nivasini Ma Jaya Sai Bhavani Ma",
+      "translation": "Victory to Mother Sai, destroyer of the cycle of birth and death. Bestow on us your mercy and compassion. O Mother, resident of Parthi — victory to thee.",
+      "lines": [
+        { "index": 0, "original": "देवी भवानी मा जय साई भवानी मा", "transliteration": "Devi Bhavani Ma Jaya Sai Bhavani Ma", "words": ["Devi", "Bhavani", "Ma", "Jaya", "Sai", "Bhavani", "Ma"] },
+        { "index": 1, "original": "दया करो साई मा कृपा करो साई मा", "transliteration": "Daya Karo Sai Ma Krupa Karo Sai Ma", "words": ["Daya", "Karo", "Sai", "Ma", "Krupa", "Karo"] },
+        { "index": 2, "original": "जय मा जय मा जय देवी भवानी मा", "transliteration": "Jaya Ma Jaya Ma Jaya Devi Bhavani Ma", "words": ["Jaya", "Ma", "Jaya", "Ma", "Jaya", "Devi"] },
+        { "index": 3, "original": "जय पार्थी निवासिनी मा जय साई भवानी मा", "transliteration": "Jaya Parthi Nivasini Ma Jaya Sai Bhavani Ma", "words": ["Jaya", "Parthi", "Nivasini", "Ma", "Jaya", "Sai"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/Devi.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 3,
+    "acceptedDeities": ["sai"]
+  },
+  {
+    "id": "bhajan-085",
+    "title": "Hey Deena Dayalu Harey Harey",
+    "deity": "sai",
+    "occasion": "Sai Bhajan / Daily Satsang",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-085-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/hey-deena-dayalu-harey-harey",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "हे दीन दयालु हरे हरे\nहे दीन दयालु हरे हरे साई राम हरे हरे\nसाई राम घन श्याम साई राम\nहे बन्ध विमोचन राम हरे\nहे पाप संहारक साई हरे",
+      "transliteration": "Hey Deena Dayalu Harey Harey\nHey Deena Dayalu Harey Harey Sai Ram Harey Harey\nSai Ram Ghana Shyam Sai Ram\nHey Bandha Vimochana Rama Harey\nHey Paapa Samharaka Sai Harey",
+      "translation": "Glory to Lord Sai Rama — compassionate to the deprived, dark-complexioned like a rain cloud. Liberator from worldly bondage, destroyer of sin.",
+      "lines": [
+        { "index": 0, "original": "हे दीन दयालु हरे हरे", "transliteration": "Hey Deena Dayalu Harey Harey", "words": ["Hey", "Deena", "Dayalu", "Harey", "Harey"] },
+        { "index": 1, "original": "साई राम घन श्याम साई राम", "transliteration": "Sai Ram Ghana Shyam Sai Ram", "words": ["Sai", "Ram", "Ghana", "Shyam", "Sai", "Ram"] },
+        { "index": 2, "original": "हे बन्ध विमोचन राम हरे", "transliteration": "Hey Bandha Vimochana Rama Harey", "words": ["Hey", "Bandha", "Vimochana", "Rama", "Harey"] },
+        { "index": 3, "original": "हे पाप संहारक साई हरे", "transliteration": "Hey Paapa Samharaka Sai Harey", "words": ["Hey", "Paapa", "Samharaka", "Sai", "Harey"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/sai-baba.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-086",
+    "title": "Sai Ram Sai Ram Sai",
+    "deity": "sarva-dharma",
+    "occasion": "Sarva Dharma / Universal Prayer",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-086-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/sai-ram-sai-ram-sai",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "साई राम साई राम साई राम भजो\nसद्गुरु साई राम नाम भजो\nअल्लाह मलिक साई राम भजो\nबुद्ध महावीर साई राम भजो\nयेसु पिता प्रभु साई राम भजो",
+      "transliteration": "Sai Ram Sai Ram Sai Ram Bhajo\nSadguru Sai Ram Naam Bhajo\nAllah Malik Sai Ram Bhajo\nBuddha Mahavir Sai Ram Bhajo\nYesu Pitha Prabhu Sai Ram Bhajo",
+      "translation": "Chant the name of Sai Ram, the divine preceptor — he is none other than Allah, Buddha, Mahavir and Jesus. Universal spirituality unites all faith traditions in worship of the one Divine.",
+      "lines": [
+        { "index": 0, "original": "साई राम साई राम साई राम भजो", "transliteration": "Sai Ram Sai Ram Sai Ram Bhajo", "words": ["Sai", "Ram", "Sai", "Ram", "Sai", "Ram", "Bhajo"] },
+        { "index": 1, "original": "सद्गुरु साई राम नाम भजो", "transliteration": "Sadguru Sai Ram Naam Bhajo", "words": ["Sadguru", "Sai", "Ram", "Naam", "Bhajo"] },
+        { "index": 2, "original": "अल्लाह मलिक साई राम भजो", "transliteration": "Allah Malik Sai Ram Bhajo", "words": ["Allah", "Malik", "Sai", "Ram", "Bhajo"] },
+        { "index": 3, "original": "बुद्ध महावीर साई राम भजो", "transliteration": "Buddha Mahavir Sai Ram Bhajo", "words": ["Buddha", "Mahavir", "Sai", "Ram", "Bhajo"] },
+        { "index": 4, "original": "येसु पिता प्रभु साई राम भजो", "transliteration": "Yesu Pitha Prabhu Sai Ram Bhajo", "words": ["Yesu", "Pitha", "Prabhu", "Sai", "Ram", "Bhajo"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/Sarva_Dharma.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2,
+    "acceptedDeities": ["sai", "allah", "buddha", "jesus"]
+  },
+  {
+    "id": "bhajan-087",
+    "title": "Hey Vishwanath Hey Gowri Nath",
+    "deity": "shiva",
+    "occasion": "Maha Shivaratri / Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-087-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/hey-vishwanath-hey-gowri-nath",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "हे विश्वनाथ हे गौरी नाथ हे साई नाथ भगवान\nदया करो दया करो दया करो भगवान\nदीन दयाला साई घन श्याम\nपतित पावन हे साई राम",
+      "transliteration": "Hey Vishwanath Hey Gowri Nath Hey Sai Nath Bhagawan\nDaya Karo Daya Karo Daya Karo Bhagawan\nDeena Dayala Sai Ghana Shyama\nPatitha Pavana Hey Sai Rama",
+      "translation": "Show mercy on us, O Lord of the Universe and of Mother Gowri. Lord Sai is the redeemer of the downtrodden, providing succor to the weak — purifier of the fallen.",
+      "lines": [
+        { "index": 0, "original": "हे विश्वनाथ हे गौरी नाथ हे साई नाथ भगवान", "transliteration": "Hey Vishwanath Hey Gowri Nath Hey Sai Nath Bhagawan", "words": ["Hey", "Vishwanath", "Hey", "Gowri", "Nath", "Hey", "Sai"] },
+        { "index": 1, "original": "दया करो दया करो दया करो भगवान", "transliteration": "Daya Karo Daya Karo Daya Karo Bhagawan", "words": ["Daya", "Karo", "Daya", "Karo", "Daya", "Karo"] },
+        { "index": 2, "original": "दीन दयाला साई घन श्याम", "transliteration": "Deena Dayala Sai Ghana Shyama", "words": ["Deena", "Dayala", "Sai", "Ghana", "Shyama"] },
+        { "index": 3, "original": "पतित पावन हे साई राम", "transliteration": "Patitha Pavana Hey Sai Rama", "words": ["Patitha", "Pavana", "Hey", "Sai", "Rama"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/shiva.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2,
+    "acceptedDeities": ["sai"]
+  },
+  {
+    "id": "bhajan-088",
+    "title": "Bhaja Mana Govinda Gopala",
+    "deity": "krishna",
+    "occasion": "Krishna Bhajan / Daily Satsang",
+    "difficulty": 1,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-088-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/bhaja-mana-govinda-gopala",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "भज मन गोविन्द गोपाल\nगोविन्द गोपाल गोपाल\nगोविन्द बोलो हरि गोपाल बोलो\nसाई राम साई कृष्ण साई बाबा",
+      "transliteration": "Bhaja Mana Govinda Gopala\nGovinda Gopala Gopala\nGovinda Bolo Hari Gopala Bolo\nSai Rama Sai Krishna Sai Baba",
+      "translation": "O Mind, worship and chant the names of Govinda and Gopala — names of Lord Krishna. He is verily Sai Rama, Sai Krishna, Sai Baba.",
+      "lines": [
+        { "index": 0, "original": "भज मन गोविन्द गोपाल", "transliteration": "Bhaja Mana Govinda Gopala", "words": ["Bhaja", "Mana", "Govinda", "Gopala"] },
+        { "index": 1, "original": "गोविन्द गोपाल गोपाल", "transliteration": "Govinda Gopala Gopala", "words": ["Govinda", "Gopala", "Gopala"] },
+        { "index": 2, "original": "गोविन्द बोलो हरि गोपाल बोलो", "transliteration": "Govinda Bolo Hari Gopala Bolo", "words": ["Govinda", "Bolo", "Hari", "Gopala", "Bolo"] },
+        { "index": 3, "original": "साई राम साई कृष्ण साई बाबा", "transliteration": "Sai Rama Sai Krishna Sai Baba", "words": ["Sai", "Rama", "Sai", "Krishna", "Sai", "Baba"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/krishna.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-089",
+    "title": "Jaya Lambodhara Paahi Maam",
+    "deity": "ganesha",
+    "occasion": "Ganesh Chaturthi / Satsang",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-089-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/jaya-lambodhara-paahi-maam",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "जय लम्बोदर पाहि माम्\nजगदम्ब सुत रक्ष माम्\nशरणागत रक्ष माम्\nहे करुणा निधे पाहि माम्\nश्री गणनाथ संरक्ष माम्\nनिज भक्ति मुदं देहि माम्",
+      "transliteration": "Jaya Lambodhara Paahi Maam\nJagadamba Sutha Raksha Maam\nSharanagatha Raksha Maam\nHey Karuna Nidhey Paahi Maam\nSri Gananatha Samraksha Maam\nNija Bhakthi Mudam Dehi Maam",
+      "translation": "Glory to Lord Ganesha — the one with a big belly, son of Universal Mother Amba. Protect those who surrender to you. Ocean of Mercy, Lord of Shiva's forces — bestow upon us true devotion.",
+      "lines": [
+        { "index": 0, "original": "जय लम्बोदर पाहि माम्", "transliteration": "Jaya Lambodhara Paahi Maam", "words": ["Jaya", "Lambodhara", "Paahi", "Maam"] },
+        { "index": 1, "original": "जगदम्ब सुत रक्ष माम्", "transliteration": "Jagadamba Sutha Raksha Maam", "words": ["Jagadamba", "Sutha", "Raksha", "Maam"] },
+        { "index": 2, "original": "शरणागत रक्ष माम्", "transliteration": "Sharanagatha Raksha Maam", "words": ["Sharanagatha", "Raksha", "Maam"] },
+        { "index": 3, "original": "हे करुणा निधे पाहि माम्", "transliteration": "Hey Karuna Nidhey Paahi Maam", "words": ["Hey", "Karuna", "Nidhey", "Paahi", "Maam"] },
+        { "index": 4, "original": "श्री गणनाथ संरक्ष माम्", "transliteration": "Sri Gananatha Samraksha Maam", "words": ["Sri", "Gananatha", "Samraksha", "Maam"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/ganesha.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 3
+  },
+  {
+    "id": "bhajan-090",
+    "title": "Prema Muditha Man Se Kaho",
+    "deity": "rama",
+    "occasion": "Sri Rama Navami / Daily Satsang",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-090-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/prema-muditha-man-se-kaho",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "प्रेम मुदित मन से कहो\nराम राम राम\nपाप कटे दुख मिटे लेके राम नाम\nभव समुद्र सुखद नाव एक राम नाम\nपरम शान्ति सुख निधान दिव्य राम नाम\nनिराधार को आधार एक राम नाम",
+      "transliteration": "Prema Muditha Man Se Kaho\nRama Rama Ram\nPaapa Katey Dukha Mitey Lekey Rama Naam\nBhava Samudra Sukhada Naava Ek Rama Naam\nParama Shanthi Sukha Nidhana Divya Rama Naam\nNiraadhaara Ko Aadhara Ek Rama Naam",
+      "translation": "With a heart full of love, repeat the name of Ram. Chanting His name dissolves sins and sorrows, is the boat that ferries us across the ocean of worldly existence, source of supreme peace and bliss, and support to the destitute.",
+      "lines": [
+        { "index": 0, "original": "प्रेम मुदित मन से कहो", "transliteration": "Prema Muditha Man Se Kaho", "words": ["Prema", "Muditha", "Man", "Se", "Kaho"] },
+        { "index": 1, "original": "राम राम राम", "transliteration": "Rama Rama Ram", "words": ["Rama", "Rama", "Ram"] },
+        { "index": 2, "original": "पाप कटे दुख मिटे लेके राम नाम", "transliteration": "Paapa Katey Dukha Mitey Lekey Rama Naam", "words": ["Paapa", "Katey", "Dukha", "Mitey", "Lekey", "Rama", "Naam"] },
+        { "index": 3, "original": "भव समुद्र सुखद नाव एक राम नाम", "transliteration": "Bhava Samudra Sukhada Naava Ek Rama Naam", "words": ["Bhava", "Samudra", "Sukhada", "Naava", "Ek", "Rama", "Naam"] },
+        { "index": 4, "original": "परम शान्ति सुख निधान दिव्य राम नाम", "transliteration": "Parama Shanthi Sukha Nidhana Divya Rama Naam", "words": ["Parama", "Shanthi", "Sukha", "Nidhana", "Divya", "Rama", "Naam"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/rama.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
   }
 ]
