@@ -88,7 +88,13 @@
     { "date": "2026-07-06", "bhajanId": "bhajan-087" },
     { "date": "2026-07-07", "bhajanId": "bhajan-088" },
     { "date": "2026-07-08", "bhajanId": "bhajan-089" },
-    { "date": "2026-07-09", "bhajanId": "bhajan-090" }
+    { "date": "2026-07-09", "bhajanId": "bhajan-090" },
+    { "date": "2026-07-10", "bhajanId": "bhajan-091" },
+    { "date": "2026-07-11", "bhajanId": "bhajan-092" },
+    { "date": "2026-07-12", "bhajanId": "bhajan-093" },
+    { "date": "2026-07-13", "bhajanId": "bhajan-094" },
+    { "date": "2026-07-14", "bhajanId": "bhajan-095" },
+    { "date": "2026-07-15", "bhajanId": "bhajan-096" }
   ],
   "fallbackBhajanId": "bhajan-001"
 }

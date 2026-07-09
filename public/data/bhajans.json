@@ -2995,5 +2995,163 @@
     "deityImageUrl": "images/deities/rama.jpg",
     "round2LineIndex": 0,
     "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-091",
+    "title": "Hari Bhajana Bina Sukh Shanthi Nahin",
+    "deity": "sai",
+    "occasion": "Sai Bhajan / Daily Satsang",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-091-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/hari-bhajana-bina-sukh-shanthi",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "हरि भजन बिना सुख शान्ति नहीं\nहरि नाम बिना आनन्द नहीं\nप्रेम भक्ति बिना उद्धार नहीं\nगुरु सेवा बिना निर्वाण नहीं\nजप ध्यान बिना सम योग नहीं\nभगवान बिना कोई अपना नहीं",
+      "transliteration": "Hari Bhajana Bina Sukh Shanthi Nahin\nHari Naam Bina Ananda Nahin\nPrema Bhakthi Bina Uddhar Nahin\nGuru Seva Bina Nirvana Nahin\nJapa Dhyana Bina Sam Yoga Nahin\nBhagawan Bina Koi Apna Nahin",
+      "translation": "There is no peace without singing the glory of the Lord, no bliss without His name. No progress without loving devotion, no liberation without service to the Guru. No equanimity without chanting and meditation — only the Lord is truly one's own.",
+      "lines": [
+        { "index": 0, "original": "हरि भजन बिना सुख शान्ति नहीं", "transliteration": "Hari Bhajana Bina Sukh Shanthi Nahin", "words": ["Hari", "Bhajana", "Bina", "Sukh", "Shanthi", "Nahin"] },
+        { "index": 1, "original": "हरि नाम बिना आनन्द नहीं", "transliteration": "Hari Naam Bina Ananda Nahin", "words": ["Hari", "Naam", "Bina", "Ananda", "Nahin"] },
+        { "index": 2, "original": "प्रेम भक्ति बिना उद्धार नहीं", "transliteration": "Prema Bhakthi Bina Uddhar Nahin", "words": ["Prema", "Bhakthi", "Bina", "Uddhar", "Nahin"] },
+        { "index": 3, "original": "गुरु सेवा बिना निर्वाण नहीं", "transliteration": "Guru Seva Bina Nirvana Nahin", "words": ["Guru", "Seva", "Bina", "Nirvana", "Nahin"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/sai-baba.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 3
+  },
+  {
+    "id": "bhajan-092",
+    "title": "Deva Senapathey Skanda Subrahmanya",
+    "deity": "subrahmanya",
+    "occasion": "Skanda Shashti / Subrahmanya Bhajan",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-092-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/deva-senapathey-skanda-subrahmanya-paahi",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "देव सेनापते स्कन्द सुब्रह्मण्य पाहि मां\nपाहि परमेश्वर स्कन्द सुब्रह्मण्य पाहि मां\nसुब्रह्मण्य षण्मुख नाथ\nसाई नाथ करुणा सिन्धो",
+      "transliteration": "Deva Senapathey Skanda Subrahmanya Paahi Maam\nPaahi Parameshwara Skanda Subrahmanya Paahi Maam\nSubrahmanya Shanmukha Natha\nSai Natha Karuna Sindho",
+      "translation": "O Lord Subrahmanya, son of Shiva, chief of the celestial hosts — protect us. O Skanda, six-faced Supreme Lord — you have incarnated as Lord Sai, ocean of compassion.",
+      "lines": [
+        { "index": 0, "original": "देव सेनापते स्कन्द सुब्रह्मण्य पाहि मां", "transliteration": "Deva Senapathey Skanda Subrahmanya Paahi Maam", "words": ["Deva", "Senapathey", "Skanda", "Subrahmanya", "Paahi", "Maam"] },
+        { "index": 1, "original": "पाहि परमेश्वर स्कन्द सुब्रह्मण्य पाहि मां", "transliteration": "Paahi Parameshwara Skanda Subrahmanya Paahi Maam", "words": ["Paahi", "Parameshwara", "Skanda", "Subrahmanya", "Paahi", "Maam"] },
+        { "index": 2, "original": "सुब्रह्मण्य षण्मुख नाथ", "transliteration": "Subrahmanya Shanmukha Natha", "words": ["Subrahmanya", "Shanmukha", "Natha"] },
+        { "index": 3, "original": "साई नाथ करुणा सिन्धो", "transliteration": "Sai Natha Karuna Sindho", "words": ["Sai", "Natha", "Karuna", "Sindho"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/Subrahmanya.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 3,
+    "acceptedDeities": ["sai"]
+  },
+  {
+    "id": "bhajan-093",
+    "title": "Kalyana Krishna Kamaneeya Krishna",
+    "deity": "krishna",
+    "occasion": "Krishna Janmashtami / Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-093-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/kalyana-krishna-kamaneeya-krishna",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "कल्याण कृष्ण कमनीय कृष्ण\nकलिंग नर्तन श्री कृष्ण\nगोवर्धन गिरिधारी मुरारी गोपी मन संचारी\nमुरारी गोपी मन संचारी\nबृन्दावन के तुलसी माला\nपीताम्बर धारी मुरारी",
+      "transliteration": "Kalyana Krishna Kamaneeya Krishna\nKalinga Narthana Sri Krishna\nGovardhana Giridhari Murari Gopi Mana Sanchari\nMurari Gopi Mana Sanchari\nBrindavan Ke Tulasi Mala\nPeetambara Dhari Murari",
+      "translation": "Auspicious and enchanting Lord Krishna, who danced upon the serpent Kalinga, lifted Govardhana mountain, and stole the hearts of the gopis. Adorned with the tulsi garland of Brindavan and clothed in yellow silk.",
+      "lines": [
+        { "index": 0, "original": "कल्याण कृष्ण कमनीय कृष्ण", "transliteration": "Kalyana Krishna Kamaneeya Krishna", "words": ["Kalyana", "Krishna", "Kamaneeya", "Krishna"] },
+        { "index": 1, "original": "कलिंग नर्तन श्री कृष्ण", "transliteration": "Kalinga Narthana Sri Krishna", "words": ["Kalinga", "Narthana", "Sri", "Krishna"] },
+        { "index": 2, "original": "गोवर्धन गिरिधारी मुरारी गोपी मन संचारी", "transliteration": "Govardhana Giridhari Murari Gopi Mana Sanchari", "words": ["Govardhana", "Giridhari", "Murari", "Gopi", "Mana", "Sanchari"] },
+        { "index": 3, "original": "बृन्दावन के तुलसी माला", "transliteration": "Brindavan Ke Tulasi Mala", "words": ["Brindavan", "Ke", "Tulasi", "Mala"] },
+        { "index": 4, "original": "पीताम्बर धारी मुरारी", "transliteration": "Peetambara Dhari Murari", "words": ["Peetambara", "Dhari", "Murari"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/krishna.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-094",
+    "title": "Shiva Shiva Shiva Shiva Shivaya",
+    "deity": "shiva",
+    "occasion": "Maha Shivaratri / Satsang",
+    "difficulty": 3,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-094-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/shiva-shiva-shiva-shiva-shivaya-1",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "शिव शिव शिव शिव शिवाय नमः ॐ\nहर हर हर हर हराय नमः ॐ\nशिवाय नमः ॐ हराय नमः ॐ",
+      "transliteration": "Shiva Shiva Shiva Shiva Shivaya Namah Om\nHara Hara Hara Hara Haraya Namah Om\nShivaya Namah Om Haraya Namah Om",
+      "translation": "Salutations to Lord Shiva, destroyer of sins and the cycle of rebirth. Hara, the destructive aspect of the Supreme — we bow again and again in reverence and non-duality with the ultimate consciousness.",
+      "lines": [
+        { "index": 0, "original": "शिव शिव शिव शिव शिवाय नमः ॐ", "transliteration": "Shiva Shiva Shiva Shiva Shivaya Namah Om", "words": ["Shiva", "Shiva", "Shiva", "Shiva", "Shivaya", "Namah", "Om"] },
+        { "index": 1, "original": "हर हर हर हर हराय नमः ॐ", "transliteration": "Hara Hara Hara Hara Haraya Namah Om", "words": ["Hara", "Hara", "Hara", "Hara", "Haraya", "Namah", "Om"] },
+        { "index": 2, "original": "शिवाय नमः ॐ हराय नमः ॐ", "transliteration": "Shivaya Namah Om Haraya Namah Om", "words": ["Shivaya", "Namah", "Om", "Haraya", "Namah", "Om"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/shiva.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 1
+  },
+  {
+    "id": "bhajan-095",
+    "title": "Yuga Yuga Ke Avatara Sai",
+    "deity": "sarva-dharma",
+    "occasion": "Sarva Dharma / Universal Prayer",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-095-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/yuga-yuga-ke-avatara-sai",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "युग युग के अवतार साई राम साई कृष्ण साई बाबा\nबाबा साई बाबा बाबा साई बाबा\nअल्लाह येसु नानक साई\nबुद्ध जरथुस्त्र महावीर साई\nराम रहीम जय राम रहीम जय राम रहीम जय राम",
+      "transliteration": "Yuga Yuga Ke Avatara Sai Rama Sai Krishna Sai Baba\nBaba Sai Baba Baba Sai Baba\nAllah Yesu Nanak Sai\nBuddha Zohrashtra Mahavira Sai\nRam Rahim Jai Ram Rahim Jai Ram Rahim Jai Ram",
+      "translation": "O Lord Sai, you incarnate through the ages as Rama, Krishna, and Sai Baba. Devotees worship you by many names — Allah, Jesus, Nanak, Buddha, Zoroaster, Mahavira. Rama and Rahim — the divine essence united across all faith traditions.",
+      "lines": [
+        { "index": 0, "original": "युग युग के अवतार साई राम साई कृष्ण साई बाबा", "transliteration": "Yuga Yuga Ke Avatara Sai Rama Sai Krishna Sai Baba", "words": ["Yuga", "Yuga", "Ke", "Avatara", "Sai", "Rama", "Sai"] },
+        { "index": 1, "original": "बाबा साई बाबा बाबा साई बाबा", "transliteration": "Baba Sai Baba Baba Sai Baba", "words": ["Baba", "Sai", "Baba", "Baba", "Sai", "Baba"] },
+        { "index": 2, "original": "अल्लाह येसु नानक साई", "transliteration": "Allah Yesu Nanak Sai", "words": ["Allah", "Yesu", "Nanak", "Sai"] },
+        { "index": 3, "original": "बुद्ध जरथुस्त्र महावीर साई", "transliteration": "Buddha Zohrashtra Mahavira Sai", "words": ["Buddha", "Zohrashtra", "Mahavira", "Sai"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/Sarva_Dharma.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 3,
+    "acceptedDeities": ["sai", "rama", "krishna", "allah", "jesus", "guru", "buddha"]
+  },
+  {
+    "id": "bhajan-096",
+    "title": "Ganesha Charanam Sharanam Ganesha",
+    "deity": "ganesha",
+    "occasion": "Ganesh Chaturthi / Satsang",
+    "difficulty": 1,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-096-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/ganesha-charanam-sharanam-ganesha",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "गणेश चरणं शरणं गणेश\nसयीश चरणं शरणं सयीश\nगणेश शिव के पुत्र\nविनम्रता से आपसे प्रार्थना करता हूँ",
+      "transliteration": "Ganesha Charanam Sharanam Ganesha\nSayeesha Charanam Sharanam Sayeesha\nGanesha Shiva's Son\nHumbly I Implore Thee",
+      "translation": "Surrender at the lotus feet of Lord Ganesha. Surrender at the lotus feet of Lord Sai. Son of Shiva — humbly I implore Thee to clear the path before me.",
+      "lines": [
+        { "index": 0, "original": "गणेश चरणं शरणं गणेश", "transliteration": "Ganesha Charanam Sharanam Ganesha", "words": ["Ganesha", "Charanam", "Sharanam", "Ganesha"] },
+        { "index": 1, "original": "सयीश चरणं शरणं सयीश", "transliteration": "Sayeesha Charanam Sharanam Sayeesha", "words": ["Sayeesha", "Charanam", "Sharanam", "Sayeesha"] },
+        { "index": 2, "original": "गणेश शिव के पुत्र", "transliteration": "Ganesha Shiva Ke Putra", "words": ["Ganesha", "Shiva", "Ke", "Putra"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/ganesha.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 1,
+    "acceptedDeities": ["sai"]
   }
 ]
