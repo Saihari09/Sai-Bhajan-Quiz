@@ -3153,5 +3153,111 @@
     "round2LineIndex": 0,
     "round3LineIndex": 1,
     "acceptedDeities": ["sai"]
+  },
+  {
+    "id": "bhajan-097",
+    "title": "Devi Bhavani Jagat Janani",
+    "deity": "devi",
+    "occasion": "Navaratri / Devi Bhajan",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-097-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/devi-bhavani-jagat-janani",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "देवी भवानी जगत् जननी\nमन्द हासिनी आनन्द दायिनी\nमंगल कारिणी कारुण्य रूपिणी\nनारायणी देवी नारायणी\nमहिषासुर मर्दिनी अम्बे भवानी",
+      "transliteration": "Devi Bhavani Jagat Janani\nManda Haasini Ananda Dayini\nMangala Kaarini Karunya Roopini\nNarayani Devi Narayani\nMahishasura Mardhini Ambe Bhavani",
+      "translation": "Salutations to Divine Mother Bhavani, Mother of the Universe. Bewitching smile, bestower of bliss. Auspicious one, embodiment of mercy. Narayani Devi, slayer of Mahishasura — Ambe Bhavani.",
+      "lines": [
+        { "index": 0, "original": "देवी भवानी जगत् जननी", "transliteration": "Devi Bhavani Jagat Janani", "words": ["Devi", "Bhavani", "Jagat", "Janani"] },
+        { "index": 1, "original": "मन्द हासिनी आनन्द दायिनी", "transliteration": "Manda Haasini Ananda Dayini", "words": ["Manda", "Haasini", "Ananda", "Dayini"] },
+        { "index": 2, "original": "मंगल कारिणी कारुण्य रूपिणी", "transliteration": "Mangala Kaarini Karunya Roopini", "words": ["Mangala", "Kaarini", "Karunya", "Roopini"] },
+        { "index": 3, "original": "महिषासुर मर्दिनी अम्बे भवानी", "transliteration": "Mahishasura Mardhini Ambe Bhavani", "words": ["Mahishasura", "Mardhini", "Ambe", "Bhavani"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/Devi.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-098",
+    "title": "Govinda Krishna Jai Gopala Krishna",
+    "deity": "krishna",
+    "occasion": "Krishna Janmashtami / Satsang",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-098-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/govinda-krishna-jai-gopala-krishna",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "गोविन्द कृष्ण जय गोपाल कृष्ण जय गोपाल पाल बाल राधा कृष्ण जय\nकृष्ण जय कृष्ण जय कृष्ण जय कृष्ण कृष्ण कृष्ण कृष्ण जय\nगोपिका माला हारी प्यारी मायी मीरा मन विहारी मदन मोहन मुरलीधारी कृष्ण जय\nकृष्ण जय राम कृष्ण जय राधा कृष्ण जय बाल कृष्ण कृष्ण कृष्ण कृष्ण जय",
+      "transliteration": "Govinda Krishna Jai Gopala Krishna Jai Gopala Pala Bala Radha Krishna Jai\nKrishna Jai Krishna Jai Krishna Jai Krishna Krishna Krishna Krishna Jai\nGopika Mala Haari Pyaari Maayi Meera Mana Vihari Madana Mohana Muralidhari Krishna Jai\nKrishna Jai Rama Krishna Jai Radha Krishna Jai Bala Krishna Krishna Krishna Krishna Jai",
+      "translation": "Victory to Krishna, the Lord of Radha; the beloved who wears the garland of the Gopis. Victory to the one who dwells in Meera's heart — the Lord of Love who enchants us all with his flute.",
+      "lines": [
+        { "index": 0, "original": "गोविन्द कृष्ण जय गोपाल कृष्ण", "transliteration": "Govinda Krishna Jai Gopala Krishna", "words": ["Govinda", "Krishna", "Jai", "Gopala", "Krishna"] },
+        { "index": 1, "original": "जय गोपाल पाल बाल राधा कृष्ण जय", "transliteration": "Jai Gopala Pala Bala Radha Krishna Jai", "words": ["Jai", "Gopala", "Pala", "Bala", "Radha", "Krishna", "Jai"] },
+        { "index": 2, "original": "कृष्ण जय कृष्ण जय कृष्ण जय कृष्ण", "transliteration": "Krishna Jai Krishna Jai Krishna Jai Krishna", "words": ["Krishna", "Jai", "Krishna", "Jai", "Krishna", "Jai", "Krishna"] },
+        { "index": 3, "original": "कृष्ण जय राम कृष्ण जय राधा कृष्ण जय", "transliteration": "Krishna Jai Rama Krishna Jai Radha Krishna Jai", "words": ["Krishna", "Jai", "Rama", "Krishna", "Jai", "Radha", "Krishna"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/krishna.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-099",
+    "title": "Punya Naam Pavitra Naam Rama",
+    "deity": "rama",
+    "occasion": "Sri Rama Navami / Daily Satsang",
+    "difficulty": 1,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-099-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/punya-naam-pavitra-naam-rama",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "पुण्य नाम पवित्र नाम राम नाम साई राम\nहरे कृष्ण हरे राम मधुर (अमृत) नाम साई राम\nकरुणा सिन्धु सीता राम दीन बन्धु राधे श्याम",
+      "transliteration": "Punya Naam Pavitra Naam Rama Naam Sai Ram\nHarey Krishna Harey Ram Madhura (Amrutha) Naam Sai Ram\nKaruna Sindhu Sita Ram Deena Bandhu Radhey Shyam",
+      "translation": "Pure and holy is the name of Lord Sai Rama — sweet and nectarine are the names of Krishna and Rama. Ocean of mercy, Sita Rama — friend of the dejected, Radhey Shyam.",
+      "lines": [
+        { "index": 0, "original": "पुण्य नाम पवित्र नाम राम नाम साई राम", "transliteration": "Punya Naam Pavitra Naam Rama Naam Sai Ram", "words": ["Punya", "Naam", "Pavitra", "Naam", "Rama", "Naam"] },
+        { "index": 1, "original": "हरे कृष्ण हरे राम मधुर नाम साई राम", "transliteration": "Harey Krishna Harey Ram Madhura Naam Sai Ram", "words": ["Harey", "Krishna", "Harey", "Ram", "Madhura", "Naam"] },
+        { "index": 2, "original": "करुणा सिन्धु सीता राम", "transliteration": "Karuna Sindhu Sita Ram", "words": ["Karuna", "Sindhu", "Sita", "Ram"] },
+        { "index": 3, "original": "दीन बन्धु राधे श्याम", "transliteration": "Deena Bandhu Radhey Shyam", "words": ["Deena", "Bandhu", "Radhey", "Shyam"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/rama.jpg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 2
+  },
+  {
+    "id": "bhajan-100",
+    "title": "Jaya Ho Jaya Ho Anjaneya",
+    "deity": "anjaneya",
+    "occasion": "Hanuman Jayanthi / Tuesday Satsang",
+    "difficulty": 2,
+    "audio": {
+      "clipUrl": "audio/clips/bhajan-100-clip.mp3",
+      "fullUrl": "https://sairhythms.sathyasai.org/song/jaya-ho-jaya-ho-anjaneya",
+      "clipDurationSec": 20
+    },
+    "lyrics": {
+      "original": "जय हो जय हो अंजनेय\nपवन कुमार अंजनेय\nमारुतीराय अंजनेय\nअति बलभीम अंजनेय\nश्री राम दूत अंजनेय\nसाई राम दूत अंजनेय\nशरणं शरणं अंजनेय",
+      "transliteration": "Jaya Ho Jaya Ho Anjaneya\nPavana Kumara Anjaneya\nMaruthiraya Anjaneya\nAti Balabheema Anjaneya\nSri Rama Dootha Anjaneya\nSai Rama Dootha Anjaneya\nSharanam Sharanam Anjaneya",
+      "translation": "Victory to Anjaneya, the son of Pavan, the God of Wind — most valorous one. Salutations to the messenger of Lord Rama and Lord Sai who is verily Lord Rama.",
+      "lines": [
+        { "index": 0, "original": "जय हो जय हो अंजनेय", "transliteration": "Jaya Ho Jaya Ho Anjaneya", "words": ["Jaya", "Ho", "Jaya", "Ho", "Anjaneya"] },
+        { "index": 1, "original": "पवन कुमार अंजनेय", "transliteration": "Pavana Kumara Anjaneya", "words": ["Pavana", "Kumara", "Anjaneya"] },
+        { "index": 2, "original": "अति बलभीम अंजनेय", "transliteration": "Ati Balabheema Anjaneya", "words": ["Ati", "Balabheema", "Anjaneya"] },
+        { "index": 3, "original": "श्री राम दूत अंजनेय", "transliteration": "Sri Rama Dootha Anjaneya", "words": ["Sri", "Rama", "Dootha", "Anjaneya"] },
+        { "index": 4, "original": "साई राम दूत अंजनेय", "transliteration": "Sai Rama Dootha Anjaneya", "words": ["Sai", "Rama", "Dootha", "Anjaneya"] }
+      ]
+    },
+    "deityImageUrl": "images/deities/hanuman.jpeg",
+    "round2LineIndex": 0,
+    "round3LineIndex": 3,
+    "acceptedDeities": ["hanuman"]
   }
 ]
