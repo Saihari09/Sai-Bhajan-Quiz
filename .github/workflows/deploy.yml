@@ -17,6 +17,14 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # github-pages environment so environment-scoped secrets/vars also resolve
+    environment: github-pages
+    env:
+      # Leaderboard backend — accepted from repo secrets OR repo/environment
+      # variables, whichever place they were added. Empty is fine: the app
+      # falls back to offline mode.
+      VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL || vars.VITE_SUPABASE_URL }}
+      VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY || vars.VITE_SUPABASE_ANON_KEY }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -24,12 +32,11 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci --legacy-peer-deps
+      - name: Check leaderboard keys reached the build
+        run: |
+          echo "VITE_SUPABASE_URL present: ${VITE_SUPABASE_URL:+yes}${VITE_SUPABASE_URL:-NO}"
+          echo "VITE_SUPABASE_ANON_KEY present: ${VITE_SUPABASE_ANON_KEY:+yes}${VITE_SUPABASE_ANON_KEY:-NO}"
       - run: npm run build
-        env:
-          # Leaderboard backend — set in repo Settings → Secrets → Actions.
-          # Empty values are fine: the app falls back to offline mode.
-          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
