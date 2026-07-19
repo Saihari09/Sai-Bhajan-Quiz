@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router'
 import { format } from 'date-fns'
 import { AnimatePresence } from 'framer-motion'
@@ -28,10 +28,7 @@ const GAME_META: Record<GameId, { emoji: string; title: string; subtitle: string
 export function HubPage() {
   const { bundle, today } = useDailyBundle()
   const day = useProgressStore((s) => s.days[today])
-  const v1Credit = useProgressStore((s) => s.v1Credit)
   const days = useProgressStore((s) => s.days)
-  const justMigrated = useProgressStore((s) => s.justMigrated)
-  const ackMigration = useProgressStore((s) => s.ackMigration)
   const showToast = useToastStore((s) => s.show)
   const displayName = useSettingsStore((s) => s.displayName)
   const [supportOpen, setSupportOpen] = useState(false)
@@ -56,13 +53,6 @@ export function HubPage() {
     !notifSnoozed &&
     Object.keys(day?.results ?? {}).length >= 1
 
-  useEffect(() => {
-    if (justMigrated) {
-      showToast(`🪔 Welcome to the new mandir — your ${v1Credit} days of bhajans count toward the 108 Mala!`)
-      ackMigration()
-    }
-  }, [justMigrated, v1Credit, showToast, ackMigration])
-
   if (!bundle) {
     return <div className="flex-1 grid place-items-center text-xl text-ink-soft">Loading today's satsang…</div>
   }
@@ -71,7 +61,7 @@ export function HubPage() {
   const totalPoints = dayPoints(day)
   const allDone = doneCount === bundle.games.length
   const heardleDone = Boolean(day?.results['heardle'])
-  const lamps = lifetimeLamps({ days, v1Credit })
+  const lamps = lifetimeLamps({ days })
 
   const share = async () => {
     const petals = bundle.games.map((g) => (day?.results[g] ? '🌸' : '🕳️')).join('')

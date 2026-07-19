@@ -40,7 +40,6 @@ function saveGroups(groups: Group[]) {
 export function LeaderboardPage() {
   const today = getTodayString()
   const days = useProgressStore((s) => s.days)
-  const v1Credit = useProgressStore((s) => s.v1Credit)
   const { displayName, setDisplayName } = useSettingsStore()
   const showToast = useToastStore((s) => s.show)
 
@@ -253,7 +252,7 @@ export function LeaderboardPage() {
             device and will sync the moment it does.
           </p>
           <p className="mt-2 text-lg text-ink-soft">
-            Today: {myPoints} pts · Lifetime lamps: {lifetimeLamps({ days, v1Credit })} of 108
+            Today: {myPoints} pts · Lifetime lamps: {lifetimeLamps({ days })} of 108
           </p>
         </div>
       ) : tab === 'satsang' && groups.length === 0 ? (

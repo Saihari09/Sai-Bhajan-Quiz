@@ -68,28 +68,14 @@ export const useProgressStore = create<ProgressState>()(
   ),
 )
 
-/** One-time V1 → V2 migration: streak history becomes Mala lamp credit. */
+/**
+ * V2 starts fresh (Sai's call, Jul 2026): V1 streaks are NOT carried into
+ * the Mala. This just marks the one-time check as done; V1 data stays
+ * untouched in localStorage should we ever want it.
+ */
 export function migrateFromV1() {
-  const store = useProgressStore.getState()
-  if (store.migratedFromV1) return
-  try {
-    const raw = localStorage.getItem('sai-bhajan-streak')
-    if (raw) {
-      const v1 = JSON.parse(raw)?.state
-      const credit = Number(v1?.totalGamesPlayed) || 0
-      const longest = Number(v1?.longestStreak) || 0
-      useProgressStore.setState({
-        v1Credit: credit,
-        v1LongestStreak: longest,
-        migratedFromV1: true,
-        justMigrated: credit > 0,
-      })
-      return
-    }
-  } catch {
-    // Corrupt or absent V1 data — nothing to migrate.
-  }
-  useProgressStore.setState({ migratedFromV1: true })
+  if (useProgressStore.getState().migratedFromV1) return
+  useProgressStore.setState({ migratedFromV1: true, justMigrated: false })
 }
 
 export function dayLampLit(day: DayProgress | undefined): boolean {
@@ -97,9 +83,9 @@ export function dayLampLit(day: DayProgress | undefined): boolean {
   return day.listened === true || Object.keys(day.results).length > 0
 }
 
-export function lifetimeLamps(state: Pick<ProgressState, 'days' | 'v1Credit'>): number {
-  const v2Days = Object.values(state.days).filter(dayLampLit).length
-  return state.v1Credit + v2Days
+/** Fresh V2 journey: only V2 days count toward the 108 Mala (no V1 credit). */
+export function lifetimeLamps(state: Pick<ProgressState, 'days'>): number {
+  return Object.values(state.days).filter(dayLampLit).length
 }
 
 export function dayPoints(day: DayProgress | undefined): number {

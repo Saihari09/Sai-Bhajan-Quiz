@@ -48,7 +48,7 @@ export function HowToPlay({ open, isWelcome, onClose }: Props) {
                 </h2>
                 <p className="mt-1.5 text-lg leading-snug text-ink-soft">
                   Your daily quiz has grown into a little games mandir — five gentle games,
-                  one bhajan each day. Your past days of playing are already counted in your lamps.
+                  one bhajan each day. A fresh journey begins today — come light your first lamp!
                 </p>
               </div>
             ) : (

@@ -44,41 +44,28 @@ describe('progress store & scoring invariants', () => {
     expect(dayPoints(useProgressStore.getState().days['2026-07-21'])).toBe(0)
   })
 
-  it('lifetime lamps = V1 credit + distinct V2 days played', () => {
+  it('lifetime lamps count distinct V2 days only — V2 starts fresh', () => {
     const s = useProgressStore.getState()
     s.recordResult('2026-07-20', 'heardle', 100)
     useProgressStore.getState().recordResult('2026-07-20', 'deity', 60)
     useProgressStore.getState().recordResult('2026-07-21', 'crossword', 40)
+    // Even a device with legacy V1 credit persisted gets no carry-forward.
     useProgressStore.setState({ v1Credit: 40 })
-    const state = useProgressStore.getState()
-    expect(lifetimeLamps({ days: state.days, v1Credit: state.v1Credit })).toBe(42)
+    expect(lifetimeLamps({ days: useProgressStore.getState().days })).toBe(2)
   })
 
-  it('migrates V1 streak data into Mala credit exactly once', () => {
+  it('V1 data is left untouched and never credited (fresh start)', () => {
     localStorage.setItem(
       'sai-bhajan-streak',
       JSON.stringify({ state: { totalGamesPlayed: 42, longestStreak: 7 }, version: 1 }),
     )
     migrateFromV1()
-    let state = useProgressStore.getState()
-    expect(state.v1Credit).toBe(42)
-    expect(state.v1LongestStreak).toBe(7)
-    expect(state.justMigrated).toBe(true)
-
-    // Running again must not double-credit.
-    useProgressStore.setState({ justMigrated: false })
-    migrateFromV1()
-    state = useProgressStore.getState()
-    expect(state.v1Credit).toBe(42)
-    expect(state.justMigrated).toBe(false)
-  })
-
-  it('handles absent or corrupt V1 data gracefully', () => {
-    localStorage.setItem('sai-bhajan-streak', '{not json')
-    migrateFromV1()
     const state = useProgressStore.getState()
     expect(state.migratedFromV1).toBe(true)
     expect(state.v1Credit).toBe(0)
+    expect(state.justMigrated).toBe(false)
+    // V1 store untouched for posterity.
+    expect(localStorage.getItem('sai-bhajan-streak')).toContain('42')
   })
 
   it('leaderboard row invariant: every per-game score is within 0–100', () => {
