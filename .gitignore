@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Supabase keys — set real values in .env (never committed) or CI secrets
+.env
+.env.*
+!.env.example
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

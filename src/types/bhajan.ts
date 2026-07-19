@@ -33,6 +33,12 @@ export interface Bhajan {
   deityImageUrl: string
   round2LineIndex: number
   round3LineIndex: number
+  /** V2: first syllable of the title (antakshari matching), e.g. "Go". */
+  startSyllable?: string
+  /** V2: where the Heardle stage clips start within the 20s clip. */
+  heardleOffsetSec?: number
+  /** V2: alternate titles accepted as correct Heardle guesses. */
+  aliases?: string[]
   /**
    * Optional extra deities that should also be accepted as correct in Round 1
    * AND excluded from the wrong-options pool. Use for multi-faith bhajans

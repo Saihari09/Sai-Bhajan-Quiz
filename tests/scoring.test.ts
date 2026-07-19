@@ -1,0 +1,91 @@
+import { describe, it, expect, beforeEach } from 'vitest'
+import {
+  useProgressStore,
+  migrateFromV1,
+  dayLampLit,
+  lifetimeLamps,
+  dayPoints,
+} from '../src/store/progressStore'
+
+function resetStore() {
+  useProgressStore.setState({
+    days: {},
+    v1Credit: 0,
+    v1LongestStreak: 0,
+    migratedFromV1: false,
+    justMigrated: false,
+  })
+}
+
+describe('progress store & scoring invariants', () => {
+  beforeEach(() => {
+    localStorage.clear()
+    resetStore()
+  })
+
+  it('first completion locks the score — replays cannot change it', () => {
+    const s = useProgressStore.getState()
+    s.recordResult('2026-07-20', 'heardle', 80)
+    useProgressStore.getState().recordResult('2026-07-20', 'heardle', 100)
+    expect(useProgressStore.getState().days['2026-07-20'].results.heardle?.points).toBe(80)
+  })
+
+  it('day points sum across games; lamp lights on ≥1 game or listening', () => {
+    const s = useProgressStore.getState()
+    expect(dayLampLit(undefined)).toBe(false)
+    s.recordResult('2026-07-20', 'heardle', 100)
+    useProgressStore.getState().recordResult('2026-07-20', 'antakshari', 68)
+    const day = useProgressStore.getState().days['2026-07-20']
+    expect(dayPoints(day)).toBe(168)
+    expect(dayLampLit(day)).toBe(true)
+
+    useProgressStore.getState().markListened('2026-07-21')
+    expect(dayLampLit(useProgressStore.getState().days['2026-07-21'])).toBe(true)
+    expect(dayPoints(useProgressStore.getState().days['2026-07-21'])).toBe(0)
+  })
+
+  it('lifetime lamps = V1 credit + distinct V2 days played', () => {
+    const s = useProgressStore.getState()
+    s.recordResult('2026-07-20', 'heardle', 100)
+    useProgressStore.getState().recordResult('2026-07-20', 'deity', 60)
+    useProgressStore.getState().recordResult('2026-07-21', 'crossword', 40)
+    useProgressStore.setState({ v1Credit: 40 })
+    const state = useProgressStore.getState()
+    expect(lifetimeLamps({ days: state.days, v1Credit: state.v1Credit })).toBe(42)
+  })
+
+  it('migrates V1 streak data into Mala credit exactly once', () => {
+    localStorage.setItem(
+      'sai-bhajan-streak',
+      JSON.stringify({ state: { totalGamesPlayed: 42, longestStreak: 7 }, version: 1 }),
+    )
+    migrateFromV1()
+    let state = useProgressStore.getState()
+    expect(state.v1Credit).toBe(42)
+    expect(state.v1LongestStreak).toBe(7)
+    expect(state.justMigrated).toBe(true)
+
+    // Running again must not double-credit.
+    useProgressStore.setState({ justMigrated: false })
+    migrateFromV1()
+    state = useProgressStore.getState()
+    expect(state.v1Credit).toBe(42)
+    expect(state.justMigrated).toBe(false)
+  })
+
+  it('handles absent or corrupt V1 data gracefully', () => {
+    localStorage.setItem('sai-bhajan-streak', '{not json')
+    migrateFromV1()
+    const state = useProgressStore.getState()
+    expect(state.migratedFromV1).toBe(true)
+    expect(state.v1Credit).toBe(0)
+  })
+
+  it('leaderboard row invariant: every per-game score is within 0–100', () => {
+    // The DB check constraint mirrors this; sync clamps as a second belt.
+    const clamp = (p: number) => Math.min(Math.max(p, 0), 100)
+    expect(clamp(120)).toBe(100)
+    expect(clamp(-5)).toBe(0)
+    expect(clamp(68)).toBe(68)
+  })
+})

@@ -3,6 +3,7 @@ import { useLocation } from 'react-router'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInstallStore } from '../store/installStore'
 import { useStreakStore } from '../store/streakStore'
+import { useProgressStore, dayLampLit } from '../store/progressStore'
 import { getDeferredPrompt, clearDeferredPrompt } from '../lib/installPrompt'
 import { trackEvent } from '../lib/analytics'
 
@@ -17,7 +18,12 @@ function isStandalone(): boolean {
 
 export function InstallBanner() {
   const store = useInstallStore()
-  const totalGamesPlayed = useStreakStore((s) => s.totalGamesPlayed)
+  // V2 gate: any day played in the new progress store; V1 count kept as fallback.
+  const v1GamesPlayed = useStreakStore((s) => s.totalGamesPlayed)
+  const v2DaysPlayed = useProgressStore(
+    (s) => Object.values(s.days).filter(dayLampLit).length,
+  )
+  const totalGamesPlayed = v2DaysPlayed + v1GamesPlayed
   const location = useLocation()
   const [visible, setVisible] = useState(false)
   const [iosDevice, setIosDevice] = useState(false)

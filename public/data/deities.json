@@ -1,0 +1,27 @@
+{
+  "weekdayFamilies": {
+    "0": { "label": "Sarva Dharma", "tags": ["sarva-dharma", "ganesha"], "emoji": "🕉️" },
+    "1": { "label": "Shiva", "tags": ["shiva"], "emoji": "🔱" },
+    "2": { "label": "Hanuman & Rama", "tags": ["hanuman", "anjaneya", "rama"], "emoji": "🏹" },
+    "3": { "label": "Krishna", "tags": ["krishna", "vittala"], "emoji": "🪈" },
+    "4": { "label": "Sai & Guru", "tags": ["sai", "guru"], "emoji": "🪔" },
+    "5": { "label": "Devi", "tags": ["devi", "gayathri"], "emoji": "🌺" },
+    "6": { "label": "Narayana", "tags": ["narayana", "vittala", "sarva-dharma"], "emoji": "🐚" }
+  },
+  "nameBanks": {
+    "ganesha": ["GAJANANA", "VINAYAKA", "GANAPATHI", "LAMBODARA", "EKADANTA", "VIGHNESHA"],
+    "shiva": ["SHANKARA", "MAHADEVA", "NATARAJA", "SHAMBHO", "RUDRA", "NILAKANTA"],
+    "rama": ["RAGHAVA", "SITARAMA", "RAGHURAMA", "DASARATHI", "KOSALRAM", "RAMA"],
+    "hanuman": ["HANUMAN", "ANJANEYA", "MARUTI", "BAJRANGI", "RAMADUTA", "PAVANA"],
+    "anjaneya": ["HANUMAN", "ANJANEYA", "MARUTI", "BAJRANGI", "RAMADUTA", "PAVANA"],
+    "krishna": ["GOVINDA", "GOPALA", "MADHAVA", "MURARI", "KESHAVA", "MUKUNDA"],
+    "vittala": ["VITTALA", "VITHOBA", "GOVINDA", "GOPALA", "MADHAVA", "MUKUNDA"],
+    "devi": ["DURGA", "LAKSHMI", "SARASWATI", "BHAVANI", "PARVATI", "SHAKTI"],
+    "gayathri": ["GAYATHRI", "SAVITRI", "DURGA", "LAKSHMI", "BHAVANI", "SHAKTI"],
+    "sai": ["SAIRAM", "SATHYASAI", "SAINATHA", "PARTHISAI", "BABA", "SAIMAA"],
+    "guru": ["SADGURU", "GURUDEVA", "GURUNATHA", "SAIRAM", "SATHYASAI", "BABA"],
+    "narayana": ["NARAYANA", "SRINIVASA", "VENKATESA", "GOVINDA", "VISHNU", "KESHAVA"],
+    "subrahmanya": ["MURUGA", "KARTIKEYA", "SKANDA", "SHANMUKHA", "GUHA", "VELAN"],
+    "sarva-dharma": ["ISHWAR", "ALLAH", "BUDDHA", "JESUS", "NANAK", "RAMA"]
+  }
+}

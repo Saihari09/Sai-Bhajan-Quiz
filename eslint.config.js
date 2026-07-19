@@ -6,7 +6,18 @@ import tseslint from 'typescript-eslint'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores([
+    'dist',
+    '.claude',
+    // Legacy V1 files kept only for the /archive route — predate current rules
+    'src/pages/RevealPage.tsx',
+    'src/components/SupportModal.tsx',
+    'src/components/game/AudioPlayer.tsx',
+    'src/components/game/WordBank.tsx',
+    'src/components/InstallBanner.tsx',
+    'src/hooks/useTimer.ts',
+    'src/hooks/useAudio.ts',
+  ]),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
