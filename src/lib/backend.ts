@@ -1,7 +1,14 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
-const url = import.meta.env.VITE_SUPABASE_URL as string | undefined
-const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
+// The anon key is Supabase's *publishable* client key — safe in a public
+// bundle by design; row-level security (supabase/schema.sql) protects the
+// data. Env vars still override for a different project (e.g. staging).
+const url =
+  (import.meta.env.VITE_SUPABASE_URL as string | undefined) ||
+  'https://chifjhbzlxpnijdqrbni.supabase.co'
+const anonKey =
+  (import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined) ||
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNoaWZqaGJ6bHhwbmlqZHFyYm5pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ0NzA2MTIsImV4cCI6MjEwMDA0NjYxMn0.Bh0ygI3Cgug8Tj9-wRlaktzlG7I99OFSqbDa0Na4lGI'
 
 let client: SupabaseClient | null = null
 let sessionPromise: Promise<string | null> | null = null
