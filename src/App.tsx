@@ -31,8 +31,6 @@ function App() {
   // First V2 visit: the rules sheet opens as a welcome; ❓ reopens it anytime.
   const [rulesOpen, setRulesOpen] = useState(() => !localStorage.getItem(WELCOME_KEY))
   const [isWelcome] = useState(() => !localStorage.getItem(WELCOME_KEY))
-  const cycleTextScale = useSettingsStore((s) => s.cycleTextScale)
-  const textScale = useSettingsStore((s) => s.textScale)
 
   useEffect(() => {
     migrateFromV1()
@@ -70,13 +68,6 @@ function App() {
                 aria-label="How to play"
               >
                 ❓
-              </button>
-              <button
-                onClick={cycleTextScale}
-                className="min-h-12 min-w-12 rounded-2xl border border-line bg-ivory px-3 text-lg font-bold text-ink"
-                aria-label={`Text size: ${['normal', 'large', 'largest'][textScale]}. Tap to change.`}
-              >
-                {['A', 'A+', 'A++'][textScale]}
               </button>
               <button
                 onClick={() => setSettingsOpen(true)}

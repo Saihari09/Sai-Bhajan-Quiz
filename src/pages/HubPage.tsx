@@ -5,6 +5,7 @@ import { AnimatePresence } from 'framer-motion'
 import { SupportModal } from '../components/SupportModal'
 import { NotificationPrompt } from '../components/NotificationPrompt'
 import { useInstallStore } from '../store/installStore'
+import { useSettingsStore } from '../store/settingsStore'
 import { useDailyBundle } from '../hooks/useDailyBundle'
 import { useProgressStore, dayPoints, lifetimeLamps } from '../store/progressStore'
 import { useToastStore } from '../store/toastStore'
@@ -32,6 +33,7 @@ export function HubPage() {
   const justMigrated = useProgressStore((s) => s.justMigrated)
   const ackMigration = useProgressStore((s) => s.ackMigration)
   const showToast = useToastStore((s) => s.show)
+  const displayName = useSettingsStore((s) => s.displayName)
   const [supportOpen, setSupportOpen] = useState(false)
   const [notifClosed, setNotifClosed] = useState(false)
   const notifEnabledAt = useInstallStore((s) => s.notifEnableClickedAt)
@@ -158,6 +160,16 @@ export function HubPage() {
         <span className="font-display text-xl text-ink">🏆 Satsang leaderboard</span>
         <span className="text-lg text-turmeric-deep">→</span>
       </Link>
+
+      {/* Nudge: a name makes the satsang board personal */}
+      {doneCount >= 1 && !displayName && (
+        <Link to="/leaderboard" className="block rounded-2xl border-2 border-gold bg-paper px-5 py-4">
+          <p className="text-lg text-ink">
+            🪔 <b>Add your name</b> so your satsang can see you on today's board — you already
+            have <b>{totalPoints} points</b> waiting to shine!
+          </p>
+        </Link>
+      )}
 
       {/* Bless the developer (carried over from V1) */}
       <button

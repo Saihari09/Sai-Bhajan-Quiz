@@ -1,11 +1,10 @@
 import { motion, AnimatePresence } from 'framer-motion'
 
 const RULES: { emoji: string; title: string; rule: string }[] = [
-  { emoji: '🎵', title: 'Guess the Bhajan', rule: 'Hear 2 seconds of the melody and name it. Need more? Unlock 5s, then 10s — replays are always free.' },
+  { emoji: '🎵', title: 'Guess the Bhajan', rule: 'Hear a little of the melody (tap 2s, 5s, or 10s), type a few letters, then tap the bhajan’s name in the list. Replays are always free.' },
+  { emoji: '🧩', title: 'Build the Line', rule: "Sing today's line in your head and tap its words into order." },
   { emoji: '✏️', title: 'Bhajan Crossword', rule: "Fill the mini crossword — clues come from today's bhajan and bhakti words. Type on the big keypad; wrong letters gently clear themselves." },
   { emoji: '🔡', title: 'Naamavali Search', rule: 'One divine name hides in each grid — any direction, even backwards. Tap its first letter, then its last.' },
-  { emoji: '🧩', title: 'Build the Line', rule: "Sing today's line in your head and tap its words into order." },
-  { emoji: '🎤', title: 'Antakshari', rule: 'Just like the family game: recall any bhajan starting with the given syllable. Stuck? Let three melodies help your ears.' },
   { emoji: '🖼️', title: 'Guess the Deity', rule: 'Swap tiles to reveal the murti — name the deity early for extra points.' },
 ]
 
@@ -48,7 +47,7 @@ export function HowToPlay({ open, isWelcome, onClose }: Props) {
                   Welcome to the new Bhajan Bodh!
                 </h2>
                 <p className="mt-1.5 text-lg leading-snug text-ink-soft">
-                  Your daily quiz has grown into a little games mandir — six gentle games,
+                  Your daily quiz has grown into a little games mandir — five gentle games,
                   one bhajan each day. Your past days of playing are already counted in your lamps.
                 </p>
               </div>
@@ -69,7 +68,7 @@ export function HowToPlay({ open, isWelcome, onClose }: Props) {
 
             <div className="mt-4 rounded-2xl border border-gold bg-paper px-4 py-3">
               <p className="text-lg leading-snug text-ink">
-                Every game is worth up to <b>100 points</b> — finish all six to complete the day's{' '}
+                Every game is worth up to <b>100 points</b> — finish all five to complete the day's{' '}
                 <b>rangoli</b> 🌸. Playing any game lights that day's <b>lamp</b> 🪔 (108 lamps
                 completes the Mala!). There are no timers and no way to fail — hints always help,
                 gently. Check the <b>🏆 leaderboard</b> to sing along with your satsang.

@@ -195,6 +195,11 @@ export function LeaderboardPage() {
       </div>
 
       {/* Display name */}
+      {!displayName && (
+        <p className="-mb-2 text-center text-lg text-turmeric-deep">
+          Add your name so your satsang can cheer for you 🙏
+        </p>
+      )}
       <div className="flex gap-2">
         <input
           type="text"
@@ -203,7 +208,9 @@ export function LeaderboardPage() {
           onChange={(e) => setNameDraft(e.target.value)}
           placeholder="Your name on the board"
           aria-label="Display name"
-          className="min-h-12 flex-1 rounded-2xl border-2 border-line bg-paper px-4 text-lg focus:border-turmeric focus:outline-none"
+          className={`min-h-12 flex-1 rounded-2xl border-2 bg-paper px-4 text-lg focus:border-turmeric focus:outline-none ${
+            displayName ? 'border-line' : 'border-gold'
+          }`}
         />
         {nameDraft.trim() !== displayName && (
           <button

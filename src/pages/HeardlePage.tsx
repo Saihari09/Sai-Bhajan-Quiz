@@ -113,21 +113,27 @@ function HeardleGame({
         <p className="text-lg text-ink-soft">Listen, then name it from memory</p>
       </div>
 
-      {/* Stage bar */}
+      {/* Stage bar — every pill is tappable: jump to a longer clip anytime */}
       <div className="flex justify-center gap-2" aria-label={`Clip length: ${STAGES[stage].seconds} seconds`}>
         {STAGES.map((s, i) => (
-          <span
+          <button
             key={s.sprite}
-            className={`rounded-full px-3.5 py-1 text-base font-semibold ${
+            onClick={() => {
+              if (i > stage) setStage(i)
+              play(s.sprite)
+            }}
+            disabled={!isLoaded}
+            className={`min-h-11 rounded-full px-3.5 py-1 text-base font-semibold disabled:opacity-50 ${
               i === stage
                 ? 'bg-turmeric text-paper'
                 : i < stage
                   ? 'bg-line text-ink-soft line-through'
-                  : 'bg-ivory text-ink-soft border border-line'
+                  : 'border-2 border-turmeric bg-ivory text-turmeric-deep'
             }`}
+            aria-label={`Play the ${s.seconds}-second clip (worth ${s.points} points)`}
           >
-            {s.seconds}s · {s.points}
-          </span>
+            ▶ {s.seconds}s · {s.points}
+          </button>
         ))}
       </div>
 
@@ -141,6 +147,9 @@ function HeardleGame({
       <p className="text-center text-base text-ink-soft">Replay as many times as you like — it's free</p>
 
       <BhajanPicker bhajans={bhajans} onSelect={guess} placeholder="Type the bhajan's name…" />
+      <p className="-mt-2 text-center text-base text-ink-soft">
+        Type a few letters, then <b>tap the bhajan's name in the list</b> to answer
+      </p>
 
       {wrongGuesses.length > 0 && (
         <div className="flex flex-col gap-1.5">

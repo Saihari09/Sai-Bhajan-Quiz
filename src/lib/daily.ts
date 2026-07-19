@@ -45,8 +45,11 @@ export function weekdayOf(date: string): number {
   return new Date(date + 'T12:00:00').getDay()
 }
 
-/** Crossword replaced Lyric Trail; Line Builder revives V1's word tiles. */
-export const ALL_GAMES: GameId[] = ['heardle', 'crossword', 'wordsearch', 'linebuilder', 'antakshari', 'deity']
+/**
+ * Sai's launch lineup & order (Jul 2026). Antakshari and Lyric Trail are
+ * off the hub but their routes stay alive at /play/antakshari, /play/lyrictrail.
+ */
+export const ALL_GAMES: GameId[] = ['heardle', 'linebuilder', 'crossword', 'wordsearch', 'deity']
 
 /** All games run every day (Sai's call, Jul 2026). */
 export function gamesForDate(): GameId[] {
