@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { useDailyBundle } from '../hooks/useDailyBundle'
 import { useProgressStore } from '../store/progressStore'
 import { useSettingsStore } from '../store/settingsStore'
@@ -6,6 +6,8 @@ import { useToastStore } from '../store/toastStore'
 import { useClip } from '../hooks/useClip'
 import { generateOneSearch, isCorrectSelection } from '../lib/onesearch'
 import { NextGameBar } from '../components/v2/NextGameBar'
+import { useGameTimer } from '../hooks/useGameTimer'
+import { formatSeconds } from '../lib/dateUtils'
 import { trackEvent } from '../lib/analytics'
 
 const HINT_COST = 10
@@ -33,6 +35,7 @@ function OneSearchGame({
   const showToast = useToastStore((s) => s.show)
   const { play } = useClip(import.meta.env.BASE_URL + bundle.bhajan.audio.clipUrl, 0)
 
+  const elapsed = useGameTimer()
   const [roundIdx, setRoundIdx] = useState(() => (savedResult ? rounds.length : 0))
   const [anchor, setAnchor] = useState<{ row: number; col: number } | null>(null)
   const [hints, setHints] = useState(0)
@@ -48,7 +51,7 @@ function OneSearchGame({
     const next = roundIdx + 1
     if (next >= rounds.length) {
       const points = Math.max(100 - hints * HINT_COST, FLOOR)
-      recordResult(today, 'wordsearch', points)
+      recordResult(today, 'wordsearch', points, elapsed())
       trackEvent('wordsearch_complete', today)
       showToast(`All ${rounds.length} names found — ${points} points 🌸`)
       if (soundOn) play('full')
@@ -56,17 +59,9 @@ function OneSearchGame({
     setRoundIdx(next)
   }
 
-  const tapCell = (row: number, col: number) => {
+  const trySelection = (a: { row: number; col: number }, b: { row: number; col: number }) => {
     if (!round) return
-    if (!anchor) {
-      setAnchor({ row, col })
-      return
-    }
-    if (anchor.row === row && anchor.col === col) {
-      setAnchor(null)
-      return
-    }
-    if (isCorrectSelection(round, anchor, { row, col })) {
+    if (isCorrectSelection(round, a, b)) {
       // Flash the found name, then refresh to the next round's grid.
       const cells = new Set<string>()
       const dr = Math.sign(round.end.row - round.start.row)
@@ -85,6 +80,75 @@ function OneSearchGame({
       showToast('Not there — the name hides in one straight line, any direction 🙏')
     }
   }
+
+  // Drag-to-select (tester ask) — with the old tap-first/tap-last still
+  // working for anyone who prefers deliberate taps.
+  const gridRef = useRef<HTMLDivElement>(null)
+  const [dragStart, setDragStart] = useState<{ row: number; col: number } | null>(null)
+  const [dragCell, setDragCell] = useState<{ row: number; col: number } | null>(null)
+
+  const cellFromPoint = (clientX: number, clientY: number) => {
+    const el = gridRef.current
+    if (!el || !round) return null
+    const rect = el.getBoundingClientRect()
+    const col = Math.floor(((clientX - rect.left) / rect.width) * round.size)
+    const row = Math.floor(((clientY - rect.top) / rect.height) * round.size)
+    if (row < 0 || row >= round.size || col < 0 || col >= round.size) return null
+    return { row, col }
+  }
+
+  const onPointerDown = (e: React.PointerEvent) => {
+    const cell = cellFromPoint(e.clientX, e.clientY)
+    if (!cell) return
+    gridRef.current?.setPointerCapture(e.pointerId)
+    setDragStart(cell)
+    setDragCell(cell)
+  }
+
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (!dragStart) return
+    setDragCell(cellFromPoint(e.clientX, e.clientY))
+  }
+
+  const onPointerUp = (e: React.PointerEvent) => {
+    const end = cellFromPoint(e.clientX, e.clientY) ?? dragCell
+    const start = dragStart
+    setDragStart(null)
+    setDragCell(null)
+    if (!start || !end) return
+    if (start.row !== end.row || start.col !== end.col) {
+      // A real drag: start → end is the selection.
+      trySelection(start, end)
+      return
+    }
+    // Same cell: classic two-tap flow.
+    if (!anchor) {
+      setAnchor(end)
+    } else if (anchor.row === end.row && anchor.col === end.col) {
+      setAnchor(null)
+    } else {
+      trySelection(anchor, end)
+    }
+  }
+
+  // Cells highlighted while dragging: the straight line start→current when
+  // aligned to one of the 8 directions, else just the two endpoints.
+  const dragTrail = useMemo(() => {
+    const set = new Set<string>()
+    if (!dragStart || !dragCell) return set
+    const dr = dragCell.row - dragStart.row
+    const dc = dragCell.col - dragStart.col
+    if (dr === 0 || dc === 0 || Math.abs(dr) === Math.abs(dc)) {
+      const steps = Math.max(Math.abs(dr), Math.abs(dc))
+      for (let i = 0; i <= steps; i++) {
+        set.add(`${dragStart.row + Math.sign(dr) * i},${dragStart.col + Math.sign(dc) * i}`)
+      }
+    } else {
+      set.add(`${dragStart.row},${dragStart.col}`)
+      set.add(`${dragCell.row},${dragCell.col}`)
+    }
+    return set
+  }, [dragStart, dragCell])
 
   const useHint = () => {
     if (!round) return
@@ -108,7 +172,10 @@ function OneSearchGame({
             </span>
           ))}
         </div>
-        <p className="text-xl font-semibold text-turmeric-deep">{points} points</p>
+        <p className="text-xl font-semibold text-turmeric-deep">
+          {points} points
+          {savedResult?.seconds != null && ` · ⏱ ${formatSeconds(savedResult.seconds)}`}
+        </p>
         </div>
       </div>
     )
@@ -120,7 +187,7 @@ function OneSearchGame({
         <h2 className="font-display text-2xl text-maroon">Naamavali Search</h2>
         <p className="text-lg text-ink-soft">
           One name of {bundle.family.emoji} hides in each grid — any direction, even backwards.
-          Tap its first letter, then its last.
+          <b> Drag your finger across it</b> (or tap its first and last letters).
         </p>
       </div>
 
@@ -133,10 +200,14 @@ function OneSearchGame({
       </div>
 
       <div
-        className="grid gap-1 rounded-2xl border border-line bg-paper p-2"
-        style={{ gridTemplateColumns: `repeat(${round!.size}, minmax(0, 1fr))` }}
+        ref={gridRef}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        className="grid select-none gap-1 rounded-2xl border border-line bg-paper p-2"
+        style={{ gridTemplateColumns: `repeat(${round!.size}, minmax(0, 1fr))`, touchAction: 'none' }}
         role="grid"
-        aria-label={`Find ${round!.name}`}
+        aria-label={`Find ${round!.name} — drag across it, or tap its first and last letters`}
       >
         {round!.grid.map((rowArr, r) =>
           rowArr.map((letter, c) => {
@@ -144,24 +215,26 @@ function OneSearchGame({
             const isAnchor = anchor?.row === r && anchor?.col === c
             const isHint = hintCells.has(key)
             const isFound = foundFlash.has(key)
+            const inTrail = dragTrail.has(key)
             return (
-              <button
+              <div
                 key={key}
-                onClick={() => tapCell(r, c)}
-                className={`aspect-square min-w-0 rounded-lg text-lg font-bold leading-none ${
+                className={`grid aspect-square min-w-0 place-items-center rounded-lg text-lg font-bold leading-none ${
                   isFound
                     ? 'bg-leaf text-paper'
-                    : isAnchor
-                      ? 'bg-turmeric text-paper'
-                      : isHint
-                        ? 'bg-gold text-paper animate-pulse'
-                        : 'bg-ivory text-ink active:bg-line'
+                    : inTrail
+                      ? 'bg-turmeric/70 text-paper'
+                      : isAnchor
+                        ? 'bg-turmeric text-paper'
+                        : isHint
+                          ? 'bg-gold text-paper animate-pulse'
+                          : 'bg-ivory text-ink'
                 }`}
                 role="gridcell"
                 aria-label={letter}
               >
                 {letter}
-              </button>
+              </div>
             )
           }),
         )}

@@ -47,6 +47,7 @@ export async function flushScores(): Promise<void> {
             game,
             points: Math.min(Math.max(result.points, 0), 100),
             completed_at: result.completedAt,
+            ...(result.seconds != null ? { seconds: result.seconds } : {}),
           })
         }
       }

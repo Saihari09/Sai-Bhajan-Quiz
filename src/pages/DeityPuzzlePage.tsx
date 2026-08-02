@@ -7,6 +7,8 @@ import { useToastStore } from '../store/toastStore'
 import { DEITY_OPTIONS, type Bhajan, type DeityOption } from '../types/bhajan'
 import { hashString, seededRng, shuffleSeeded, pickSeeded } from '../lib/seeded'
 import { NextGameBar } from '../components/v2/NextGameBar'
+import { useGameTimer } from '../hooks/useGameTimer'
+import { formatSeconds } from '../lib/dateUtils'
 import { trackEvent } from '../lib/analytics'
 
 const WRONG_COST = 10
@@ -59,11 +61,12 @@ function DeityPuzzleGame({ bhajans, today }: { bhajans: Bhajan[]; today: string 
 
   const imageUrl = import.meta.env.BASE_URL + answer.imageUrl
 
+  const elapsed = useGameTimer()
   const finish = (finalSwaps: number, wrongCount: number) => {
     const points = Math.max(tierPoints(finalSwaps) - wrongCount * WRONG_COST, FLOOR)
     setSolved(true)
     setOrder([0, 1, 2, 3, 4, 5, 6, 7, 8])
-    recordResult(today, 'deity', points)
+    recordResult(today, 'deity', points, elapsed())
     trackEvent('deity_complete', today)
     showToast(`It is ${answer.displayName}! ${points} points 🙏`)
     if (soundOn) {
@@ -163,7 +166,12 @@ function DeityPuzzleGame({ bhajans, today }: { bhajans: Bhajan[]; today: string 
         <div className="rounded-2xl border-2 border-gold bg-paper px-5 py-4 text-center">
           <p className="text-2xl">🙏</p>
           <p className="font-display text-2xl text-maroon">{answer.displayName}</p>
-          {points !== undefined && <p className="text-lg text-ink-soft">{points} points</p>}
+          {points !== undefined && (
+            <p className="text-lg text-ink-soft">
+              {points} points
+              {savedResult?.seconds != null && ` · ⏱ ${formatSeconds(savedResult.seconds)}`}
+            </p>
+          )}
         </div>
       ) : (
         <>

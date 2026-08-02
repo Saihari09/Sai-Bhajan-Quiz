@@ -5,6 +5,8 @@ import type { GameId } from '../lib/daily'
 export interface GameResult {
   points: number
   completedAt: string
+  /** Gentle timer: how long the game took, revealed only at completion. */
+  seconds?: number
 }
 
 export interface DayProgress {
@@ -20,7 +22,7 @@ interface ProgressState {
   v1LongestStreak: number
   migratedFromV1: boolean
   justMigrated: boolean
-  recordResult: (date: string, game: GameId, points: number) => void
+  recordResult: (date: string, game: GameId, points: number, seconds?: number) => void
   markListened: (date: string) => void
   ackMigration: () => void
 }
@@ -35,7 +37,7 @@ export const useProgressStore = create<ProgressState>()(
       justMigrated: false,
 
       // First completion locks the score — replays are for joy, not grinding.
-      recordResult: (date, game, points) => {
+      recordResult: (date, game, points, seconds) => {
         const day = get().days[date] ?? { results: {} }
         if (day.results[game]) return
         set({
@@ -45,7 +47,7 @@ export const useProgressStore = create<ProgressState>()(
               ...day,
               results: {
                 ...day.results,
-                [game]: { points, completedAt: new Date().toISOString() },
+                [game]: { points, completedAt: new Date().toISOString(), seconds },
               },
             },
           },

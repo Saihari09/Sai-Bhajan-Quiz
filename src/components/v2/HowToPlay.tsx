@@ -1,10 +1,10 @@
 import { motion, AnimatePresence } from 'framer-motion'
 
 const RULES: { emoji: string; title: string; rule: string }[] = [
-  { emoji: '🎵', title: 'Guess the Bhajan', rule: 'Hear a little of the melody (tap 5s, 10s, or 13s), type a few letters, then tap the bhajan’s name in the list. Replays are always free.' },
+  { emoji: '🎵', title: 'Guess the Bhajan', rule: 'Hear 5 seconds and pick from four close choices. Not sure? Unlock 10s and 13s clips and recall the name by typing. Replays are always free.' },
   { emoji: '🧩', title: 'Build the Line', rule: "Sing today's line in your head and tap its words into order." },
   { emoji: '✏️', title: 'Bhajan Crossword', rule: "Fill the mini crossword — clues come from today's bhajan and bhakti words. Type on the big keypad; wrong letters gently clear themselves." },
-  { emoji: '🔡', title: 'Naamavali Search', rule: 'One divine name hides in each grid — any direction, even backwards. Tap its first letter, then its last.' },
+  { emoji: '🔡', title: 'Naamavali Search', rule: 'One divine name hides in each grid — any direction, even backwards. Drag your finger across it (or tap its first and last letters).' },
   { emoji: '🖼️', title: 'Guess the Deity', rule: 'Swap tiles to reveal the murti — name the deity early for extra points.' },
 ]
 
@@ -75,8 +75,10 @@ export function HowToPlay({ open, isWelcome, onClose }: Props) {
                 Every game is worth up to <b>100 points</b> — finish all five to complete the day's{' '}
                 <b>rangoli</b> 🌸. Playing any game lights that day's <b>lamp</b> 🪔 (108 lamps
                 completes the Mala!). There are no timers and no way to fail — hints always help,
-                gently. On the <b>🏆 leaderboard</b>, <b>add your name</b> so your satsang can
-                see you on the board — and play past days from <b>🗓️ Previous days</b>.
+                gently. Your <b>time</b> is quietly noted and shown at the end — ties on the
+                board go to the quicker singer, but there is never a clock on screen. On the{' '}
+                <b>🏆 leaderboard</b>, <b>add your name</b> so your satsang can see you — and
+                play past days from the <b>🗓️ Previous days</b> calendar.
               </p>
             </div>
 

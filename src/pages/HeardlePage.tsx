@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
 import { useDailyBundle } from '../hooks/useDailyBundle'
 import { useProgressStore } from '../store/progressStore'
@@ -6,6 +6,10 @@ import { useToastStore } from '../store/toastStore'
 import { useClip, type ClipStage } from '../hooks/useClip'
 import { BhajanPicker } from '../components/v2/BhajanPicker'
 import { NextGameBar } from '../components/v2/NextGameBar'
+import { useGameTimer } from '../hooks/useGameTimer'
+import { formatSeconds } from '../lib/dateUtils'
+import { seededRng, shuffleSeeded } from '../lib/seeded'
+import { startSyllableOf } from '../lib/antakshari'
 import { DEITY_OPTIONS } from '../types/bhajan'
 import { trackEvent } from '../lib/analytics'
 import type { Bhajan } from '../types/bhajan'
@@ -48,6 +52,38 @@ function HeardleGame({
   const [wrongGuesses, setWrongGuesses] = useState<string[]>([])
   // solvedAt: stage index it was named at, or 'reveal'
   const [solvedAt, setSolvedAt] = useState<number | 'reveal' | null>(savedResult ? 0 : null)
+  const elapsed = useGameTimer()
+
+  // Stage 1 is multiple choice — four deliberately-close options (same
+  // deity family or same opening syllable). Later stages open free recall.
+  const options = useMemo(() => {
+    const rng = seededRng(today + ':heardleopts')
+    const sameDeity = shuffleSeeded(
+      bhajans.filter((b) => b.id !== answer.id && b.deity === answer.deity),
+      rng,
+    )
+    const sameStart = shuffleSeeded(
+      bhajans.filter(
+        (b) =>
+          b.id !== answer.id &&
+          b.deity !== answer.deity &&
+          startSyllableOf(b) === startSyllableOf(answer),
+      ),
+      rng,
+    )
+    const anyOther = shuffleSeeded(
+      bhajans.filter((b) => b.id !== answer.id && b.deity !== answer.deity),
+      rng,
+    )
+    const decoys: Bhajan[] = []
+    for (const pool of [sameDeity, sameStart, anyOther]) {
+      for (const b of pool) {
+        if (decoys.length >= 3) break
+        if (!decoys.some((d) => d.id === b.id)) decoys.push(b)
+      }
+    }
+    return shuffleSeeded([answer, ...decoys], seededRng(today + ':heardleshuffle'))
+  }, [bhajans, answer, today])
 
   const done = solvedAt !== null || Boolean(savedResult)
 
@@ -56,7 +92,7 @@ function HeardleGame({
       setStage(stage + 1)
     } else {
       setSolvedAt('reveal')
-      recordResult(today, 'heardle', REVEAL_POINTS)
+      recordResult(today, 'heardle', REVEAL_POINTS, elapsed())
       trackEvent('heardle_reveal', today)
       play('full')
     }
@@ -67,7 +103,7 @@ function HeardleGame({
     if (b.id === answer.id) {
       const points = STAGES[stage].points
       setSolvedAt(stage)
-      recordResult(today, 'heardle', points)
+      recordResult(today, 'heardle', points, elapsed())
       trackEvent('heardle_solve', today)
       play('full')
     } else {
@@ -89,6 +125,7 @@ function HeardleGame({
         <h2 className="font-display text-3xl leading-tight text-maroon">{answer.title}</h2>
         <p className="text-lg text-ink-soft">
           {bundle.family.emoji} {deity?.displayName ?? answer.deity} · {points} points
+          {savedResult?.seconds != null && ` · ⏱ ${formatSeconds(savedResult.seconds)}`}
         </p>
         <button
           onClick={() => play('full')}
@@ -148,10 +185,33 @@ function HeardleGame({
       </button>
       <p className="text-center text-base text-ink-soft">Replay as many times as you like — it's free</p>
 
-      <BhajanPicker bhajans={bhajans} onSelect={guess} placeholder="Type the bhajan's name…" />
-      <p className="-mt-2 text-center text-base text-ink-soft">
-        Type a few letters, then <b>tap the bhajan's name in the list</b> to answer
-      </p>
+      {stage === 0 ? (
+        <>
+          {/* First listen: four close choices — same deity or same opening */}
+          <div className="grid grid-cols-1 gap-2.5">
+            {options.map((b) => (
+              <button
+                key={b.id}
+                onClick={() => guess(b)}
+                disabled={wrongGuesses.includes(b.title)}
+                className="min-h-12 rounded-2xl border-2 border-line bg-paper px-4 py-3 text-lg font-semibold text-ink active:border-turmeric disabled:opacity-35"
+              >
+                {b.title}
+              </button>
+            ))}
+          </div>
+          <p className="-mt-1 text-center text-base text-ink-soft">
+            One of these four is today's bhajan — listen closely, they're cousins 😉
+          </p>
+        </>
+      ) : (
+        <>
+          <BhajanPicker bhajans={bhajans} onSelect={guess} placeholder="Type the bhajan's name…" />
+          <p className="-mt-2 text-center text-base text-ink-soft">
+            Now from memory: type a few letters, then <b>tap the bhajan's name in the list</b>
+          </p>
+        </>
+      )}
 
       {wrongGuesses.length > 0 && (
         <div className="flex flex-col gap-1.5">

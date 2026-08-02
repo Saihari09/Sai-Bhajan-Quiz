@@ -7,6 +7,8 @@ import { useToastStore } from '../store/toastStore'
 import { useClip } from '../hooks/useClip'
 import { seededRng, shuffleSeeded } from '../lib/seeded'
 import { NextGameBar } from '../components/v2/NextGameBar'
+import { useGameTimer } from '../hooks/useGameTimer'
+import { formatSeconds } from '../lib/dateUtils'
 import { trackEvent } from '../lib/analytics'
 
 const HINT_COST = 10
@@ -43,6 +45,7 @@ function LineBuilderGame({
   const showToast = useToastStore((s) => s.show)
   const { play } = useClip(import.meta.env.BASE_URL + b.audio.clipUrl, 0)
 
+  const elapsed = useGameTimer()
   const [roundIdx, setRoundIdx] = useState(() => (savedResult ? rounds.length : 0))
   const [placedCount, setPlacedCount] = useState(0)
   const [usedTiles, setUsedTiles] = useState<Set<number>>(new Set())
@@ -67,7 +70,7 @@ function LineBuilderGame({
     setUsedTiles(new Set())
     if (next >= rounds.length) {
       const points = Math.max(100 - hints * HINT_COST, FLOOR)
-      recordResult(today, 'linebuilder', points)
+      recordResult(today, 'linebuilder', points, elapsed())
       trackEvent('linebuilder_complete', today)
       showToast(`The line is yours — ${points} points 🎶`)
       if (soundOn) play('full')
@@ -118,7 +121,10 @@ function LineBuilderGame({
         {rounds.map((l, i) => (
           <p key={i} className="text-lg text-ink">“{l.transliteration}”</p>
         ))}
-        <p className="text-xl font-semibold text-turmeric-deep">{points} points</p>
+        <p className="text-xl font-semibold text-turmeric-deep">
+          {points} points
+          {savedResult?.seconds != null && ` · ⏱ ${formatSeconds(savedResult.seconds)}`}
+        </p>
         <Link to="/bhajan" className="min-h-12 rounded-full border-2 border-gold bg-paper px-5 py-2.5 text-lg font-semibold text-turmeric-deep">
           Sing the whole bhajan 🎶
         </Link>

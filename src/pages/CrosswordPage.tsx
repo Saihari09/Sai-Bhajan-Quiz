@@ -7,6 +7,8 @@ import { useToastStore } from '../store/toastStore'
 import { useClip } from '../hooks/useClip'
 import { LetterPad } from '../components/v2/LetterPad'
 import { NextGameBar } from '../components/v2/NextGameBar'
+import { useGameTimer } from '../hooks/useGameTimer'
+import { formatSeconds } from '../lib/dateUtils'
 import { buildAnswerBank, generateCrossword, entryCells, type PlacedEntry } from '../lib/crossword'
 import { trackEvent } from '../lib/analytics'
 
@@ -60,9 +62,10 @@ function CrosswordGame({
 
   const points = savedResult?.points ?? Math.max(100 - hintCost, FLOOR)
 
+  const elapsed = useGameTimer()
   const complete = (newFilled: Set<string>, cost: number) => {
     if (!puzzle.entries.every((e) => entryCells(e).every((c) => newFilled.has(`${c.row},${c.col}`)))) return
-    recordResult(today, 'crossword', Math.max(100 - cost, FLOOR))
+    recordResult(today, 'crossword', Math.max(100 - cost, FLOOR), elapsed())
     trackEvent('crossword_complete', today)
     showToast(`Crossword complete — ${Math.max(100 - cost, FLOOR)} points 🌸`)
     if (soundOn) play('full')
@@ -219,7 +222,10 @@ function CrosswordGame({
           <NextGameBar today={today} current="crossword" />
           <div className="rounded-2xl border-2 border-gold bg-paper px-5 py-4 text-center">
             <p className="text-2xl">🌸</p>
-            <p className="font-display text-xl text-maroon">Crossword complete — {points} points!</p>
+            <p className="font-display text-xl text-maroon">
+              Crossword complete — {points} points!
+              {savedResult?.seconds != null && ` ⏱ ${formatSeconds(savedResult.seconds)}`}
+            </p>
             <Link to="/bhajan" className="mt-3 inline-block min-h-12 rounded-full border-2 border-gold bg-paper px-5 py-2.5 text-lg font-semibold text-turmeric-deep">
               Sing today's bhajan 🎶
             </Link>

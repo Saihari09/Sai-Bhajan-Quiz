@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useProgressStore, dayPoints, dayLampLit, lifetimeLamps } from '../store/progressStore'
 import { useSettingsStore } from '../store/settingsStore'
 import { useToastStore } from '../store/toastStore'
-import { getTodayString } from '../lib/dateUtils'
+import { getTodayString, formatSeconds } from '../lib/dateUtils'
 import { flushScores } from '../lib/scoreSync'
 import {
   isConfigured,
@@ -314,7 +314,7 @@ export function LeaderboardPage() {
             </p>
           ) : tab === 'lamps' ? (
             <ol className="flex flex-col gap-1.5">
-              {(lamps ?? []).slice(0, 10).map((r, i) => (
+              {(lamps ?? []).slice(0, 50).map((r, i) => (
                 <li
                   key={r.device_id}
                   className={`flex items-center justify-between rounded-2xl px-4 py-2.5 text-lg ${
@@ -327,7 +327,7 @@ export function LeaderboardPage() {
                   <span>{'🪔'.repeat(Math.min(r.days, 7))}</span>
                 </li>
               ))}
-              {lamps && deviceId && !lamps.slice(0, 10).some((r) => r.device_id === deviceId) && (
+              {lamps && deviceId && !lamps.slice(0, 50).some((r) => r.device_id === deviceId) && (
                 <li className="flex items-center justify-between rounded-2xl border border-turmeric bg-turmeric/15 px-4 py-2.5 text-lg">
                   <span>You</span>
                   <span>{'🪔'.repeat(Math.min(myWeekDays, 7))}</span>
@@ -336,7 +336,7 @@ export function LeaderboardPage() {
             </ol>
           ) : (
             <ol className="flex flex-col gap-1.5">
-              {(board ?? []).slice(0, 10).map((r, i) => (
+              {(board ?? []).slice(0, 50).map((r, i) => (
                 <li
                   key={r.device_id}
                   className={`flex items-center justify-between rounded-2xl px-4 py-2.5 text-lg ${
@@ -346,11 +346,18 @@ export function LeaderboardPage() {
                   <span>
                     {i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `${i + 1}.`} {r.display_name}
                   </span>
-                  <span className="font-semibold">{r.total}</span>
+                  <span className="font-semibold">
+                    {r.total}
+                    {r.total_seconds != null && r.total_seconds > 0 && (
+                      <span className="ml-1.5 text-base font-normal text-ink-soft">
+                        ⏱ {formatSeconds(r.total_seconds)}
+                      </span>
+                    )}
+                  </span>
                 </li>
               ))}
-              {/* Own row, kindly rank-free when outside the top 10 (plan §8) */}
-              {board && (myRow === -1 || myRow >= 10) && (
+              {/* Own row, kindly rank-free when outside the top 50 */}
+              {board && (myRow === -1 || myRow >= 50) && (
                 <li className="flex items-center justify-between rounded-2xl border border-turmeric bg-turmeric/15 px-4 py-2.5 text-lg">
                   <span>You</span>
                   <span className="font-semibold">{myPoints} 🪔</span>

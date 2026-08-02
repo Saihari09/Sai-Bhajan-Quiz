@@ -5,7 +5,8 @@ interface Props {
   hintLabel: string
 }
 
-const ROWS = ['ABCDEFGHI', 'JKLMNOPQR', 'STUVWXYZ']
+// QWERTY — matches the keyboard everyone already knows (tester feedback).
+const ROWS = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM']
 
 /**
  * On-screen keypad for the crossword — the OS keyboard never appears

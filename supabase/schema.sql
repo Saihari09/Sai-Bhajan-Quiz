@@ -12,9 +12,12 @@ create table if not exists scores (
   date         date not null,
   game         text not null check (char_length(game) <= 20),
   points       int  not null check (points between 0 and 100),
+  seconds      int  check (seconds >= 0),
   completed_at timestamptz not null default now(),
   primary key (device_id, date, game)
 );
+-- Upgrading an existing project: run this line once.
+alter table scores add column if not exists seconds int check (seconds >= 0);
 
 create table if not exists groups (
   id         uuid primary key default gen_random_uuid(),
@@ -54,7 +57,8 @@ create policy members_delete on group_members for delete using (auth.uid() = dev
 -- Daily totals per player (base points only; per-game rows capped 0–100).
 create or replace view daily_totals
 with (security_invoker = true) as
-  select s.device_id, s.date, sum(s.points)::int as total, p.display_name
+  select s.device_id, s.date, sum(s.points)::int as total,
+         sum(coalesce(s.seconds, 0))::int as total_seconds, p.display_name
   from scores s
   join players p using (device_id)
   group by s.device_id, s.date, p.display_name;

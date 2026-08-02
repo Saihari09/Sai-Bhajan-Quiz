@@ -62,6 +62,7 @@ export interface ScoreRow {
   game: string
   points: number
   completed_at: string
+  seconds?: number
 }
 
 export async function submitScores(rows: ScoreRow[]): Promise<boolean> {
@@ -70,13 +71,28 @@ export async function submitScores(rows: ScoreRow[]): Promise<boolean> {
   const { error } = await c
     .from('scores')
     .upsert(rows, { onConflict: 'device_id,date,game', ignoreDuplicates: true })
-  return !error
+  if (!error) return true
+  // Older DB without the seconds column: submit without it rather than fail.
+  if (`${error.message}`.includes('seconds')) {
+    const stripped = rows.map((r) => {
+      const copy = { ...r }
+      delete copy.seconds
+      return copy
+    })
+    const { error: retryErr } = await c
+      .from('scores')
+      .upsert(stripped, { onConflict: 'device_id,date,game', ignoreDuplicates: true })
+    return !retryErr
+  }
+  return false
 }
 
 export interface BoardRow {
   device_id: string
   display_name: string
   total: number
+  /** Sum of game times — the friendly tiebreak. Absent on older DBs. */
+  total_seconds?: number
 }
 
 export async function fetchDailyBoard(
@@ -85,11 +101,18 @@ export async function fetchDailyBoard(
 ): Promise<BoardRow[] | null> {
   const c = getClient()
   if (!c) return null
-  let q = c.from('daily_totals').select('device_id, display_name, total').eq('date', date)
-  if (memberIds) q = q.in('device_id', memberIds)
-  const { data, error } = await q.order('total', { ascending: false }).limit(50)
+  const run = async (cols: string) => {
+    let q = c.from('daily_totals').select(cols).eq('date', date)
+    if (memberIds) q = q.in('device_id', memberIds)
+    return q.order('total', { ascending: false }).limit(50)
+  }
+  let { data, error } = await run('device_id, display_name, total, total_seconds')
+  if (error) ({ data, error } = await run('device_id, display_name, total'))
   if (error) return null
-  return data as BoardRow[]
+  const rows = data as unknown as BoardRow[]
+  // Points first; when tied, the quicker singer shines.
+  rows.sort((a, b) => b.total - a.total || (a.total_seconds ?? 0) - (b.total_seconds ?? 0))
+  return rows
 }
 
 export interface LampRow {

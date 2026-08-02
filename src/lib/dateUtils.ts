@@ -24,3 +24,10 @@ export function formatDisplayDate(dateStr: string): string {
 export function daysSince(pastDate: string, today: string): number {
   return differenceInCalendarDays(parseISO(today), parseISO(pastDate))
 }
+
+/** 154 → "2:34" — for the gentle completion timer. */
+export function formatSeconds(s: number): string {
+  const m = Math.floor(s / 60)
+  const sec = s % 60
+  return `${m}:${String(sec).padStart(2, '0')}`
+}
