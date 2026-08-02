@@ -5,7 +5,7 @@ const RULES: { emoji: string; title: string; rule: string }[] = [
   { emoji: '🧩', title: 'Build the Line', rule: "Sing today's line in your head and tap its words into order." },
   { emoji: '✏️', title: 'Bhajan Crossword', rule: "Fill the mini crossword — clues come from today's bhajan and bhakti words. Type on the big keypad; wrong letters gently clear themselves." },
   { emoji: '🔡', title: 'Naamavali Search', rule: 'One divine name hides in each grid — any direction, even backwards. Drag your finger across it (or tap its first and last letters).' },
-  { emoji: '🖼️', title: 'Guess the Deity', rule: 'Swap tiles to reveal the murti — name the deity early for extra points.' },
+  { emoji: '🖼️', title: 'Guess the Deity', rule: 'Swap tiles to assemble the murti — match the par (fewest swaps possible) for full points, then name who appeared.' },
 ]
 
 interface Props {
