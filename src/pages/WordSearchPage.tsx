@@ -1,11 +1,11 @@
 import { useMemo, useState } from 'react'
-import { Link } from 'react-router'
 import { useDailyBundle } from '../hooks/useDailyBundle'
 import { useProgressStore } from '../store/progressStore'
 import { useSettingsStore } from '../store/settingsStore'
 import { useToastStore } from '../store/toastStore'
 import { useClip } from '../hooks/useClip'
 import { generateOneSearch, isCorrectSelection } from '../lib/onesearch'
+import { NextGameBar } from '../components/v2/NextGameBar'
 import { trackEvent } from '../lib/analytics'
 
 const HINT_COST = 10
@@ -96,7 +96,9 @@ function OneSearchGame({
   if (done) {
     const points = savedResult?.points ?? Math.max(100 - hints * HINT_COST, FLOOR)
     return (
-      <div className="flex flex-col items-center gap-4 px-4 py-6 text-center">
+      <div className="flex flex-col gap-4 px-4 py-5">
+        <NextGameBar today={today} current="wordsearch" />
+        <div className="flex flex-col items-center gap-4 py-1 text-center">
         <p className="text-4xl">🌸</p>
         <h2 className="font-display text-2xl text-maroon">All names found!</h2>
         <div className="flex flex-wrap justify-center gap-2">
@@ -107,9 +109,7 @@ function OneSearchGame({
           ))}
         </div>
         <p className="text-xl font-semibold text-turmeric-deep">{points} points</p>
-        <Link to="/" className="min-h-12 rounded-full bg-turmeric px-6 py-3 text-lg font-semibold text-paper">
-          Back to the hub
-        </Link>
+        </div>
       </div>
     )
   }

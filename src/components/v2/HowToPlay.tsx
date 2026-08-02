@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 
 const RULES: { emoji: string; title: string; rule: string }[] = [
-  { emoji: '🎵', title: 'Guess the Bhajan', rule: 'Hear a little of the melody (tap 2s, 5s, or 10s), type a few letters, then tap the bhajan’s name in the list. Replays are always free.' },
+  { emoji: '🎵', title: 'Guess the Bhajan', rule: 'Hear a little of the melody (tap 5s, 10s, or 13s), type a few letters, then tap the bhajan’s name in the list. Replays are always free.' },
   { emoji: '🧩', title: 'Build the Line', rule: "Sing today's line in your head and tap its words into order." },
   { emoji: '✏️', title: 'Bhajan Crossword', rule: "Fill the mini crossword — clues come from today's bhajan and bhakti words. Type on the big keypad; wrong letters gently clear themselves." },
   { emoji: '🔡', title: 'Naamavali Search', rule: 'One divine name hides in each grid — any direction, even backwards. Tap its first letter, then its last.' },
@@ -55,6 +55,10 @@ export function HowToPlay({ open, isWelcome, onClose }: Props) {
               <h2 className="mb-4 text-center font-display text-2xl text-maroon">How to play</h2>
             )}
 
+            <p className="mb-3 rounded-2xl bg-turmeric/10 px-4 py-3 text-center text-lg font-semibold text-turmeric-deep">
+              Play all <b>5 games</b> each day to complete your rangoli 🌸
+            </p>
+
             <div className="flex flex-col gap-3">
               {RULES.map((r) => (
                 <div key={r.title} className="rounded-2xl border border-line bg-ivory px-4 py-3">
@@ -71,7 +75,8 @@ export function HowToPlay({ open, isWelcome, onClose }: Props) {
                 Every game is worth up to <b>100 points</b> — finish all five to complete the day's{' '}
                 <b>rangoli</b> 🌸. Playing any game lights that day's <b>lamp</b> 🪔 (108 lamps
                 completes the Mala!). There are no timers and no way to fail — hints always help,
-                gently. Check the <b>🏆 leaderboard</b> to sing along with your satsang.
+                gently. On the <b>🏆 leaderboard</b>, <b>add your name</b> so your satsang can
+                see you on the board — and play past days from <b>🗓️ Previous days</b>.
               </p>
             </div>
 

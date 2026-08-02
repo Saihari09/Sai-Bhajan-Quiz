@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { Link } from 'react-router'
+import { Link, useLocation } from 'react-router'
 import { format } from 'date-fns'
+import { realTodayString } from '../lib/dateUtils'
 import { AnimatePresence } from 'framer-motion'
 import { SupportModal } from '../components/SupportModal'
 import { NotificationPrompt } from '../components/NotificationPrompt'
@@ -13,20 +14,12 @@ import { Rangoli } from '../components/v2/Rangoli'
 import { LampsRow } from '../components/v2/LampsRow'
 import { GameTile } from '../components/v2/GameTile'
 import { trackEvent } from '../lib/analytics'
-import type { GameId } from '../lib/daily'
-
-const GAME_META: Record<GameId, { emoji: string; title: string; subtitle: string }> = {
-  heardle: { emoji: '🎵', title: 'Guess the Bhajan', subtitle: 'Name it from the melody' },
-  crossword: { emoji: '✏️', title: 'Bhajan Crossword', subtitle: "Clued from today's bhajan" },
-  wordsearch: { emoji: '🔡', title: 'Naamavali Search', subtitle: 'One name hides in each grid' },
-  antakshari: { emoji: '🎤', title: 'Antakshari', subtitle: 'Sing on from the syllable' },
-  deity: { emoji: '🖼️', title: 'Guess the Deity', subtitle: 'Un-scramble the darshan' },
-  linebuilder: { emoji: '🧩', title: 'Build the Line', subtitle: 'Lay the words in order' },
-  lyrictrail: { emoji: '🪷', title: 'Lyric Trail', subtitle: 'Trace the winding line' },
-}
+import { GAME_META } from '../lib/daily'
 
 export function HubPage() {
   const { bundle, today } = useDailyBundle()
+  const { search } = useLocation()
+  const isPastDay = today !== realTodayString()
   const day = useProgressStore((s) => s.days[today])
   const days = useProgressStore((s) => s.days)
   const showToast = useToastStore((s) => s.show)
@@ -82,6 +75,12 @@ export function HubPage() {
 
   return (
     <div className="flex flex-col gap-5 px-4 py-5">
+      {isPastDay && (
+        <Link to="/" className="rounded-2xl border-2 border-gold bg-gold/10 px-4 py-2.5 text-center text-lg text-turmeric-deep">
+          🗓️ Viewing a previous day — tap to return to today
+        </Link>
+      )}
+
       {/* Date + deity chip */}
       <div className="flex items-center justify-between">
         <span className="text-lg text-ink-soft">
@@ -126,7 +125,7 @@ export function HubPage() {
         {bundle.games.map((g) => (
           <GameTile
             key={g}
-            to={`/play/${g}`}
+            to={`/play/${g}${search}`}
             emoji={GAME_META[g].emoji}
             title={GAME_META[g].title}
             subtitle={GAME_META[g].subtitle}
@@ -160,6 +159,12 @@ export function HubPage() {
           </p>
         </Link>
       )}
+
+      {/* Previous days archive */}
+      <Link to="/previous" className="flex items-center justify-between rounded-2xl border border-line bg-paper px-5 py-4">
+        <span className="font-display text-xl text-ink">🗓️ Previous days</span>
+        <span className="text-lg text-turmeric-deep">→</span>
+      </Link>
 
       {/* Bless the developer (carried over from V1) */}
       <button

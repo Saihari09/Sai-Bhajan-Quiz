@@ -5,14 +5,16 @@ import { useProgressStore } from '../store/progressStore'
 import { useToastStore } from '../store/toastStore'
 import { useClip, type ClipStage } from '../hooks/useClip'
 import { BhajanPicker } from '../components/v2/BhajanPicker'
+import { NextGameBar } from '../components/v2/NextGameBar'
 import { DEITY_OPTIONS } from '../types/bhajan'
 import { trackEvent } from '../lib/analytics'
 import type { Bhajan } from '../types/bhajan'
 
+// Tester feedback: 2s was too hard on instrumentals — 5/10/13 is kinder.
 const STAGES: { sprite: ClipStage; seconds: number; points: number }[] = [
-  { sprite: 's2', seconds: 2, points: 100 },
-  { sprite: 's5', seconds: 5, points: 80 },
-  { sprite: 's10', seconds: 10, points: 60 },
+  { sprite: 's5', seconds: 5, points: 100 },
+  { sprite: 's10', seconds: 10, points: 80 },
+  { sprite: 's13', seconds: 13, points: 60 },
 ]
 const REVEAL_POINTS = 40
 
@@ -79,7 +81,9 @@ function HeardleGame({
     const points = savedResult?.points ?? (solvedAt === 'reveal' ? REVEAL_POINTS : STAGES[solvedAt as number].points)
     const deity = DEITY_OPTIONS.find((d) => d.tag === answer.deity)
     return (
-      <div className="flex flex-col items-center gap-4 px-4 py-6 text-center">
+      <div className="flex flex-col gap-4 px-4 py-5">
+        <NextGameBar today={today} current="heardle" />
+        <div className="flex flex-col items-center gap-4 py-1 text-center">
         <p className="text-4xl">🌸</p>
         <p className="text-base uppercase tracking-wide text-ink-soft">Today's bhajan</p>
         <h2 className="font-display text-3xl leading-tight text-maroon">{answer.title}</h2>
@@ -99,9 +103,7 @@ function HeardleGame({
         >
           Sing along with the lyrics 🎶
         </Link>
-        <Link to="/" className="text-lg text-ink-soft underline">
-          Back to today's games
-        </Link>
+        </div>
       </div>
     )
   }

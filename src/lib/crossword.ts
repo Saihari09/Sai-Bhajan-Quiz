@@ -45,6 +45,28 @@ const STATIC_BANK: XwEntry[] = [
   { answer: 'KARMA', clue: 'As you sow, so shall you reap' },
   { answer: 'JAPA', clue: 'Repeating the divine name' },
   { answer: 'NAMASTE', clue: 'Greeting with folded hands' },
+  { answer: 'DARSHAN', clue: 'The blessing of seeing the divine' },
+  { answer: 'MANTRA', clue: 'Sacred sounds repeated in prayer' },
+  { answer: 'TILAK', clue: 'The sacred mark on the forehead' },
+  { answer: 'ASHRAM', clue: 'A place of spiritual retreat' },
+  { answer: 'PUJA', clue: 'The daily ritual of worship' },
+  { answer: 'HAVAN', clue: 'Offering into the sacred fire' },
+  { answer: 'GHEE', clue: 'What feeds the lamp’s flame' },
+  { answer: 'LOTUS', clue: 'The flower that rises pure from the mud' },
+  { answer: 'CONCH', clue: 'Blown to begin the worship (shankha)' },
+  { answer: 'TULSI', clue: 'The sacred basil plant' },
+  { answer: 'GANGA', clue: 'The holiest of rivers' },
+  { answer: 'KASHI', clue: 'Shiva’s eternal city, Varanasi' },
+  { answer: 'MOUNA', clue: 'The discipline of silence' },
+  { answer: 'AHIMSA', clue: 'Harming no living being' },
+  { answer: 'SATYA', clue: 'Truth, the first value' },
+  { answer: 'DAYA', clue: 'Compassion for all beings' },
+  { answer: 'KSHAMA', clue: 'Forgiveness, the strength of saints' },
+  { answer: 'ANANDA', clue: 'Divine bliss' },
+  { answer: 'JYOTHI', clue: 'The sacred flame of light' },
+  { answer: 'NAIVEDYA', clue: 'Food offered to the Lord first' },
+  { answer: 'PARTHI', clue: 'Puttaparthi, endearingly short' },
+  { answer: 'SEVADAL', clue: 'The volunteers in scarves who serve' },
 ]
 
 function lettersOnly(s: string): string {
@@ -78,8 +100,10 @@ export function buildAnswerBank(bhajan: Bhajan, family: WeekdayFamily, seed: str
       }
     }
   }
+  // Four lyric words per day keeps most of the grid fresh from the bhajan
+  // itself (tester feedback: static words were repeating too often).
   const picked = shuffleSeeded(lineWords, seededRng(seed + ':xwl'))
-  for (const { word, line } of picked.slice(0, 3)) {
+  for (const { word, line } of picked.slice(0, 4)) {
     const blanked = line.replace(word, '______')
     add(word, `Complete today's line: “${blanked}”`)
   }

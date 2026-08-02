@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { Howl } from 'howler'
 
-export type ClipStage = 's2' | 's5' | 's10' | 'full'
+export type ClipStage = 's2' | 's5' | 's10' | 's13' | 'full'
 
 /**
  * Sprite player over a bhajan's single 20s instrumental clip.
@@ -21,6 +21,7 @@ export function useClip(clipUrl: string, offsetSec = 0) {
         s2: [off, 2000],
         s5: [off, 5000],
         s10: [off, 10000],
+        s13: [off, 13000],
         full: [0, 30000],
       },
       onload: () => setIsLoaded(true),

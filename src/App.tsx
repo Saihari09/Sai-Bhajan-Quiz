@@ -10,6 +10,7 @@ import { CrosswordPage } from './pages/CrosswordPage'
 import { DeityPuzzlePage } from './pages/DeityPuzzlePage'
 import { LineBuilderPage } from './pages/LineBuilderPage'
 import { LeaderboardPage } from './pages/LeaderboardPage'
+import { PreviousDaysPage } from './pages/PreviousDaysPage'
 import { startScoreSync } from './lib/scoreSync'
 import { GamePage } from './pages/GamePage'
 import { RevealPage } from './pages/RevealPage'
@@ -64,10 +65,10 @@ function App() {
             <div className="flex items-center gap-1.5">
               <button
                 onClick={() => setRulesOpen(true)}
-                className="min-h-12 min-w-12 rounded-2xl border border-line bg-ivory px-3 text-xl"
+                className="min-h-12 rounded-2xl border border-line bg-ivory px-3 text-lg font-semibold text-ink"
                 aria-label="How to play"
               >
-                ❓
+                ❓ Help
               </button>
               <button
                 onClick={() => setSettingsOpen(true)}
@@ -91,6 +92,7 @@ function App() {
             <Route path="/play/deity" element={<DeityPuzzlePage />} />
             <Route path="/play/linebuilder" element={<LineBuilderPage />} />
             <Route path="/leaderboard" element={<LeaderboardPage />} />
+            <Route path="/previous" element={<PreviousDaysPage />} />
             {/* Legacy V1 routes kept for the archive of past puzzles */}
             <Route path="/play/:date" element={<GamePage />} />
             <Route path="/reveal" element={<RevealPage />} />

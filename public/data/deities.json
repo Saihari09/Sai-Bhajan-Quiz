@@ -6,7 +6,7 @@
     "3": { "label": "Krishna", "tags": ["krishna", "vittala"], "emoji": "🪈" },
     "4": { "label": "Sai & Guru", "tags": ["sai", "guru"], "emoji": "🪔" },
     "5": { "label": "Devi", "tags": ["devi", "gayathri"], "emoji": "🌺" },
-    "6": { "label": "Narayana", "tags": ["narayana", "vittala", "sarva-dharma"], "emoji": "🐚" }
+    "6": { "label": "Narayana", "tags": ["narayana", "vittala"], "emoji": "🐚" }
   },
   "nameBanks": {
     "ganesha": ["GAJANANA", "VINAYAKA", "GANAPATHI", "LAMBODARA", "EKADANTA", "VIGHNESHA"],

@@ -6,6 +6,7 @@ import { useSettingsStore } from '../store/settingsStore'
 import { useToastStore } from '../store/toastStore'
 import { useClip } from '../hooks/useClip'
 import { seededRng, shuffleSeeded } from '../lib/seeded'
+import { NextGameBar } from '../components/v2/NextGameBar'
 import { trackEvent } from '../lib/analytics'
 
 const HINT_COST = 10
@@ -85,8 +86,14 @@ function LineBuilderGame({
       setPlacedCount(nextPlaced)
       if (nextPlaced >= line.words.length) advanceRound()
     } else {
+      // Tester feedback: the shake alone was too subtle — say it out loud.
       setShakeTile(tileKey)
       setTimeout(() => setShakeTile(null), 400)
+      showToast(
+        placedCount > 0
+          ? `Not yet — which word comes after “${line.words[placedCount - 1]}”? 🙏`
+          : 'Not the first word — how does the line begin? 🙏',
+      )
     }
   }
 
@@ -103,20 +110,18 @@ function LineBuilderGame({
   if (done) {
     const points = savedResult?.points ?? Math.max(100 - hints * HINT_COST, FLOOR)
     return (
-      <div className="flex flex-col items-center gap-4 px-4 py-6 text-center">
+      <div className="flex flex-col gap-4 px-4 py-5">
+        <NextGameBar today={today} current="linebuilder" />
+        <div className="flex flex-col items-center gap-4 py-1 text-center">
         <p className="text-4xl">🎶</p>
         <h2 className="font-display text-2xl text-maroon">Beautifully sung!</h2>
         {rounds.map((l, i) => (
           <p key={i} className="text-lg text-ink">“{l.transliteration}”</p>
         ))}
         <p className="text-xl font-semibold text-turmeric-deep">{points} points</p>
-        <div className="flex flex-wrap justify-center gap-3">
-          <Link to="/bhajan" className="min-h-12 rounded-full border-2 border-gold bg-paper px-5 py-2.5 text-lg font-semibold text-turmeric-deep">
-            Sing the whole bhajan 🎶
-          </Link>
-          <Link to="/" className="min-h-12 rounded-full bg-turmeric px-6 py-2.5 text-lg font-semibold text-paper">
-            Back to the hub
-          </Link>
+        <Link to="/bhajan" className="min-h-12 rounded-full border-2 border-gold bg-paper px-5 py-2.5 text-lg font-semibold text-turmeric-deep">
+          Sing the whole bhajan 🎶
+        </Link>
         </div>
       </div>
     )

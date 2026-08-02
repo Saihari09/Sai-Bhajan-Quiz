@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react'
-import { Link } from 'react-router'
 import { Howl } from 'howler'
 import { useDailyBundle } from '../hooks/useDailyBundle'
 import { useProgressStore } from '../store/progressStore'
@@ -7,6 +6,7 @@ import { useSettingsStore } from '../store/settingsStore'
 import { useToastStore } from '../store/toastStore'
 import { DEITY_OPTIONS, type Bhajan, type DeityOption } from '../types/bhajan'
 import { hashString, seededRng, shuffleSeeded, pickSeeded } from '../lib/seeded'
+import { NextGameBar } from '../components/v2/NextGameBar'
 import { trackEvent } from '../lib/analytics'
 
 const WRONG_COST = 10
@@ -108,9 +108,13 @@ function DeityPuzzleGame({ bhajans, today }: { bhajans: Bhajan[]; today: string 
   }
 
   const points = savedResult?.points
+  // Tester feedback: when the image is assembled by swapping, celebrate and
+  // point straight at the names.
+  const assembled = !solved && order.every((v, i) => v === i)
 
   return (
     <div className="flex flex-col gap-4 px-4 py-5">
+      {solved && <NextGameBar today={today} current="deity" />}
       <div className="text-center">
         <h2 className="font-display text-2xl text-maroon">Guess the Deity</h2>
         <p className="text-lg text-ink-soft">
@@ -160,23 +164,29 @@ function DeityPuzzleGame({ bhajans, today }: { bhajans: Bhajan[]; today: string 
           <p className="text-2xl">🙏</p>
           <p className="font-display text-2xl text-maroon">{answer.displayName}</p>
           {points !== undefined && <p className="text-lg text-ink-soft">{points} points</p>}
-          <Link to="/" className="mt-3 inline-block min-h-12 rounded-full bg-turmeric px-6 py-2.5 text-lg font-semibold text-paper">
-            Back to the hub
-          </Link>
         </div>
       ) : (
-        <div className="grid grid-cols-2 gap-2.5">
-          {options.map((d) => (
-            <button
-              key={d.tag}
-              onClick={() => guess(d)}
-              disabled={wrongTags.has(d.tag)}
-              className="min-h-12 rounded-2xl border-2 border-line bg-paper px-4 py-3 text-lg font-semibold text-ink active:border-turmeric disabled:opacity-35"
-            >
-              {d.displayName}
-            </button>
-          ))}
-        </div>
+        <>
+          {assembled && (
+            <p className="rounded-2xl border-2 border-gold bg-gold/10 px-4 py-3 text-center text-lg font-semibold text-turmeric-deep">
+              🌸 The darshan is revealed — now tap the name below!
+            </p>
+          )}
+          <div className={`grid grid-cols-2 gap-2.5 ${assembled ? 'animate-pulse' : ''}`}>
+            {options.map((d) => (
+              <button
+                key={d.tag}
+                onClick={() => guess(d)}
+                disabled={wrongTags.has(d.tag)}
+                className={`min-h-12 rounded-2xl border-2 px-4 py-3 text-lg font-semibold text-ink active:border-turmeric disabled:opacity-35 ${
+                  assembled ? 'border-gold bg-paper' : 'border-line bg-paper'
+                }`}
+              >
+                {d.displayName}
+              </button>
+            ))}
+          </div>
+        </>
       )}
     </div>
   )

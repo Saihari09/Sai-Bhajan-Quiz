@@ -6,6 +6,7 @@ import { useSettingsStore } from '../store/settingsStore'
 import { useToastStore } from '../store/toastStore'
 import { useClip } from '../hooks/useClip'
 import { LetterPad } from '../components/v2/LetterPad'
+import { NextGameBar } from '../components/v2/NextGameBar'
 import { buildAnswerBank, generateCrossword, entryCells, type PlacedEntry } from '../lib/crossword'
 import { trackEvent } from '../lib/analytics'
 
@@ -214,18 +215,16 @@ function CrosswordGame({
       </div>
 
       {done ? (
-        <div className="rounded-2xl border-2 border-gold bg-paper px-5 py-4 text-center">
-          <p className="text-2xl">🌸</p>
-          <p className="font-display text-xl text-maroon">Crossword complete — {points} points!</p>
-          <div className="mt-3 flex flex-wrap justify-center gap-3">
-            <Link to="/bhajan" className="min-h-12 rounded-full border-2 border-gold bg-paper px-5 py-2.5 text-lg font-semibold text-turmeric-deep">
+        <>
+          <NextGameBar today={today} current="crossword" />
+          <div className="rounded-2xl border-2 border-gold bg-paper px-5 py-4 text-center">
+            <p className="text-2xl">🌸</p>
+            <p className="font-display text-xl text-maroon">Crossword complete — {points} points!</p>
+            <Link to="/bhajan" className="mt-3 inline-block min-h-12 rounded-full border-2 border-gold bg-paper px-5 py-2.5 text-lg font-semibold text-turmeric-deep">
               Sing today's bhajan 🎶
             </Link>
-            <Link to="/" className="min-h-12 rounded-full bg-turmeric px-6 py-2.5 text-lg font-semibold text-paper">
-              Back to the hub
-            </Link>
           </div>
-        </div>
+        </>
       ) : (
         <>
           {/* Current clue */}

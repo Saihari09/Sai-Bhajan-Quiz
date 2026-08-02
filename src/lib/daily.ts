@@ -51,6 +51,16 @@ export function weekdayOf(date: string): number {
  */
 export const ALL_GAMES: GameId[] = ['heardle', 'linebuilder', 'crossword', 'wordsearch', 'deity']
 
+export const GAME_META: Record<GameId, { emoji: string; title: string; subtitle: string }> = {
+  heardle: { emoji: '🎵', title: 'Guess the Bhajan', subtitle: 'Name it from the melody' },
+  linebuilder: { emoji: '🧩', title: 'Build the Line', subtitle: 'Lay the words in order' },
+  crossword: { emoji: '✏️', title: 'Bhajan Crossword', subtitle: "Clued from today's bhajan" },
+  wordsearch: { emoji: '🔡', title: 'Naamavali Search', subtitle: 'One name hides in each grid' },
+  deity: { emoji: '🖼️', title: 'Guess the Deity', subtitle: 'Un-scramble the darshan' },
+  antakshari: { emoji: '🎤', title: 'Antakshari', subtitle: 'Sing on from the syllable' },
+  lyrictrail: { emoji: '🪷', title: 'Lyric Trail', subtitle: 'Trace the winding line' },
+}
+
 /** All games run every day (Sai's call, Jul 2026). */
 export function gamesForDate(): GameId[] {
   return ALL_GAMES
