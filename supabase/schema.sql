@@ -66,7 +66,9 @@ create policy members_insert on group_members for insert with check (auth.uid() 
 create policy members_delete on group_members for delete using (auth.uid() = device_id);
 
 -- Daily totals per player (base points only; per-game rows capped 0–100).
-create or replace view daily_totals
+-- drop first: "create or replace" cannot reorder an existing view's columns
+drop view if exists daily_totals;
+create view daily_totals
 with (security_invoker = true) as
   select s.device_id, s.date, sum(s.points)::int as total,
          sum(coalesce(s.seconds, 0))::int as total_seconds, p.display_name
@@ -75,7 +77,8 @@ with (security_invoker = true) as
   group by s.device_id, s.date, p.display_name;
 
 -- Weekly lamps: distinct days played in the last 7 days — consistency beats speed.
-create or replace view weekly_lamps
+drop view if exists weekly_lamps;
+create view weekly_lamps
 with (security_invoker = true) as
   select s.device_id, count(distinct s.date)::int as days, p.display_name
   from scores s
