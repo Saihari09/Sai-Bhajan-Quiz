@@ -14,6 +14,7 @@ import { trackEvent } from '../lib/analytics'
 
 const LETTER_HINT = 5
 const WORD_HINT = 15
+const WRONG_COST = 2 // tiny — typos happen, but brute-forcing 26 letters won't pay
 const FLOOR = 40
 
 export function CrosswordPage() {
@@ -52,6 +53,7 @@ function CrosswordGame({
   const [cursor, setCursor] = useState(0)
   const [shake, setShake] = useState<string | null>(null)
   const [hintCost, setHintCost] = useState(0)
+  const [wrongLetters, setWrongLetters] = useState(0)
 
   const entry = puzzle.entries[selectedIdx]
   const cells = useMemo(() => entryCells(entry), [entry])
@@ -60,7 +62,8 @@ function CrosswordGame({
   const allSolved = puzzle.entries.every(isSolved)
   const done = Boolean(savedResult) || allSolved
 
-  const points = savedResult?.points ?? Math.max(100 - hintCost, FLOOR)
+  const totalCost = () => hintCost + wrongLetters * WRONG_COST
+  const points = savedResult?.points ?? Math.max(100 - totalCost(), FLOOR)
 
   const elapsed = useGameTimer()
   const complete = (newFilled: Set<string>, cost: number) => {
@@ -106,9 +109,10 @@ function CrosswordGame({
         showToast(`${entry.answer} ✓`)
       }
       advanceCursor(cursor, next)
-      complete(next, hintCost)
+      complete(next, totalCost())
     } else {
-      // Gentle auto-check: wrong letters shake and clear (PRD §6.3).
+      // Gentle auto-check: wrong letters shake and clear — for a tiny cost.
+      setWrongLetters((n) => n + 1)
       setShake(key)
       setTimeout(() => setShake(null), 400)
     }
@@ -131,14 +135,14 @@ function CrosswordGame({
       setFilled(next)
       setHintedWords(new Set(hintedWords).add(wordKey))
       setHintCost(hintCost + LETTER_HINT)
-      complete(next, hintCost + LETTER_HINT)
+      complete(next, totalCost() + LETTER_HINT)
     } else {
       const next = new Set(filled)
       cells.forEach((c) => next.add(`${c.row},${c.col}`))
       setFilled(next)
       setHintCost(hintCost + WORD_HINT)
       showToast(`${entry.answer} — revealed 🙏`)
-      complete(next, hintCost + WORD_HINT)
+      complete(next, totalCost() + WORD_HINT)
     }
   }
   const [hintedWords, setHintedWords] = useState<Set<string>>(new Set())
@@ -209,6 +213,11 @@ function CrosswordGame({
               >
                 {num && (
                   <span className="absolute left-0.5 top-0 text-[0.55rem] font-normal text-ink-soft">{num}</span>
+                )}
+                {key === cursorKey && !done && (
+                  <span className="absolute bottom-0 right-0.5 text-[0.6rem]" aria-hidden>
+                    {entry.dir === 'A' ? '→' : '↓'}
+                  </span>
                 )}
                 {isFilled ? sol : ''}
               </button>

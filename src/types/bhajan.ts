@@ -52,6 +52,8 @@ export interface DeityOption {
   tag: DeityTag
   displayName: string
   imageUrl: string
+  /** Optional extra murti/painting images — the deity puzzle rotates them by date. */
+  imageUrls?: string[]
 }
 
 export const DEITY_OPTIONS: DeityOption[] = [

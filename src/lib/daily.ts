@@ -23,8 +23,25 @@ export interface Quote {
   author: string
 }
 
+export interface Festival {
+  date: string
+  name: string
+  emoji: string
+  tags: string[]
+  banner: string
+  guestGame?: GameId
+}
+
 let deitiesCache: DeitiesData | null = null
 let quotesCache: Quote[] | null = null
+let festivalsCache: Festival[] | null = null
+
+export async function loadFestivals(): Promise<Festival[]> {
+  if (festivalsCache) return festivalsCache
+  const res = await fetch(import.meta.env.BASE_URL + 'data/festivals.json')
+  festivalsCache = await res.json()
+  return festivalsCache!
+}
 
 export async function loadDeities(): Promise<DeitiesData> {
   if (deitiesCache) return deitiesCache
@@ -74,6 +91,8 @@ export interface DailyBundle {
   games: GameId[]
   quote: Quote
   nameBank: string[]
+  /** Festival override for this date, when one is on the calendar. */
+  festival: Festival | null
 }
 
 /**
@@ -97,9 +116,17 @@ async function selectBhajan(date: string, family: WeekdayFamily): Promise<Bhajan
 }
 
 export async function getDailyBundle(date: string): Promise<DailyBundle> {
-  const [deities, quotes] = await Promise.all([loadDeities(), loadQuotes()])
+  const [deities, quotes, festivals] = await Promise.all([
+    loadDeities(),
+    loadQuotes(),
+    loadFestivals(),
+  ])
   const weekday = weekdayOf(date)
-  const family = deities.weekdayFamilies[String(weekday)]
+  const festival = festivals.find((f) => f.date === date) ?? null
+  // A festival takes over the day: its deity family, and a guest game.
+  const family: WeekdayFamily = festival
+    ? { label: festival.name, tags: festival.tags, emoji: festival.emoji }
+    : deities.weekdayFamilies[String(weekday)]
   const bhajan = await selectBhajan(date, family)
 
   // Word-search names come from the day's bhajan deity when it has a bank,
@@ -109,13 +136,19 @@ export async function getDailyBundle(date: string): Promise<DailyBundle> {
     family.tags.map((t) => deities.nameBanks[t]).find(Boolean) ??
     deities.nameBanks['sarva-dharma']
 
+  const games =
+    festival?.guestGame && !ALL_GAMES.includes(festival.guestGame)
+      ? [...ALL_GAMES, festival.guestGame]
+      : gamesForDate()
+
   return {
     date,
     weekday,
     family,
     bhajan,
-    games: gamesForDate(),
+    games,
     quote: pickSeeded(quotes, date + ':quote'),
     nameBank,
+    festival,
   }
 }

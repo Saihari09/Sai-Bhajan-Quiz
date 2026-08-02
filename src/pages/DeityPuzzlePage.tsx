@@ -59,7 +59,10 @@ function DeityPuzzleGame({ bhajans, today }: { bhajans: Bhajan[]; today: string 
   const [wrongTags, setWrongTags] = useState<Set<string>>(new Set())
   const [solved, setSolved] = useState<boolean>(Boolean(savedResult))
 
-  const imageUrl = import.meta.env.BASE_URL + answer.imageUrl
+  // Rotate between images when a deity has several (drop extra files in
+  // public/images/deities/ and list them in DEITY_OPTIONS.imageUrls).
+  const imagePool = answer.imageUrls?.length ? answer.imageUrls : [answer.imageUrl]
+  const imageUrl = import.meta.env.BASE_URL + pickSeeded(imagePool, today + ':deityimg')
 
   const elapsed = useGameTimer()
   const finish = (finalSwaps: number, wrongCount: number) => {

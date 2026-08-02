@@ -12,6 +12,7 @@ import { formatSeconds } from '../lib/dateUtils'
 import { trackEvent } from '../lib/analytics'
 
 const HINT_COST = 10
+const WRONG_COST = 5 // guessing blindly shouldn't score like singing it right
 const FLOOR = 40
 
 export function LineBuilderPage() {
@@ -51,6 +52,7 @@ function LineBuilderGame({
   const [usedTiles, setUsedTiles] = useState<Set<number>>(new Set())
   const [shakeTile, setShakeTile] = useState<number | null>(null)
   const [hints, setHints] = useState(0)
+  const [wrongTaps, setWrongTaps] = useState(0)
 
   const done = roundIdx >= rounds.length
   const line = done ? null : rounds[roundIdx]
@@ -69,7 +71,7 @@ function LineBuilderGame({
     setPlacedCount(0)
     setUsedTiles(new Set())
     if (next >= rounds.length) {
-      const points = Math.max(100 - hints * HINT_COST, FLOOR)
+      const points = Math.max(100 - hints * HINT_COST - wrongTaps * WRONG_COST, FLOOR)
       recordResult(today, 'linebuilder', points, elapsed())
       trackEvent('linebuilder_complete', today)
       showToast(`The line is yours — ${points} points 🎶`)
@@ -89,13 +91,14 @@ function LineBuilderGame({
       setPlacedCount(nextPlaced)
       if (nextPlaced >= line.words.length) advanceRound()
     } else {
-      // Tester feedback: the shake alone was too subtle — say it out loud.
+      // Wrong word costs a little (−5) so tapping blindly can't win.
+      setWrongTaps(wrongTaps + 1)
       setShakeTile(tileKey)
       setTimeout(() => setShakeTile(null), 400)
       showToast(
         placedCount > 0
-          ? `Not yet — which word comes after “${line.words[placedCount - 1]}”? 🙏`
-          : 'Not the first word — how does the line begin? 🙏',
+          ? `Not yet (−${WRONG_COST}) — which word comes after “${line.words[placedCount - 1]}”? 🙏`
+          : `Not the first word (−${WRONG_COST}) — how does the line begin? 🙏`,
       )
     }
   }
@@ -111,7 +114,8 @@ function LineBuilderGame({
   }
 
   if (done) {
-    const points = savedResult?.points ?? Math.max(100 - hints * HINT_COST, FLOOR)
+    const points =
+      savedResult?.points ?? Math.max(100 - hints * HINT_COST - wrongTaps * WRONG_COST, FLOOR)
     return (
       <div className="flex flex-col gap-4 px-4 py-5">
         <NextGameBar today={today} current="linebuilder" />

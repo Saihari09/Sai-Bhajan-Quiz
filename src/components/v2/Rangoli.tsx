@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { seededRng } from '../../lib/seeded'
+import { rangoliParams } from '../../lib/rangoli'
 
 interface Props {
   petals: number
@@ -8,27 +8,14 @@ interface Props {
   size?: number
 }
 
-const PETAL_COLORS = ['#D97E00', '#7A1E2E', '#C9A227', '#3E7A45']
-
 /**
  * Date-seeded rangoli: one petal per scheduled game, filling as games
  * complete. Every day's pattern is a little different (plan §A2.9).
  */
 export function Rangoli({ petals, filled, seed, size = 120 }: Props) {
   const { petalShapes, colorOrder, ringDots } = useMemo(() => {
-    const rng = seededRng(seed + ':rangoli')
-    const colorStart = Math.floor(rng() * PETAL_COLORS.length)
-    const rx = 14 + rng() * 8
-    const ry = 26 + rng() * 10
-    const dots = 8 + Math.floor(rng() * 5) * 2
-    return {
-      petalShapes: { rx, ry },
-      colorOrder: Array.from(
-        { length: petals },
-        (_, i) => PETAL_COLORS[(colorStart + i) % PETAL_COLORS.length],
-      ),
-      ringDots: dots,
-    }
+    const p = rangoliParams(seed, petals)
+    return { petalShapes: { rx: p.rx, ry: p.ry }, colorOrder: p.colors, ringDots: p.dots }
   }, [seed, petals])
 
   const complete = filled >= petals && petals > 0

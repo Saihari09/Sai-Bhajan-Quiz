@@ -11,6 +11,7 @@ import { formatSeconds } from '../lib/dateUtils'
 import { trackEvent } from '../lib/analytics'
 
 const HINT_COST = 10
+const WRONG_COST = 5 // wrong selections cost a little — no brute-forcing the grid
 const FLOOR = 40
 
 export function WordSearchPage() {
@@ -39,6 +40,7 @@ function OneSearchGame({
   const [roundIdx, setRoundIdx] = useState(() => (savedResult ? rounds.length : 0))
   const [anchor, setAnchor] = useState<{ row: number; col: number } | null>(null)
   const [hints, setHints] = useState(0)
+  const [wrongPicks, setWrongPicks] = useState(0)
   const [hintCells, setHintCells] = useState<Set<string>>(new Set())
   const [foundFlash, setFoundFlash] = useState<Set<string>>(new Set())
 
@@ -50,7 +52,7 @@ function OneSearchGame({
     setHintCells(new Set())
     const next = roundIdx + 1
     if (next >= rounds.length) {
-      const points = Math.max(100 - hints * HINT_COST, FLOOR)
+      const points = Math.max(100 - hints * HINT_COST - wrongPicks * WRONG_COST, FLOOR)
       recordResult(today, 'wordsearch', points, elapsed())
       trackEvent('wordsearch_complete', today)
       showToast(`All ${rounds.length} names found — ${points} points 🌸`)
@@ -77,7 +79,8 @@ function OneSearchGame({
       }, 700)
     } else {
       setAnchor(null)
-      showToast('Not there — the name hides in one straight line, any direction 🙏')
+      setWrongPicks((n) => n + 1)
+      showToast(`Not there (−${WRONG_COST}) — one straight line, any direction 🙏`)
     }
   }
 
@@ -158,7 +161,8 @@ function OneSearchGame({
   }
 
   if (done) {
-    const points = savedResult?.points ?? Math.max(100 - hints * HINT_COST, FLOOR)
+    const points =
+      savedResult?.points ?? Math.max(100 - hints * HINT_COST - wrongPicks * WRONG_COST, FLOOR)
     return (
       <div className="flex flex-col gap-4 px-4 py-5">
         <NextGameBar today={today} current="wordsearch" />

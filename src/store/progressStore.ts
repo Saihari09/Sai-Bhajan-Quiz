@@ -94,3 +94,20 @@ export function dayPoints(day: DayProgress | undefined): number {
   if (!day) return 0
   return Object.values(day.results).reduce((sum, r) => sum + (r?.points ?? 0), 0)
 }
+
+/**
+ * Consecutive days sung, ending today (or yesterday if today is still
+ * unplayed). Purely celebratory — nothing is lost when it resets.
+ */
+export function currentStreak(days: Record<string, DayProgress>, today: string): number {
+  const fmt = (d: Date) =>
+    `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+  const d = new Date(today + 'T12:00:00')
+  if (!dayLampLit(days[fmt(d)])) d.setDate(d.getDate() - 1)
+  let streak = 0
+  while (dayLampLit(days[fmt(d)])) {
+    streak++
+    d.setDate(d.getDate() - 1)
+  }
+  return streak
+}

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { format } from 'date-fns'
 import { realTodayString } from '../lib/dateUtils'
@@ -8,7 +8,12 @@ import { NotificationPrompt } from '../components/NotificationPrompt'
 import { useInstallStore } from '../store/installStore'
 import { useSettingsStore } from '../store/settingsStore'
 import { useDailyBundle } from '../hooks/useDailyBundle'
-import { useProgressStore, dayPoints, lifetimeLamps } from '../store/progressStore'
+import { useProgressStore, dayPoints, lifetimeLamps, currentStreak } from '../store/progressStore'
+import { Celebration } from '../components/v2/Celebration'
+import { playChime } from '../lib/chime'
+import { generateShareCard } from '../lib/shareCard'
+import { ALL_GAMES } from '../lib/daily'
+import { getTodayString } from '../lib/dateUtils'
 import { useToastStore } from '../store/toastStore'
 import { Rangoli } from '../components/v2/Rangoli'
 import { LampsRow } from '../components/v2/LampsRow'
@@ -37,6 +42,23 @@ export function HubPage() {
     return Date.now() - new Date(dismissedAt).getTime() < 7 * 24 * 60 * 60 * 1000
   })
 
+  // The arati moment: first hub visit after completing all base games.
+  const [celebrate, setCelebrate] = useState(() => {
+    const t = getTodayString()
+    const d = useProgressStore.getState().days[t]
+    return (
+      ALL_GAMES.every((g) => d?.results[g]) &&
+      !localStorage.getItem('bhajan-bodh-celebrated-' + t)
+    )
+  })
+  useEffect(() => {
+    if (celebrate) {
+      localStorage.setItem('bhajan-bodh-celebrated-' + getTodayString(), '1')
+      if (useSettingsStore.getState().soundOn) playChime()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   // V1 behavior carried over: offer daily reminders after the first
   // completed game — never again once enabled, 7-day snooze on dismiss.
   const notifOpen =
@@ -55,6 +77,7 @@ export function HubPage() {
   const allDone = doneCount === bundle.games.length
   const heardleDone = Boolean(day?.results['heardle'])
   const lamps = lifetimeLamps({ days })
+  const streak = currentStreak(days, today)
 
   const share = async () => {
     const petals = bundle.games.map((g) => (day?.results[g] ? '🌸' : '🕳️')).join('')
@@ -63,6 +86,23 @@ export function HubPage() {
     const text = `Bhajan Bodh — ${format(new Date(today + 'T12:00:00'), 'MMM d')}\n${petals}  ${totalPoints} pts 🪔\nPlay today's bhajan games: ${appUrl}`
     trackEvent('share_score')
     try {
+      // Prefer a beautiful rangoli image card when the device can share files.
+      const blob = await generateShareCard({
+        dateLabel: format(new Date(today + 'T12:00:00'), 'EEEE, MMMM d'),
+        quote: bundle.quote.text,
+        author: bundle.quote.author,
+        points: totalPoints,
+        petals: bundle.games.length,
+        seed: today,
+        appUrl,
+      })
+      if (blob) {
+        const file = new File([blob], 'bhajan-bodh-rangoli.png', { type: 'image/png' })
+        if (navigator.canShare?.({ files: [file] })) {
+          await navigator.share({ files: [file], text })
+          return
+        }
+      }
       if (navigator.share) await navigator.share({ text })
       else {
         await navigator.clipboard.writeText(text)
@@ -79,6 +119,16 @@ export function HubPage() {
         <Link to="/" className="rounded-2xl border-2 border-gold bg-gold/10 px-4 py-2.5 text-center text-lg text-turmeric-deep">
           🗓️ Viewing a previous day — tap to return to today
         </Link>
+      )}
+
+      {/* Festival takeover banner */}
+      {bundle.festival && (
+        <div className="rounded-2xl border-2 border-gold bg-maroon px-5 py-4 text-center">
+          <p className="font-display text-2xl text-paper">
+            {bundle.festival.emoji} {bundle.festival.name}
+          </p>
+          <p className="mt-1 text-lg leading-snug text-paper/90">{bundle.festival.banner}</p>
+        </div>
       )}
 
       {/* Date + deity chip */}
@@ -138,7 +188,12 @@ export function HubPage() {
       {/* Weekly lamps */}
       <div className="rounded-2xl border border-line bg-paper px-5 py-4">
         <div className="mb-3 flex items-baseline justify-between">
-          <p className="font-display text-xl text-ink">This week's lamps</p>
+          <p className="font-display text-xl text-ink">
+            This week's lamps
+            {streak >= 2 && (
+              <span className="ml-2 text-lg font-semibold text-turmeric-deep">🔥 {streak} days</span>
+            )}
+          </p>
           <p className="text-base text-ink-soft">🪔 {lamps} of 108 Mala</p>
         </div>
         <LampsRow />
@@ -192,6 +247,15 @@ export function HubPage() {
       <SupportModal open={supportOpen} onClose={() => setSupportOpen(false)} />
       <AnimatePresence>
         {notifOpen && <NotificationPrompt onClose={() => setNotifClosed(true)} />}
+      </AnimatePresence>
+      <AnimatePresence>
+        {celebrate && (
+          <Celebration
+            petals={bundle.games.length}
+            seed={today}
+            onDone={() => setCelebrate(false)}
+          />
+        )}
       </AnimatePresence>
     </div>
   )

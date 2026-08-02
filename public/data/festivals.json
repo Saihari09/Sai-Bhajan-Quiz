@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2026-09-04",
+    "name": "Krishna Janmashtami",
+    "emoji": "🦚",
+    "tags": ["krishna", "vittala"],
+    "banner": "Janmashtami blessings! 🦚 Today every game sings of Krishna — and Antakshari returns as the festival guest. Play all six!",
+    "guestGame": "antakshari"
+  },
+  {
+    "date": "2026-09-14",
+    "name": "Ganesh Chaturthi",
+    "emoji": "🐘",
+    "tags": ["ganesha"],
+    "banner": "Ganpati Bappa Morya! 🐘 A whole day of Vinayaka bhajans — with festival-guest Antakshari!",
+    "guestGame": "antakshari"
+  },
+  {
+    "date": "2026-11-08",
+    "name": "Diwali",
+    "emoji": "✨",
+    "tags": ["devi", "sarva-dharma"],
+    "banner": "Happy Diwali! ✨ Light every lamp today — Antakshari joins the festival of lights!",
+    "guestGame": "antakshari"
+  }
+]
