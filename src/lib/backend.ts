@@ -110,8 +110,12 @@ export async function fetchDailyBoard(
   if (error) ({ data, error } = await run('device_id, display_name, total'))
   if (error) return null
   const rows = data as unknown as BoardRow[]
-  // Points first; when tied, the quicker singer shines.
-  rows.sort((a, b) => b.total - a.total || (a.total_seconds ?? 0) - (b.total_seconds ?? 0))
+  // Points first; when tied, the quicker singer shines. A zero/missing time
+  // means "not recorded" (pre-timer version) — those sort after real times.
+  rows.sort(
+    (a, b) =>
+      b.total - a.total || (a.total_seconds || Infinity) - (b.total_seconds || Infinity),
+  )
   return rows
 }
 
