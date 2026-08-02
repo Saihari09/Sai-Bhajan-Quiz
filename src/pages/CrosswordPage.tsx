@@ -33,7 +33,11 @@ function CrosswordGame({
   today: string
 }) {
   const puzzle = useMemo(
-    () => generateCrossword(buildAnswerBank(bundle.bhajan, bundle.family, today), today),
+    () =>
+      generateCrossword(
+        buildAnswerBank(bundle.bhajan, bundle.family, today, bundle.quote, bundle.nameBank),
+        today,
+      ),
     [bundle, today],
   )
   const savedResult = useProgressStore((s) => s.days[today]?.results['crossword'])

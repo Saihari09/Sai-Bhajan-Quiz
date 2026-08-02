@@ -6,6 +6,8 @@ import { seededRng, shuffleSeeded } from './seeded'
 export interface XwEntry {
   answer: string
   clue: string
+  /** Daily-fresh (from today's bhajan/quote/names) — placed with priority. */
+  fresh?: boolean
 }
 
 export interface PlacedEntry extends XwEntry {
@@ -73,15 +75,31 @@ function lettersOnly(s: string): string {
   return s.replace(/[^A-Za-z]/g, '').toUpperCase()
 }
 
-/** Daily answers drawn from the bhajan itself — the innovative bit. */
-export function buildAnswerBank(bhajan: Bhajan, family: WeekdayFamily, seed: string): XwEntry[] {
+const STOPWORDS = new Set([
+  'THE', 'AND', 'WHO', 'THAT', 'WITH', 'FROM', 'THIS', 'YOUR', 'THEY', 'HAVE',
+  'ARE', 'FOR', 'HIS', 'HER', 'OUR', 'ALL', 'ONE', 'YOU', 'THEIR', 'WHICH',
+  'BEEN', 'WILL', 'WHEN', 'WHAT', 'ALSO', 'INTO', 'UPON', 'THEM', 'THOSE',
+])
+
+/**
+ * Daily answers drawn from the day itself — bhajan lyrics, title, deity,
+ * naamavali names, the quote, even the English meaning — so most of each
+ * grid is new every day; the bhakti vocabulary bank only fills gaps.
+ */
+export function buildAnswerBank(
+  bhajan: Bhajan,
+  family: WeekdayFamily,
+  seed: string,
+  quote?: { text: string; author: string },
+  nameBank?: string[],
+): XwEntry[] {
   const bank: XwEntry[] = []
   const used = new Set<string>()
-  const add = (answer: string, clue: string) => {
+  const add = (answer: string, clue: string, fresh = true) => {
     const a = lettersOnly(answer)
     if (a.length >= 3 && a.length <= 9 && !used.has(a)) {
       used.add(a)
-      bank.push({ answer: a, clue })
+      bank.push({ answer: a, clue, fresh })
     }
   }
 
@@ -89,21 +107,19 @@ export function buildAnswerBank(bhajan: Bhajan, family: WeekdayFamily, seed: str
   const deity = DEITY_OPTIONS.find((d) => d.tag === bhajan.deity)
   if (deity) add(deity.displayName, `${family.emoji} The deity of today's bhajan`)
 
-  // 2. Complete-the-line clues from today's lyrics.
+  // 2. Complete-the-line clues from today's lyrics (up to six).
   const lines = bhajan.lyrics.transliteration.split('\n').map((l) => l.trim()).filter(Boolean)
   const lineWords: { word: string; line: string }[] = []
   for (const line of lines) {
     for (const word of line.split(/\s+/)) {
       const clean = lettersOnly(word)
-      if (clean.length >= 5 && clean.length <= 9 && !used.has(clean)) {
+      if (clean.length >= 4 && clean.length <= 9 && !used.has(clean)) {
         lineWords.push({ word, line })
       }
     }
   }
-  // Four lyric words per day keeps most of the grid fresh from the bhajan
-  // itself (tester feedback: static words were repeating too often).
   const picked = shuffleSeeded(lineWords, seededRng(seed + ':xwl'))
-  for (const { word, line } of picked.slice(0, 4)) {
+  for (const { word, line } of picked.slice(0, 6)) {
     const blanked = line.replace(word, '______')
     add(word, `Complete today's line: “${blanked}”`)
   }
@@ -114,11 +130,47 @@ export function buildAnswerBank(bhajan: Bhajan, family: WeekdayFamily, seed: str
     add(titleWord, `From today's bhajan title: “${bhajan.title.replace(titleWord, '______')}”`)
   }
 
-  // 4. Bhakti vocabulary fills the rest.
+  // 4. Today's quote, blanked (Sai's suggestion).
+  if (quote) {
+    const qWords = quote.text
+      .split(/\s+/)
+      .filter((w) => {
+        const c = lettersOnly(w)
+        return c.length >= 4 && c.length <= 9 && !STOPWORDS.has(c) && !used.has(c)
+      })
+    const qPick = shuffleSeeded(qWords, seededRng(seed + ':xwq')).slice(0, 2)
+    for (const w of qPick) {
+      add(w, `From today's quote: “${quote.text.replace(w, '______')}” — ${quote.author}`)
+    }
+  }
+
+  // 5. Two of the day's naamavali names.
+  if (nameBank) {
+    const names = shuffleSeeded(
+      nameBank.filter((n) => !used.has(lettersOnly(n))),
+      seededRng(seed + ':xwn'),
+    ).slice(0, 2)
+    for (const n of names) add(n, `${family.emoji} One of the divine names sung today`)
+  }
+
+  // 6. A word from the English meaning.
+  const meaningWords = bhajan.lyrics.translation
+    .split(/\s+/)
+    .filter((w) => {
+      const c = lettersOnly(w)
+      return c.length >= 5 && c.length <= 9 && !STOPWORDS.has(c) && !used.has(c)
+    })
+  const mPick = shuffleSeeded(meaningWords, seededRng(seed + ':xwm')).slice(0, 1)
+  for (const w of mPick) {
+    const blanked = bhajan.lyrics.translation.split(/\s+/).slice(0, 24).join(' ').replace(w, '______')
+    add(w, `From today's meaning: “${blanked}…”`)
+  }
+
+  // 7. Bhakti vocabulary fills any remaining gaps.
   for (const e of shuffleSeeded(STATIC_BANK, seededRng(seed + ':xws'))) {
     if (!used.has(e.answer)) {
       used.add(e.answer)
-      bank.push(e)
+      bank.push({ ...e, fresh: false })
     }
   }
   return bank
@@ -165,7 +217,10 @@ export function generateCrossword(bank: XwEntry[], seed: string, target = 6): Cr
 
   for (let attempt = 0; attempt < 24; attempt++) {
     const rng = seededRng(`${seed}:xw${attempt}`)
-    const pool = shuffleSeeded(bank, rng).slice(0, target + 4)
+    // Daily-fresh answers first — statics only pad the pool (repeat fix).
+    const fresh = shuffleSeeded(bank.filter((e) => e.fresh), rng)
+    const statics = shuffleSeeded(bank.filter((e) => !e.fresh), rng)
+    const pool = [...fresh, ...statics].slice(0, target + 5)
     pool.sort((a, b) => b.answer.length - a.answer.length)
 
     const cells = new Map<string, string>()
