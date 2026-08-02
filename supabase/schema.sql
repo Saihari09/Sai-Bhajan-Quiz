@@ -40,16 +40,27 @@ alter table scores        enable row level security;
 alter table groups        enable row level security;
 alter table group_members enable row level security;
 
+-- drop-then-create makes the whole file safely re-runnable
+drop policy if exists players_select on players;
+drop policy if exists players_insert on players;
+drop policy if exists players_update on players;
 create policy players_select on players for select using (true);
 create policy players_insert on players for insert with check (auth.uid() = device_id);
 create policy players_update on players for update using (auth.uid() = device_id);
 
+drop policy if exists scores_select on scores;
+drop policy if exists scores_insert on scores;
 create policy scores_select on scores for select using (true);
 create policy scores_insert on scores for insert with check (auth.uid() = device_id);
 
+drop policy if exists groups_select on groups;
+drop policy if exists groups_insert on groups;
 create policy groups_select on groups for select using (true);
 create policy groups_insert on groups for insert with check (auth.uid() = created_by);
 
+drop policy if exists members_select on group_members;
+drop policy if exists members_insert on group_members;
+drop policy if exists members_delete on group_members;
 create policy members_select on group_members for select using (true);
 create policy members_insert on group_members for insert with check (auth.uid() = device_id);
 create policy members_delete on group_members for delete using (auth.uid() = device_id);
